@@ -7,7 +7,6 @@ module.exports = {
   testPathIgnorePatterns: [
     '/dist/',
     '/node_modules/',
-    '/expo/',
     '/coverage/',
     '/jest-html-reporters-attach'
   ],

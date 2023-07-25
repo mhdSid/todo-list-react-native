@@ -1,4 +1,5 @@
+const eslintConfig = require('@todo-list/eslint-config/src')
+
 module.exports = {
-  root: true,
-  extends: '@react-native',
-};
+  ...eslintConfig
+}

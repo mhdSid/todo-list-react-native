@@ -98,3 +98,4 @@ db.json
 .DS_Store
 storybook-static
 temp/
+eslint_result.html

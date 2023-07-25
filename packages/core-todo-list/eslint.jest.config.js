@@ -1,6 +1,7 @@
-const jestEslintConfig = require('../eslint-config/src/jest')
+const packageJson = require('./package.json')
+const jestEslintConfig = require('@todo-list/eslint-config/src/jest')
 
 module.exports = {
-  displayName: 'core-todo-list',
+  displayName: packageJson.name,
   ...jestEslintConfig
 }
