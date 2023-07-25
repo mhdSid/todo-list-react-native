@@ -10,7 +10,7 @@ import PropTypes from 'prop-types'
 import EmptyTodoList from './EmptyTodoList'
 import AddTodoButton from '../Button/AddTodoButton'
 import styles from './index.styles'
-import { ALERT, ALERT_TYPES } from '../../constants/alert'
+import { ALERT, ALERT_PROMPT_ADD, ALERT_PROMPT_EDIT, ALERT_TYPES } from '../../constants/alert'
 import getRandomId from '../../util/randomId'
 import testSelectors from '../../../test/lib/selector/todoList'
 
@@ -36,7 +36,7 @@ function TodoList (props) {
 
   const handleAlertEditPress = () => {
     const { task, index } = selectedTodoListItem
-    Alert.prompt('Edit Todo', `Task: ${task}`, text => {
+    Alert.prompt(ALERT_PROMPT_EDIT.title, ALERT_PROMPT_EDIT.message(task), text => {
       if (text) {
         handleEditTodoListItem({ task: text, index })
       }
@@ -51,7 +51,7 @@ function TodoList (props) {
   }
 
   const handleAlertAddPress = () => {
-    Alert.prompt('TODO List', 'Add new item', text => {
+    Alert.prompt(ALERT_PROMPT_ADD.title, ALERT_PROMPT_ADD.message, text => {
       if (text) {
         handleAddTodoListItem({ task: text, id: getRandomId() })
       }
@@ -148,7 +148,7 @@ function TodoList (props) {
         renderItem={renderListItemRow}
         testID={testSelectors.virtualizedList}
       />
-      <AddTodoButton onPress={handleAddTodoButtonPress} testID={testSelectors.addTodoButton}/>
+      <AddTodoButton onPress={handleAddTodoButtonPress} testID={testSelectors.addTodoButton} />
     </View>
   )
 }

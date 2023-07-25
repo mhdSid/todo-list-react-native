@@ -5,11 +5,21 @@ export const ALERT_TYPES = {
   ERROR: 'error'
 }
 
+export const ALERT_PROMPT_EDIT = {
+  title: 'Edit Todo',
+  message: task => `Task: ${task}`
+}
+
+export const ALERT_PROMPT_ADD = {
+  title: 'To-Do List',
+  message: 'Add a new task'
+}
+
 export const DEFAULT_ERROR_MESSAGE = 'Something went wrong. Please try again!'
 
 export const ALERT = {
   [ALERT_TYPES.EDIT_DELETE]: ({ message, onEdit, onDelete, onCancel }) => ({
-    title: 'Edit / Delete Todo',
+    title: 'Edit / Delete task',
     message: `Task: ${message}`,
     buttons: [{
       text: 'Edit',
@@ -27,7 +37,7 @@ export const ALERT = {
     }]
   }),
   [ALERT_TYPES.DELETE]: ({ message, onDelete, onCancel }) => ({
-    title: 'Delete Todo',
+    title: 'Delete task',
     message: `Task: ${message}`,
     buttons: [{
       text: 'Delete',
@@ -40,7 +50,8 @@ export const ALERT = {
     }]
   }),
   [ALERT_TYPES.ADD]: ({ onAdd, onCancel }) => ({
-    title: 'Add new Todo',
+    title: 'To-Do List',
+    message: 'Would you like to add a new task?',
     buttons: [{
       text: 'Add',
       onPress: onAdd,

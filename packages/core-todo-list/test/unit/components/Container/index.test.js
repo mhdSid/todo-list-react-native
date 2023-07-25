@@ -1,3 +1,4 @@
+import React from 'react'
 import { render } from '@testing-library/react-native'
 import Component from '../../../../src/components/Container'
 import selectors from '../../../lib/selector/container'
@@ -45,7 +46,7 @@ describe('Container', () => {
   test('title text', async () => {
     const element = render(<Provider store={emptyStore}><Component /></Provider>)
     const { children: text } = await element.findByTestId(selectors.title)
-    expect(text).toStrictEqual(['Welcome to TODO List'])
+    expect(text).toStrictEqual(['To-Do List'])
   })
   test('snapshot with empty store', () => {
     const data = render(<Provider store={emptyStore}><Component /></Provider>).toJSON()

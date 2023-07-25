@@ -21,7 +21,7 @@ exports[`Container snapshot with empty full store 1`] = `
     }
     testID="container.title"
   >
-    Welcome to TODO List
+    To-Do List
   </Text>
   <View
     style={
@@ -1187,7 +1187,7 @@ exports[`Container snapshot with empty store 1`] = `
     }
     testID="container.title"
   >
-    Welcome to TODO List
+    To-Do List
   </Text>
   <View
     style={
