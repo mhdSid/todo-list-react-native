@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`snapshot 1`] = `
+exports[`TodoListItem snapshot 1`] = `
 <View
   accessibilityValue={
     Object {
@@ -27,6 +27,7 @@ exports[`snapshot 1`] = `
       "padding": 20,
     }
   }
+  testID="todoListItem.root"
 >
   <View
     style={
@@ -86,8 +87,11 @@ exports[`snapshot 1`] = `
           false,
         ]
       }
+      testID="todoListItem.checkbox"
     />
-    <Text />
+    <Text
+      testID="todoListItem.task"
+    />
   </View>
 </View>
 `;

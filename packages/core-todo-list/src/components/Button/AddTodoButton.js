@@ -1,7 +1,8 @@
 import React from 'react'
-import { Text, View, TouchableHighlight } from 'react-native'
+import { Text, TouchableHighlight } from 'react-native'
 import styles, { underlayColor } from './AddTodoButton.styles'
 import PropTypes from 'prop-types'
+import testSelectors from '../../../test/lib/selector/button/addTodoButton'
 
 const AddTodoButton = props => {
   const { onPress } = props
@@ -10,10 +11,9 @@ const AddTodoButton = props => {
       style={styles.container}
       onPress={onPress}
       underlayColor={underlayColor}
+      testID={testSelectors.root}
     >
-      <View>
-        <Text style={styles.text}>+</Text>
-      </View>
+      <Text style={styles.text} testID={testSelectors.title}>+</Text>
     </TouchableHighlight>
   )
 }

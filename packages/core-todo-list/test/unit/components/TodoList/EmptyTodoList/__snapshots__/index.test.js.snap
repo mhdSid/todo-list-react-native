@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`snapshot 1`] = `
+exports[`EmptyTodoList snapshot 1`] = `
 <View
   style={
     Object {
@@ -10,6 +10,7 @@ exports[`snapshot 1`] = `
       "marginTop": 50,
     }
   }
+  testID="emptyTodoList.root"
 >
   <Text
     style={
@@ -17,10 +18,13 @@ exports[`snapshot 1`] = `
         "marginBottom": 4,
       }
     }
+    testID="emptyTodoList.title"
   >
     Looks like your TODO list is empty!
   </Text>
-  <Text>
+  <Text
+    testID="emptyTodoList.subtitle"
+  >
     Add a new task to the list :)
   </Text>
 </View>

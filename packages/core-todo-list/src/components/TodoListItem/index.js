@@ -3,6 +3,7 @@ import { Text, View, TouchableHighlight } from 'react-native'
 import styles, { underlayColor } from './index.styles'
 import PropTypes from 'prop-types'
 import CheckBox from 'expo-checkbox'
+import testSelectors from '../../../test/lib/selector/todoListItem'
 
 const TodoListItem = React.memo(props => {
   const { task, id, index, onPress, onChecked } = props
@@ -22,14 +23,16 @@ const TodoListItem = React.memo(props => {
       style={styles.container}
       onPress={handlePress}
       underlayColor={underlayColor}
+      testID={testSelectors.root}
     >
       <View style={styles.innerContainer}>
         <CheckBox
           value={isChecked}
           onValueChange={handleValueChange}
           style={styles.checkbox}
+          testID={testSelectors.checkbox}
         />
-        <Text>{task}</Text>
+        <Text testID={testSelectors.task}>{task}</Text>
       </View>
     </TouchableHighlight>
   )

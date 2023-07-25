@@ -12,6 +12,7 @@ import AddTodoButton from '../Button/AddTodoButton'
 import styles from './index.styles'
 import { ALERT, ALERT_TYPES } from '../../constants/alert'
 import getRandomId from '../../util/randomId'
+import testSelectors from '../../../test/lib/selector/todoList'
 
 function TodoList (props) {
   const {
@@ -129,7 +130,7 @@ function TodoList (props) {
   }, [isLoggedIn, alertType])
 
   return (
-    <View style={styles.todoListContainer}>
+    <View style={styles.todoListContainer} testID={testSelectors.root}>
       <VirtualizedList
         initialNumToRender={10}
         windowSize={5}
@@ -145,8 +146,9 @@ function TodoList (props) {
         getItemCount={getItemCount}
         keyExtractor={getItemKey}
         renderItem={renderListItemRow}
+        testID={testSelectors.virtualizedList}
       />
-      <AddTodoButton onPress={handleAddTodoButtonPress} />
+      <AddTodoButton onPress={handleAddTodoButtonPress} testID={testSelectors.addTodoButton}/>
     </View>
   )
 }

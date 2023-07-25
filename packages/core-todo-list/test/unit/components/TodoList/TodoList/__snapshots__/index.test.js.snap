@@ -1,0 +1,1261 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoList snapshot with empty store 1`] = `
+<View
+  style={
+    Object {
+      "height": "92%",
+      "width": "100%",
+    }
+  }
+  testID="todoList.root"
+>
+  <RCTScrollView
+    ListEmptyComponent={<EmptyList />}
+    contentInsetAdjustmentBehavior="automatic"
+    data={Array []}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={0.4}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={true}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    showsVerticalScrollIndicator={true}
+    stickyHeaderIndices={Array []}
+    testID="todoList.virtualizedList"
+    windowSize={5}
+  >
+    <View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "justifyContent": "center",
+            "marginTop": 50,
+          }
+        }
+        testID="emptyTodoList.root"
+      >
+        <Text
+          style={
+            Object {
+              "marginBottom": 4,
+            }
+          }
+          testID="emptyTodoList.title"
+        >
+          Looks like your TODO list is empty!
+        </Text>
+        <Text
+          testID="emptyTodoList.subtitle"
+        >
+          Add a new task to the list :)
+        </Text>
+      </View>
+    </View>
+  </RCTScrollView>
+  <View
+    accessibilityValue={
+      Object {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "rgba(1,1,1,1)",
+        "borderRadius": 75,
+        "bottom": 30,
+        "height": 75,
+        "justifyContent": "center",
+        "position": "absolute",
+        "right": 20,
+        "textAlign": "center",
+        "width": 75,
+        "zIndex": 100,
+      }
+    }
+    testID="addTodoButton.root"
+  >
+    <Text
+      style={
+        Object {
+          "color": "#fff",
+          "fontSize": 50,
+          "marginBottom": 5,
+        }
+      }
+      testID="addTodoButton.text"
+    >
+      +
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`TodoList snapshot with full state 1`] = `
+<View
+  style={
+    Object {
+      "height": "92%",
+      "width": "100%",
+    }
+  }
+  testID="todoList.root"
+>
+  <RCTScrollView
+    ListEmptyComponent={<EmptyList />}
+    contentInsetAdjustmentBehavior="automatic"
+    data={
+      Array [
+        Object {
+          "id": "0",
+          "task": "tttttttttt",
+        },
+        Object {
+          "id": "1",
+          "task": "tttttttttt",
+        },
+        Object {
+          "id": "2",
+          "task": "tttttttttt",
+        },
+        Object {
+          "id": "3",
+          "task": "tttttttttt",
+        },
+        Object {
+          "id": "4",
+          "task": "tttttttttt",
+        },
+        Object {
+          "id": "5",
+          "task": "tttttttttt",
+        },
+        Object {
+          "id": "6",
+          "task": "tttttttttt",
+        },
+        Object {
+          "id": "7",
+          "task": "tttttttttt",
+        },
+        Object {
+          "id": "8",
+          "task": "tttttttttt",
+        },
+        Object {
+          "id": "9",
+          "task": "tttttttttt",
+        },
+      ]
+    }
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={0.4}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={true}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    showsVerticalScrollIndicator={true}
+    stickyHeaderIndices={Array []}
+    testID="todoList.virtualizedList"
+    windowSize={5}
+  >
+    <View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessibilityValue={
+            Object {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "backgroundColor": "rgba(1,1,1,0.1)",
+              "borderRadius": 8,
+              "marginBottom": 5,
+              "padding": 20,
+            }
+          }
+          testID="todoListItem.root"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "display": "flex",
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              accessibilityRole="checkbox"
+              accessibilityState={
+                Object {
+                  "busy": undefined,
+                  "checked": false,
+                  "disabled": undefined,
+                  "expanded": undefined,
+                  "selected": undefined,
+                }
+              }
+              accessibilityValue={
+                Object {
+                  "max": undefined,
+                  "min": undefined,
+                  "now": undefined,
+                  "text": undefined,
+                }
+              }
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "borderColor": "#657786",
+                    "borderRadius": 2,
+                    "borderWidth": 2,
+                    "height": 20,
+                    "width": 20,
+                  },
+                  Object {
+                    "marginRight": 20,
+                  },
+                  false,
+                  false,
+                  undefined,
+                  false,
+                ]
+              }
+              testID="todoListItem.checkbox"
+            />
+            <Text
+              testID="todoListItem.task"
+            >
+              tttttttttt
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessibilityValue={
+            Object {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "backgroundColor": "rgba(1,1,1,0.1)",
+              "borderRadius": 8,
+              "marginBottom": 5,
+              "padding": 20,
+            }
+          }
+          testID="todoListItem.root"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "display": "flex",
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              accessibilityRole="checkbox"
+              accessibilityState={
+                Object {
+                  "busy": undefined,
+                  "checked": false,
+                  "disabled": undefined,
+                  "expanded": undefined,
+                  "selected": undefined,
+                }
+              }
+              accessibilityValue={
+                Object {
+                  "max": undefined,
+                  "min": undefined,
+                  "now": undefined,
+                  "text": undefined,
+                }
+              }
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "borderColor": "#657786",
+                    "borderRadius": 2,
+                    "borderWidth": 2,
+                    "height": 20,
+                    "width": 20,
+                  },
+                  Object {
+                    "marginRight": 20,
+                  },
+                  false,
+                  false,
+                  undefined,
+                  false,
+                ]
+              }
+              testID="todoListItem.checkbox"
+            />
+            <Text
+              testID="todoListItem.task"
+            >
+              tttttttttt
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessibilityValue={
+            Object {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "backgroundColor": "rgba(1,1,1,0.1)",
+              "borderRadius": 8,
+              "marginBottom": 5,
+              "padding": 20,
+            }
+          }
+          testID="todoListItem.root"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "display": "flex",
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              accessibilityRole="checkbox"
+              accessibilityState={
+                Object {
+                  "busy": undefined,
+                  "checked": false,
+                  "disabled": undefined,
+                  "expanded": undefined,
+                  "selected": undefined,
+                }
+              }
+              accessibilityValue={
+                Object {
+                  "max": undefined,
+                  "min": undefined,
+                  "now": undefined,
+                  "text": undefined,
+                }
+              }
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "borderColor": "#657786",
+                    "borderRadius": 2,
+                    "borderWidth": 2,
+                    "height": 20,
+                    "width": 20,
+                  },
+                  Object {
+                    "marginRight": 20,
+                  },
+                  false,
+                  false,
+                  undefined,
+                  false,
+                ]
+              }
+              testID="todoListItem.checkbox"
+            />
+            <Text
+              testID="todoListItem.task"
+            >
+              tttttttttt
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessibilityValue={
+            Object {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "backgroundColor": "rgba(1,1,1,0.1)",
+              "borderRadius": 8,
+              "marginBottom": 5,
+              "padding": 20,
+            }
+          }
+          testID="todoListItem.root"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "display": "flex",
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              accessibilityRole="checkbox"
+              accessibilityState={
+                Object {
+                  "busy": undefined,
+                  "checked": false,
+                  "disabled": undefined,
+                  "expanded": undefined,
+                  "selected": undefined,
+                }
+              }
+              accessibilityValue={
+                Object {
+                  "max": undefined,
+                  "min": undefined,
+                  "now": undefined,
+                  "text": undefined,
+                }
+              }
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "borderColor": "#657786",
+                    "borderRadius": 2,
+                    "borderWidth": 2,
+                    "height": 20,
+                    "width": 20,
+                  },
+                  Object {
+                    "marginRight": 20,
+                  },
+                  false,
+                  false,
+                  undefined,
+                  false,
+                ]
+              }
+              testID="todoListItem.checkbox"
+            />
+            <Text
+              testID="todoListItem.task"
+            >
+              tttttttttt
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessibilityValue={
+            Object {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "backgroundColor": "rgba(1,1,1,0.1)",
+              "borderRadius": 8,
+              "marginBottom": 5,
+              "padding": 20,
+            }
+          }
+          testID="todoListItem.root"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "display": "flex",
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              accessibilityRole="checkbox"
+              accessibilityState={
+                Object {
+                  "busy": undefined,
+                  "checked": false,
+                  "disabled": undefined,
+                  "expanded": undefined,
+                  "selected": undefined,
+                }
+              }
+              accessibilityValue={
+                Object {
+                  "max": undefined,
+                  "min": undefined,
+                  "now": undefined,
+                  "text": undefined,
+                }
+              }
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "borderColor": "#657786",
+                    "borderRadius": 2,
+                    "borderWidth": 2,
+                    "height": 20,
+                    "width": 20,
+                  },
+                  Object {
+                    "marginRight": 20,
+                  },
+                  false,
+                  false,
+                  undefined,
+                  false,
+                ]
+              }
+              testID="todoListItem.checkbox"
+            />
+            <Text
+              testID="todoListItem.task"
+            >
+              tttttttttt
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessibilityValue={
+            Object {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "backgroundColor": "rgba(1,1,1,0.1)",
+              "borderRadius": 8,
+              "marginBottom": 5,
+              "padding": 20,
+            }
+          }
+          testID="todoListItem.root"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "display": "flex",
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              accessibilityRole="checkbox"
+              accessibilityState={
+                Object {
+                  "busy": undefined,
+                  "checked": false,
+                  "disabled": undefined,
+                  "expanded": undefined,
+                  "selected": undefined,
+                }
+              }
+              accessibilityValue={
+                Object {
+                  "max": undefined,
+                  "min": undefined,
+                  "now": undefined,
+                  "text": undefined,
+                }
+              }
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "borderColor": "#657786",
+                    "borderRadius": 2,
+                    "borderWidth": 2,
+                    "height": 20,
+                    "width": 20,
+                  },
+                  Object {
+                    "marginRight": 20,
+                  },
+                  false,
+                  false,
+                  undefined,
+                  false,
+                ]
+              }
+              testID="todoListItem.checkbox"
+            />
+            <Text
+              testID="todoListItem.task"
+            >
+              tttttttttt
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessibilityValue={
+            Object {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "backgroundColor": "rgba(1,1,1,0.1)",
+              "borderRadius": 8,
+              "marginBottom": 5,
+              "padding": 20,
+            }
+          }
+          testID="todoListItem.root"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "display": "flex",
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              accessibilityRole="checkbox"
+              accessibilityState={
+                Object {
+                  "busy": undefined,
+                  "checked": false,
+                  "disabled": undefined,
+                  "expanded": undefined,
+                  "selected": undefined,
+                }
+              }
+              accessibilityValue={
+                Object {
+                  "max": undefined,
+                  "min": undefined,
+                  "now": undefined,
+                  "text": undefined,
+                }
+              }
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "borderColor": "#657786",
+                    "borderRadius": 2,
+                    "borderWidth": 2,
+                    "height": 20,
+                    "width": 20,
+                  },
+                  Object {
+                    "marginRight": 20,
+                  },
+                  false,
+                  false,
+                  undefined,
+                  false,
+                ]
+              }
+              testID="todoListItem.checkbox"
+            />
+            <Text
+              testID="todoListItem.task"
+            >
+              tttttttttt
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessibilityValue={
+            Object {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "backgroundColor": "rgba(1,1,1,0.1)",
+              "borderRadius": 8,
+              "marginBottom": 5,
+              "padding": 20,
+            }
+          }
+          testID="todoListItem.root"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "display": "flex",
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              accessibilityRole="checkbox"
+              accessibilityState={
+                Object {
+                  "busy": undefined,
+                  "checked": false,
+                  "disabled": undefined,
+                  "expanded": undefined,
+                  "selected": undefined,
+                }
+              }
+              accessibilityValue={
+                Object {
+                  "max": undefined,
+                  "min": undefined,
+                  "now": undefined,
+                  "text": undefined,
+                }
+              }
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "borderColor": "#657786",
+                    "borderRadius": 2,
+                    "borderWidth": 2,
+                    "height": 20,
+                    "width": 20,
+                  },
+                  Object {
+                    "marginRight": 20,
+                  },
+                  false,
+                  false,
+                  undefined,
+                  false,
+                ]
+              }
+              testID="todoListItem.checkbox"
+            />
+            <Text
+              testID="todoListItem.task"
+            >
+              tttttttttt
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessibilityValue={
+            Object {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "backgroundColor": "rgba(1,1,1,0.1)",
+              "borderRadius": 8,
+              "marginBottom": 5,
+              "padding": 20,
+            }
+          }
+          testID="todoListItem.root"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "display": "flex",
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              accessibilityRole="checkbox"
+              accessibilityState={
+                Object {
+                  "busy": undefined,
+                  "checked": false,
+                  "disabled": undefined,
+                  "expanded": undefined,
+                  "selected": undefined,
+                }
+              }
+              accessibilityValue={
+                Object {
+                  "max": undefined,
+                  "min": undefined,
+                  "now": undefined,
+                  "text": undefined,
+                }
+              }
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "borderColor": "#657786",
+                    "borderRadius": 2,
+                    "borderWidth": 2,
+                    "height": 20,
+                    "width": 20,
+                  },
+                  Object {
+                    "marginRight": 20,
+                  },
+                  false,
+                  false,
+                  undefined,
+                  false,
+                ]
+              }
+              testID="todoListItem.checkbox"
+            />
+            <Text
+              testID="todoListItem.task"
+            >
+              tttttttttt
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessibilityValue={
+            Object {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "backgroundColor": "rgba(1,1,1,0.1)",
+              "borderRadius": 8,
+              "marginBottom": 5,
+              "padding": 20,
+            }
+          }
+          testID="todoListItem.root"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "display": "flex",
+                "flexDirection": "row",
+              }
+            }
+          >
+            <View
+              accessibilityRole="checkbox"
+              accessibilityState={
+                Object {
+                  "busy": undefined,
+                  "checked": false,
+                  "disabled": undefined,
+                  "expanded": undefined,
+                  "selected": undefined,
+                }
+              }
+              accessibilityValue={
+                Object {
+                  "max": undefined,
+                  "min": undefined,
+                  "now": undefined,
+                  "text": undefined,
+                }
+              }
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "borderColor": "#657786",
+                    "borderRadius": 2,
+                    "borderWidth": 2,
+                    "height": 20,
+                    "width": 20,
+                  },
+                  Object {
+                    "marginRight": 20,
+                  },
+                  false,
+                  false,
+                  undefined,
+                  false,
+                ]
+              }
+              testID="todoListItem.checkbox"
+            />
+            <Text
+              testID="todoListItem.task"
+            >
+              tttttttttt
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+  <View
+    accessibilityValue={
+      Object {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "rgba(1,1,1,1)",
+        "borderRadius": 75,
+        "bottom": 30,
+        "height": 75,
+        "justifyContent": "center",
+        "position": "absolute",
+        "right": 20,
+        "textAlign": "center",
+        "width": 75,
+        "zIndex": 100,
+      }
+    }
+    testID="addTodoButton.root"
+  >
+    <Text
+      style={
+        Object {
+          "color": "#fff",
+          "fontSize": 50,
+          "marginBottom": 5,
+        }
+      }
+      testID="addTodoButton.text"
+    >
+      +
+    </Text>
+  </View>
+</View>
+`;

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`snapshot 1`] = `
+exports[`AddTodoButton snapshot 1`] = `
 <View
   accessibilityValue={
     Object {
@@ -34,19 +34,19 @@ exports[`snapshot 1`] = `
       "zIndex": 100,
     }
   }
+  testID="addTodoButton.root"
 >
-  <View>
-    <Text
-      style={
-        Object {
-          "color": "#fff",
-          "fontSize": 50,
-          "marginBottom": 5,
-        }
+  <Text
+    style={
+      Object {
+        "color": "#fff",
+        "fontSize": 50,
+        "marginBottom": 5,
       }
-    >
-      +
-    </Text>
-  </View>
+    }
+    testID="addTodoButton.text"
+  >
+    +
+  </Text>
 </View>
 `;
