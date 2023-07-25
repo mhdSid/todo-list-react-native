@@ -1,4 +1,4 @@
-import { ADD_TODO_LIST_ITEM, DELETE_TODO_LIST_ITEM, UPDATE_TODO_LIST_ITEM } from './actionTypes'
+import { ADD_TODO_LIST_ITEM, DELETE_TODO_LIST_ITEM, EDIT_TODO_LIST_ITEM } from './actionTypes'
 
 export const addTodoListItem = ({ task }) => {
   return dispatch => {
@@ -18,10 +18,10 @@ export const deleteTodoListItem = ({ index }) => {
   }
 }
 
-export const updateTodoListItem = ({ task, index }) => {
+export const editTodoListItem = ({ task, index }) => {
   return dispatch => {
     return dispatch({
-      type: UPDATE_TODO_LIST_ITEM,
+      type: EDIT_TODO_LIST_ITEM,
       payload: { task, index }
     })
   }

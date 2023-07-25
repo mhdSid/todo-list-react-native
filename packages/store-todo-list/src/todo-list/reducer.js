@@ -1,4 +1,4 @@
-import { ADD_TODO_LIST_ITEM, DELETE_TODO_LIST_ITEM, UPDATE_TODO_LIST_ITEM } from './actionTypes'
+import { ADD_TODO_LIST_ITEM, DELETE_TODO_LIST_ITEM, EDIT_TODO_LIST_ITEM } from './actionTypes'
 
 const initialState = {
   /*
@@ -32,7 +32,7 @@ export default function (state = initialState, action) {
         list: [...list]
       }
     }
-    case UPDATE_TODO_LIST_ITEM: {
+    case EDIT_TODO_LIST_ITEM: {
       const { task, index } = action.payload
       const { list } = state
       list[index] = { ...list[index], task }

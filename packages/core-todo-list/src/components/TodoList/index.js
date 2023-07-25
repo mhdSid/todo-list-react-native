@@ -3,117 +3,116 @@ import { VirtualizedList, Alert, View } from 'react-native'
 import { connect } from 'react-redux'
 import TodoListItem from '../TodoListItem'
 import todoListSelector from '@todo-list/store-todo-list/src/todo-list/selector'
-import { addTodoListItem, deleteTodoListItem, updateTodoListItem } from '@todo-list/store-todo-list/src/todo-list/actions'
+import { addTodoListItem, deleteTodoListItem, editTodoListItem } from '@todo-list/store-todo-list/src/todo-list/actions'
 import isLoggedInSelector from '@todo-list/store-todo-list/src/auth/selector'
 import { login, logout } from '@todo-list/store-todo-list/src/auth/actions'
 import PropTypes from 'prop-types'
 import EmptyTodoList from './EmptyTodoList'
 import AddTodoButton from '../Button/AddTodoButton'
 import styles from './index.styles'
+import { ALERT, ALERT_TYPES } from '../../constants/alert'
 
 function TodoList (props) {
   const {
     todoList,
     isLoggedIn,
-    handleUpdateTodoListItem,
+    handleEditTodoListItem,
     handleDeleteTodoListItem,
     handleAddTodoListItem,
     handleLogin,
     handleLogout
   } = props
 
-  const [showAlert, setShowAlert] = useState(false)
+  const [alertType, setAlertType] = useState(null)
   const [selectedTodoListItem, setSelectedTodoListItem] = useState(null)
 
-  const getItem = (data, index) => data[index]
-  const getItemCount = () => todoList.length || 0
-  const getItemKey = ({ id, task }) => `${id}-${task}`
-  const handleAlertDismiss = () => {
+  const handleResetState = () => {
     setSelectedTodoListItem(null)
-    setShowAlert(false)
+    setAlertType(null)
     handleLogout()
   }
-  const handleAlertUpdatePress = () => {
+  const handleAlertEditPress = () => {
     const { task, index } = selectedTodoListItem
-    Alert.prompt('Update TODO List', `Task: ${task}`, text => {
+    Alert.prompt('Edit Todo', `Task: ${task}`, text => {
       if (text) {
-        handleUpdateTodoListItem({ task: text, index })
+        handleEditTodoListItem({ task: text, index })
       }
-      handleAlertDismiss()
+      handleResetState()
     })
   }
   const handleAlertDeletePress = () => {
     const { index } = selectedTodoListItem
     handleDeleteTodoListItem({ index })
-    handleAlertDismiss()
+    handleResetState()
   }
   const handleAlertAddPress = () => {
     Alert.prompt('TODO List', 'Add new item', text => {
       if (text) {
         handleAddTodoListItem({ task: text })
       }
-      handleAlertDismiss()
+      handleResetState()
     })
   }
   const handleShowAlert = () => {
     const { task = null } = selectedTodoListItem || {}
-    const isEditOrDelete = !!task
+    const { title, message, buttons } = ALERT[alertType]({
+      task,
+      onCancel: handleResetState,
+      onEdit: handleAlertEditPress,
+      onDelete: handleAlertDeletePress,
+      onAdd: handleAlertAddPress
+    })
     Alert.alert(
-      'TODO List',
-      isEditOrDelete ? `Task: ${task}` : 'Add new TODO',
-      [
-        ...isEditOrDelete
-          ? [
-              {
-                text: 'Update',
-                onPress: handleAlertUpdatePress,
-                style: 'cancel'
-              },
-              {
-                text: 'Delete',
-                onPress: handleAlertDeletePress,
-                style: 'destructive'
-              }
-            ]
-          : [{
-              text: 'Add',
-              onPress: handleAlertAddPress,
-              style: 'cancel'
-            }],
-        {
-          text: 'Cancel',
-          style: 'cancel'
-        }
-      ].filter(Boolean),
+      title,
+      message,
+      buttons,
       {
         cancelable: true,
-        onDismiss: handleAlertDismiss
+        onDismiss: handleResetState
       }
     )
   }
   const handleAddTodoButtonPress = async () => {
     await handleLogin({
       onSuccess: () => {
-        setShowAlert(true)
+        setAlertType(ALERT_TYPES.ADD)
       }
     })
   }
-  const onListItemPress = async ({ task, index }) => {
+  const handleListItemPress = async ({ task, index }) => {
     await handleLogin({
       onSuccess: () => {
         setSelectedTodoListItem({ task, index })
-        setShowAlert(true)
+        setAlertType(ALERT_TYPES.EDIT_DELETE)
+      }
+    })
+  }
+  const handleListItemChecked = async ({ task, id, index, checked }) => {
+    if (!checked) return
+    await handleLogin({
+      onSuccess: () => {
+        setSelectedTodoListItem({ task, id, index })
+        setAlertType(ALERT_TYPES.DELETE)
       }
     })
   }
   const renderListItemRow = ({ item: { task, id }, index }) => (
-    <TodoListItem task={task} id={id} index={index} onPress={onListItemPress} />
+    <TodoListItem
+      task={task}
+      id={id}
+      index={index}
+      onPress={handleListItemPress}
+      onChecked={handleListItemChecked}
+    />
   )
+  const getItem = (data, index) => data[index]
+  const getItemCount = () => todoList.length || 0
+  const getItemKey = ({ id, task }) => `${id}-${task}`
   useEffect(() => {
-    if (isLoggedIn && showAlert) {
+    if (isLoggedIn && alertType) {
       handleShowAlert()
     }
-  }, [isLoggedIn, showAlert])
+  }, [isLoggedIn, alertType])
 
   return (
     <View style={styles.todoListContainer}>
@@ -141,7 +140,7 @@ function TodoList (props) {
 TodoList.propTypes = {
   todoList: PropTypes.array,
   isLoggedIn: PropTypes.bool,
-  handleUpdateTodoListItem: PropTypes.func,
+  handleEditTodoListItem: PropTypes.func,
   handleDeleteTodoListItem: PropTypes.func,
   handleAddTodoListItem: PropTypes.func,
   handleLogin: PropTypes.func,
@@ -157,7 +156,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    handleUpdateTodoListItem: payload => dispatch(updateTodoListItem(payload)),
+    handleEditTodoListItem: payload => dispatch(editTodoListItem(payload)),
     handleDeleteTodoListItem: payload => dispatch(deleteTodoListItem(payload)),
     handleAddTodoListItem: payload => dispatch(addTodoListItem(payload)),
     handleLogin: payload => dispatch(login(payload)),
