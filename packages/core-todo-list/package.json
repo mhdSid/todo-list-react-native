@@ -15,7 +15,7 @@
     "@todo-list/store-todo-list": "1.0.0"
   },
   "devDependencies": {
-    "@todo-list/eslint-config": "1.0.0"
+    "@todo-list/jest-config": "1.0.0"
   },
   "private": true
 }

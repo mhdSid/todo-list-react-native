@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot 1`] = `
+<View
+  style={
+    Object {
+      "paddingBottom": undefined,
+      "paddingHorizontal": 10,
+      "paddingTop": undefined,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "fontSize": 20,
+        "marginBottom": 10,
+        "marginTop": 10,
+      }
+    }
+  >
+    Welcome to TODO List
+  </Text>
+  <View />
+</View>
+`;

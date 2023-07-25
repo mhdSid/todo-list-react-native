@@ -12,6 +12,7 @@ import AddTodoButton from '../Button/AddTodoButton'
 import styles from './index.styles'
 import { ALERT, ALERT_TYPES } from '../../constants/alert'
 import getRandomId from '../../util/randomId'
+
 function TodoList (props) {
   const {
     todoList,
@@ -31,6 +32,7 @@ function TodoList (props) {
     setAlertType(null)
     handleLogout()
   }
+
   const handleAlertEditPress = () => {
     const { task, index } = selectedTodoListItem
     Alert.prompt('Edit Todo', `Task: ${task}`, text => {
@@ -40,11 +42,13 @@ function TodoList (props) {
       handleResetState()
     })
   }
+
   const handleAlertDeletePress = () => {
     const { index } = selectedTodoListItem
     handleDeleteTodoListItem({ index })
     handleResetState()
   }
+
   const handleAlertAddPress = () => {
     Alert.prompt('TODO List', 'Add new item', text => {
       if (text) {
@@ -53,10 +57,11 @@ function TodoList (props) {
       handleResetState()
     })
   }
+
   const handleShowAlert = () => {
     const { task = null } = selectedTodoListItem || {}
     const { title, message, buttons } = ALERT[alertType]({
-      task,
+      message: task,
       onCancel: handleResetState,
       onEdit: handleAlertEditPress,
       onDelete: handleAlertDeletePress,
@@ -72,27 +77,37 @@ function TodoList (props) {
       }
     )
   }
+
   const handleAddTodoButtonPress = async () => {
-    const isLoginSuccess = await handleLogin()
-    if (isLoginSuccess) {
+    try {
+      await handleLogin()
       setAlertType(ALERT_TYPES.ADD)
+    } catch (e) {
+      setAlertType(ALERT_TYPES.ERROR)
     }
   }
+
   const handleListItemPress = async ({ task, index }) => {
-    const isLoginSuccess = await handleLogin()
-    if (isLoginSuccess) {
+    try {
+      await handleLogin()
       setSelectedTodoListItem({ task, index })
       setAlertType(ALERT_TYPES.EDIT_DELETE)
+    } catch (e) {
+      setAlertType(ALERT_TYPES.ERROR)
     }
   }
+
   const handleListItemChecked = async ({ task, id, index, checked }) => {
     if (!checked) return
-    const isLoginSuccess = await handleLogin()
-    if (isLoginSuccess) {
+    try {
+      await handleLogin()
       setSelectedTodoListItem({ task, id, index })
       setAlertType(ALERT_TYPES.DELETE)
+    } catch (e) {
+      setAlertType(ALERT_TYPES.ERROR)
     }
   }
+
   const renderListItemRow = ({ item: { task, id }, index }) => (
     <TodoListItem
       task={task}
@@ -102,11 +117,13 @@ function TodoList (props) {
       onChecked={handleListItemChecked}
     />
   )
+
   const getItem = (data, index) => data[index]
   const getItemCount = () => todoList.length || 0
   const getItemKey = ({ id, task }) => `${id}-${task}`
+
   useEffect(() => {
-    if (isLoggedIn && alertType) {
+    if ((isLoggedIn && alertType) || alertType === ALERT_TYPES.ERROR) {
       handleShowAlert()
     }
   }, [isLoggedIn, alertType])
@@ -115,7 +132,7 @@ function TodoList (props) {
     <View style={styles.todoListContainer}>
       <VirtualizedList
         initialNumToRender={10}
-        windowSize={100}
+        windowSize={5}
         maxToRenderPerBatch={10}
         contentInsetAdjustmentBehavior='automatic'
         removeClippedSubviews

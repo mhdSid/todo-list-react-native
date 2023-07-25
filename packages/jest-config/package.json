@@ -1,5 +1,5 @@
 {
-  "name": "@todo-list/eslint-config",
+  "name": "@todo-list/jest-config",
   "version": "1.0.0",
   "private": true
 }

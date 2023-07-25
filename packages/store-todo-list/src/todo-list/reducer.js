@@ -3,7 +3,7 @@ import { ADD_TODO_LIST_ITEM, DELETE_TODO_LIST_ITEM, EDIT_TODO_LIST_ITEM } from '
 const initialState = {
   /*
     list: [{
-      id: Number,
+      id: String,
       task: String
     }]
   */

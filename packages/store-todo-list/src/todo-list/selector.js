@@ -6,4 +6,5 @@ const todoListSelector = createSelector(
   [getTodoList],
   todoList => todoList
 )
+
 export default todoListSelector

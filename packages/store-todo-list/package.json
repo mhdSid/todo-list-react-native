@@ -13,7 +13,7 @@
     "@react-native-async-storage/async-storage": "^1.19.1"
   },
   "devDependencies": {
-    "@todo-list/eslint-config": "1.0.0"
+    "@todo-list/jest-config": "1.0.0"
   },
   "private": true
 }

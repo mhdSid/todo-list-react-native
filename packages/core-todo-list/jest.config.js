@@ -1,7 +1,7 @@
 const packageJson = require('./package.json')
-const jestEslintConfig = require('@todo-list/jest-config/src/eslint/jest')
+const jestUnitTestConfig = require('@todo-list/jest-config/src/unit')
 
 module.exports = {
   displayName: packageJson.name,
-  ...jestEslintConfig
+  ...jestUnitTestConfig
 }

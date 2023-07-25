@@ -1,4 +1,4 @@
-const eslintConfig = require('@todo-list/eslint-config/src')
+const eslintConfig = require('./packages/test-config/src')
 
 module.exports = {
   ...eslintConfig

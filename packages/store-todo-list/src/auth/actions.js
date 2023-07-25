@@ -6,10 +6,9 @@ export const login = () => {
     const { success } = await expoLocalAuthentication.authenticateAsync()
     if (success) {
       dispatch({ type: AUTH_LOGIN })
-      return true
     } else {
       dispatch({ type: AUTH_LOGOUT })
-      return false
+      throw new Error(AUTH_LOGIN)
     }
   }
 }
