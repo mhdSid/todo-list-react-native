@@ -14,7 +14,7 @@ import { ALERT, ALERT_PROMPT_ADD, ALERT_PROMPT_EDIT, ALERT_TYPES } from '../../c
 import getRandomId from '../../util/randomId'
 import testSelectors from '../../../test/lib/selector/todoList'
 
-function TodoList (props) {
+const TodoList = React.memo(props => {
   const {
     todoList,
     isLoggedIn,
@@ -151,7 +151,7 @@ function TodoList (props) {
       <AddTodoButton onPress={handleAddTodoButtonPress} testID={testSelectors.addTodoButton} />
     </View>
   )
-}
+})
 
 TodoList.propTypes = {
   todoList: PropTypes.array,
