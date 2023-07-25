@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+      "marginTop": 50,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "marginBottom": 4,
+      }
+    }
+  >
+    Looks like your TODO list is empty!
+  </Text>
+  <Text>
+    Add a new task to the list :)
+  </Text>
+</View>
+`;

@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react-native'
-import Container from '../../../../src/components/Container'
+import Component from '../../../../src/components/Container'
 
 jest.mock('../../../../src/components/TodoList', () => {
   const  { View } = require('react-native')
@@ -7,6 +7,6 @@ jest.mock('../../../../src/components/TodoList', () => {
 })
 
 test('snapshot', () => {
-  const data = render(<Container />).toJSON()
+  const data = render(<Component />).toJSON()
   expect(data).toMatchSnapshot()
 })
