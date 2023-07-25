@@ -84,3 +84,17 @@ web-build/
 .metro-health-check*
 jest-html-reporters-attach
 eslint_result.html
+
+.idea
+.vscode
+.code-workspace
+*_result.*
+.yarn
+coverage
+dist
+yarn-error.log
+db.json
+.env
+.DS_Store
+storybook-static
+temp/
