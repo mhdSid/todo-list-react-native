@@ -11,7 +11,7 @@ import EmptyTodoList from './EmptyTodoList'
 import AddTodoButton from '../Button/AddTodoButton'
 import styles from './index.styles'
 import { ALERT, ALERT_TYPES } from '../../constants/alert'
-
+import getRandomId from '../../util/randomId'
 function TodoList (props) {
   const {
     todoList,
@@ -48,7 +48,7 @@ function TodoList (props) {
   const handleAlertAddPress = () => {
     Alert.prompt('TODO List', 'Add new item', text => {
       if (text) {
-        handleAddTodoListItem({ task: text })
+        handleAddTodoListItem({ task: text, id: getRandomId() })
       }
       handleResetState()
     })
@@ -73,28 +73,25 @@ function TodoList (props) {
     )
   }
   const handleAddTodoButtonPress = async () => {
-    await handleLogin({
-      onSuccess: () => {
-        setAlertType(ALERT_TYPES.ADD)
-      }
-    })
+    const isLoginSuccess = await handleLogin()
+    if (isLoginSuccess) {
+      setAlertType(ALERT_TYPES.ADD)
+    }
   }
   const handleListItemPress = async ({ task, index }) => {
-    await handleLogin({
-      onSuccess: () => {
-        setSelectedTodoListItem({ task, index })
-        setAlertType(ALERT_TYPES.EDIT_DELETE)
-      }
-    })
+    const isLoginSuccess = await handleLogin()
+    if (isLoginSuccess) {
+      setSelectedTodoListItem({ task, index })
+      setAlertType(ALERT_TYPES.EDIT_DELETE)
+    }
   }
   const handleListItemChecked = async ({ task, id, index, checked }) => {
     if (!checked) return
-    await handleLogin({
-      onSuccess: () => {
-        setSelectedTodoListItem({ task, id, index })
-        setAlertType(ALERT_TYPES.DELETE)
-      }
-    })
+    const isLoginSuccess = await handleLogin()
+    if (isLoginSuccess) {
+      setSelectedTodoListItem({ task, id, index })
+      setAlertType(ALERT_TYPES.DELETE)
+    }
   }
   const renderListItemRow = ({ item: { task, id }, index }) => (
     <TodoListItem

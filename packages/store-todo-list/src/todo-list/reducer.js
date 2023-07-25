@@ -7,10 +7,7 @@ const initialState = {
       task: String
     }]
   */
-  list: new Array(20).fill({}).map((item, index) => ({
-    id: Math.random().toString(16).slice(2),
-    task: 'testtetete'
-  }))
+  list: []
 }
 
 export default function (state = initialState, action) {

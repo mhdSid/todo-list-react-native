@@ -1,15 +1,15 @@
 import { AUTH_LOGIN, AUTH_LOGOUT } from './actionTypes'
 import * as expoLocalAuthentication from 'expo-local-authentication'
 
-export const login = ({ onSuccess, onError }) => {
+export const login = () => {
   return async dispatch => {
     const { success } = await expoLocalAuthentication.authenticateAsync()
     if (success) {
       dispatch({ type: AUTH_LOGIN })
-      return onSuccess()
+      return true
     } else {
       dispatch({ type: AUTH_LOGOUT })
-      return onError()
+      return false
     }
   }
 }

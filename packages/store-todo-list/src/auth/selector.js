@@ -6,4 +6,5 @@ const isLoggedInSelector = createSelector(
   [getIsLoggedIn],
   isLoggedIn => isLoggedIn
 )
+
 export default isLoggedInSelector
