@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { VirtualizedList, Alert, View } from 'react-native'
+import React, { useState } from 'react'
+import { VirtualizedList, View } from 'react-native'
 import { connect } from 'react-redux'
 import TodoListItem from '../TodoListItem'
 import todoListSelector from '@todo-list/store-todo-list/src/todo-list/selector'
@@ -10,9 +10,10 @@ import PropTypes from 'prop-types'
 import EmptyTodoList from './EmptyTodoList'
 import AddTodoButton from '../Button/AddTodoButton'
 import styles from './index.styles'
-import { ALERT, ALERT_PROMPT_ADD, ALERT_PROMPT_EDIT, ALERT_TYPES } from '../../constants/alert'
+import { ALERT_TYPES } from '../../constants/alert'
 import getRandomId from '../../util/randomId'
 import testSelectors from '../../../test/lib/selector/todoList'
+import useAlert from './useAlert'
 
 const TodoList = React.memo(props => {
   const {
@@ -34,52 +35,33 @@ const TodoList = React.memo(props => {
     handleLogout()
   }
 
-  const handleAlertEditPress = () => {
-    const { task, index } = selectedTodoListItem
-    Alert.prompt(ALERT_PROMPT_EDIT.title, ALERT_PROMPT_EDIT.message(task), text => {
-      if (text) {
-        handleEditTodoListItem({ task: text, index })
-      }
+  useAlert({
+    defaultMessage: alertType?.error?.message || selectedTodoListItem?.task || '',
+    isLoggedIn,
+    alertType,
+    onDelete: () => {
+      const { index } = selectedTodoListItem
+      handleDeleteTodoListItem({ index })
       handleResetState()
-    })
-  }
-
-  const handleAlertDeletePress = () => {
-    const { index } = selectedTodoListItem
-    handleDeleteTodoListItem({ index })
-    handleResetState()
-  }
-
-  const handleAlertAddPress = () => {
-    Alert.prompt(ALERT_PROMPT_ADD.title, ALERT_PROMPT_ADD.message, text => {
+    },
+    onCancel: handleResetState,
+    onAdd: ({ text }) => {
       if (text) {
         handleAddTodoListItem({ task: text, id: getRandomId() })
       }
       handleResetState()
-    })
-  }
-
-  const handleShowAlert = () => {
-    const { task = null } = selectedTodoListItem || {}
-    const { type, error: { message: errorMessage } = {} } = alertType
-    const { title, message, buttons } = ALERT[type]({
-      message: errorMessage || task,
-      onCancel: handleResetState,
-      onEdit: handleAlertEditPress,
-      onDelete: handleAlertDeletePress,
-      onAdd: handleAlertAddPress
-    })
-    Alert.alert(
-      title,
-      message,
-      buttons,
-      {
-        cancelable: true,
-        onDismiss: handleResetState
+    },
+    onEdit: ({ text }) => {
+      const { index } = selectedTodoListItem
+      if (text) {
+        handleEditTodoListItem({ task: text, index })
       }
-    )
-  }
+      handleResetState()
+    },
+    onDismiss: handleResetState
+  })
 
+  /* Interaction Event Handlers */
   const handleAddTodoButtonPress = async () => {
     try {
       await handleLogin()
@@ -88,7 +70,6 @@ const TodoList = React.memo(props => {
       setAlertType({ type: ALERT_TYPES.ERROR, error })
     }
   }
-
   const handleListItemPress = async ({ task, index }) => {
     try {
       await handleLogin()
@@ -98,7 +79,6 @@ const TodoList = React.memo(props => {
       setAlertType({ type: ALERT_TYPES.ERROR, error })
     }
   }
-
   const handleListItemChecked = async ({ task, id, index, checked }) => {
     if (!checked) return
     try {
@@ -110,6 +90,7 @@ const TodoList = React.memo(props => {
     }
   }
 
+  /* Virtualized List Props */
   const renderListItemRow = ({ item: { task, id }, index }) => (
     <TodoListItem
       task={task}
@@ -119,16 +100,9 @@ const TodoList = React.memo(props => {
       onChecked={handleListItemChecked}
     />
   )
-
   const getItem = (data, index) => data[index]
   const getItemCount = () => todoList.length || 0
   const getItemKey = ({ id, task }) => `${id}-${task}`
-
-  useEffect(() => {
-    if ((isLoggedIn && alertType) || alertType?.type === ALERT_TYPES.ERROR) {
-      handleShowAlert()
-    }
-  }, [isLoggedIn, alertType])
 
   return (
     <View style={styles.todoListContainer} testID={testSelectors.root}>
