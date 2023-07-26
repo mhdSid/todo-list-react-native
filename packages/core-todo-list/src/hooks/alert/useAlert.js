@@ -19,7 +19,7 @@ export default function useAlert ({
         message: errorMessage || defaultMessage,
         onCancel,
         onDelete,
-        onEdit: () => Alert.prompt(ALERT_PROMPT_EDIT.title, defaultMessage, text => onEdit({ text })),
+        onEdit: () => Alert.prompt(ALERT_PROMPT_EDIT.title, ALERT_PROMPT_EDIT.message(defaultMessage), text => onEdit({ text })),
         onAdd: () => Alert.prompt(ALERT_PROMPT_ADD.title, ALERT_PROMPT_ADD.message, text => onAdd({ text }))
       })
       Alert.alert(alertTitle, alertMessage, alertButtons, {
