@@ -106,7 +106,7 @@ const TodoList = React.memo(props => {
       setSelectedTodoListItem({ task, id, index })
       setAlertType({ type: ALERT_TYPES.DELETE })
     } catch (error) {
-      setAlertType({type: ALERT_TYPES.ERROR, error })
+      setAlertType({ type: ALERT_TYPES.ERROR, error })
     }
   }
 
