@@ -53,7 +53,7 @@ const TodoList = React.memo(props => {
     },
     onEdit: ({ text }) => {
       if (text) {
-        handleEditTodoListItem({ task: text, index: selectedTodoListItem })
+        handleEditTodoListItem({ task: text, index: selectedTodoListItem.index })
       }
       handleResetState()
     }

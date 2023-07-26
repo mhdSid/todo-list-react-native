@@ -17,9 +17,9 @@ export const ALERT_PROMPT_ADD = {
 
 export const ALERT = {
   [ALERT_TYPES.EDIT_DELETE]: ({ message, onEdit, onDelete, onCancel }) => ({
-    title: 'Edit / Delete task',
-    message: `Task: ${message}`,
-    buttons: [{
+    alertTitle: 'Edit / Delete task',
+    alertMessage: `Task: ${message}`,
+    alertButtons: [{
       text: 'Edit',
       onPress: onEdit,
       style: 'cancel'
@@ -35,9 +35,9 @@ export const ALERT = {
     }]
   }),
   [ALERT_TYPES.DELETE]: ({ message, onDelete, onCancel }) => ({
-    title: 'Delete task',
-    message: `Task: ${message}`,
-    buttons: [{
+    alertTitle: 'Delete task',
+    alertMessage: `Task: ${message}`,
+    alertButtons: [{
       text: 'Delete',
       onPress: onDelete,
       style: 'destructive'
@@ -48,9 +48,9 @@ export const ALERT = {
     }]
   }),
   [ALERT_TYPES.ADD]: ({ onAdd, onCancel }) => ({
-    title: 'To-Do List',
-    message: 'Would you like to add a new task?',
-    buttons: [{
+    alertTitle: 'To-Do List',
+    alertMessage: 'Would you like to add a new task?',
+    alertButtons: [{
       text: 'Add',
       onPress: onAdd,
       style: 'cancel'
@@ -61,9 +61,9 @@ export const ALERT = {
     }]
   }),
   [ALERT_TYPES.ERROR]: ({ onCancel, message }) => ({
-    title: 'Something went wrong!',
-    message,
-    buttons: [{
+    alertTitle: 'Something went wrong!',
+    alertMessage: message,
+    alertButtons: [{
       text: 'Cancel',
       style: 'cancel',
       onPress: onCancel
