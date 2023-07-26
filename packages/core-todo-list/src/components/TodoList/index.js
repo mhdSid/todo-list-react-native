@@ -29,34 +29,39 @@ const TodoList = React.memo(props => {
   const [alertType, setAlertType] = useState(null)
   const [selectedTodoListItem, setSelectedTodoListItem] = useState(null)
 
+  /* Reset State */
   const handleResetState = () => {
     setSelectedTodoListItem(null)
     setAlertType(null)
     handleLogout()
   }
 
+  /* Alert Hook */
+  const handleDelete = () => {
+    handleDeleteTodoListItem({ index: selectedTodoListItem.index })
+    handleResetState()
+  }
+  const handleAdd = ({ text }) => {
+    if (text) {
+      handleAddTodoListItem({ task: text, id: getRandomId() })
+    }
+    handleResetState()
+  }
+  const handleEdit = ({ text }) => {
+    if (text) {
+      handleEditTodoListItem({ task: text, index: selectedTodoListItem.index })
+    }
+    handleResetState()
+  }
   useAlert({
     defaultMessage: alertType?.error?.message || selectedTodoListItem?.task || '',
     isLoggedIn,
     alertType,
     onCancel: handleResetState,
     onDismiss: handleResetState,
-    onDelete: () => {
-      handleDeleteTodoListItem({ index: selectedTodoListItem.index })
-      handleResetState()
-    },
-    onAdd: ({ text }) => {
-      if (text) {
-        handleAddTodoListItem({ task: text, id: getRandomId() })
-      }
-      handleResetState()
-    },
-    onEdit: ({ text }) => {
-      if (text) {
-        handleEditTodoListItem({ task: text, index: selectedTodoListItem.index })
-      }
-      handleResetState()
-    }
+    onDelete: handleDelete,
+    onAdd: handleAdd,
+    onEdit: handleEdit
   })
 
   /* Interaction Event Handlers */
