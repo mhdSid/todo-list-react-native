@@ -13,7 +13,7 @@ import styles from './index.styles'
 import { ALERT_TYPES } from '../../constants/alert'
 import getRandomId from '../../util/randomId'
 import testSelectors from '../../../test/lib/selector/todoList'
-import useAlert from './useAlert'
+import useAlert from '../../hooks/alert/useAlert'
 
 const TodoList = React.memo(props => {
   const {
@@ -39,12 +39,12 @@ const TodoList = React.memo(props => {
     defaultMessage: alertType?.error?.message || selectedTodoListItem?.task || '',
     isLoggedIn,
     alertType,
+    onCancel: handleResetState,
+    onDismiss: handleResetState,
     onDelete: () => {
-      const { index } = selectedTodoListItem
-      handleDeleteTodoListItem({ index })
+      handleDeleteTodoListItem({ index: selectedTodoListItem.index })
       handleResetState()
     },
-    onCancel: handleResetState,
     onAdd: ({ text }) => {
       if (text) {
         handleAddTodoListItem({ task: text, id: getRandomId() })
@@ -52,13 +52,11 @@ const TodoList = React.memo(props => {
       handleResetState()
     },
     onEdit: ({ text }) => {
-      const { index } = selectedTodoListItem
       if (text) {
-        handleEditTodoListItem({ task: text, index })
+        handleEditTodoListItem({ task: text, index: selectedTodoListItem })
       }
       handleResetState()
-    },
-    onDismiss: handleResetState
+    }
   })
 
   /* Interaction Event Handlers */

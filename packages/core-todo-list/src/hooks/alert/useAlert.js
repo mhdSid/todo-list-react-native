@@ -44,6 +44,4 @@ export default function useAlert ({ isLoggedIn, defaultMessage, alertType, onDel
       handleShowAlert()
     }
   }, [isLoggedIn, alertType])
-
-  return {}
 }
