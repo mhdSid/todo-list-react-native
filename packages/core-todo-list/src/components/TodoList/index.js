@@ -141,24 +141,17 @@ TodoList.propTypes = {
   handleLogout: PropTypes.func
 }
 
-const mapStateToProps = state => {
-  return {
-    todoList: todoListSelector(state),
-    isLoggedIn: isLoggedInSelector(state)
-  }
-}
+const mapStateToProps = state => ({
+  todoList: todoListSelector(state),
+  isLoggedIn: isLoggedInSelector(state)
+})
 
-const mapDispatchToProps = dispatch => {
-  return {
-    handleEditTodoListItem: payload => dispatch(editTodoListItem(payload)),
-    handleDeleteTodoListItem: payload => dispatch(deleteTodoListItem(payload)),
-    handleAddTodoListItem: payload => dispatch(addTodoListItem(payload)),
-    handleLogin: payload => dispatch(login(payload)),
-    handleLogout: payload => dispatch(logout(payload))
-  }
-}
+const mapDispatchToProps = dispatch => ({
+  handleEditTodoListItem: payload => dispatch(editTodoListItem(payload)),
+  handleDeleteTodoListItem: payload => dispatch(deleteTodoListItem(payload)),
+  handleAddTodoListItem: payload => dispatch(addTodoListItem(payload)),
+  handleLogin: payload => dispatch(login(payload)),
+  handleLogout: payload => dispatch(logout(payload))
+})
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(TodoList)
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList)
