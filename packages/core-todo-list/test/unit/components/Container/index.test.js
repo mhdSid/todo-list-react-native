@@ -6,6 +6,12 @@ import todoListSelectors from '../../../lib/selector/todoList'
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
 
+jest.mock('expo-local-authentication', () => ({}))
+
+jest.mock('react-native-safe-area-context', () => ({
+  useSafeAreaInsets: () => ({})
+}))
+
 describe('Container', () => {
   const mockStore = configureStore([])
   const emptyStore = mockStore({

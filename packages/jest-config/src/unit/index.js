@@ -6,7 +6,6 @@ module.exports = {
   moduleNameMapper: {
     '~(.*)$': 'src/$1'
   },
-  setupFilesAfterEnv: ['@testing-library/jest-native/extend-expect'],
   moduleDirectories: [
     '<rootDir>/../../node_modules'
   ],
@@ -14,7 +13,6 @@ module.exports = {
     '<rootDir>/test/'
   ],
   transformIgnorePatterns: [
-    // 'node_modules/(?!react-native|@babel|@react-native/)',
     'node_modules/(?!react-native|@babel|@react-native|@expo|expo|expo-checkbox/)'
   ],
   snapshotFormat: {
