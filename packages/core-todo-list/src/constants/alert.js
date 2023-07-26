@@ -15,8 +15,6 @@ export const ALERT_PROMPT_ADD = {
   message: 'Add a new task'
 }
 
-export const DEFAULT_ERROR_MESSAGE = 'Something went wrong. Please try again!'
-
 export const ALERT = {
   [ALERT_TYPES.EDIT_DELETE]: ({ message, onEdit, onDelete, onCancel }) => ({
     title: 'Edit / Delete task',
@@ -63,7 +61,8 @@ export const ALERT = {
     }]
   }),
   [ALERT_TYPES.ERROR]: ({ onCancel, message }) => ({
-    title: message || DEFAULT_ERROR_MESSAGE,
+    title: 'Something went wrong!',
+    message,
     buttons: [{
       text: 'Cancel',
       style: 'cancel',

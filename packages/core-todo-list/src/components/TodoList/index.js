@@ -61,8 +61,9 @@ const TodoList = React.memo(props => {
 
   const handleShowAlert = () => {
     const { task = null } = selectedTodoListItem || {}
-    const { title, message, buttons } = ALERT[alertType]({
-      message: task,
+    const { type, error: { message: errorMessage } = {} } = alertType
+    const { title, message, buttons } = ALERT[type]({
+      message: errorMessage || task,
       onCancel: handleResetState,
       onEdit: handleAlertEditPress,
       onDelete: handleAlertDeletePress,
@@ -82,9 +83,9 @@ const TodoList = React.memo(props => {
   const handleAddTodoButtonPress = async () => {
     try {
       await handleLogin()
-      setAlertType(ALERT_TYPES.ADD)
-    } catch (e) {
-      setAlertType(ALERT_TYPES.ERROR)
+      setAlertType({ type: ALERT_TYPES.ADD })
+    } catch (error) {
+      setAlertType({ type: ALERT_TYPES.ERROR, error })
     }
   }
 
@@ -92,9 +93,9 @@ const TodoList = React.memo(props => {
     try {
       await handleLogin()
       setSelectedTodoListItem({ task, index })
-      setAlertType(ALERT_TYPES.EDIT_DELETE)
-    } catch (e) {
-      setAlertType(ALERT_TYPES.ERROR)
+      setAlertType({ type: ALERT_TYPES.EDIT_DELETE })
+    } catch (error) {
+      setAlertType({ type: ALERT_TYPES.ERROR, error })
     }
   }
 
@@ -103,9 +104,9 @@ const TodoList = React.memo(props => {
     try {
       await handleLogin()
       setSelectedTodoListItem({ task, id, index })
-      setAlertType(ALERT_TYPES.DELETE)
-    } catch (e) {
-      setAlertType(ALERT_TYPES.ERROR)
+      setAlertType({ type: ALERT_TYPES.DELETE })
+    } catch (error) {
+      setAlertType({type: ALERT_TYPES.ERROR, error })
     }
   }
 
@@ -124,7 +125,7 @@ const TodoList = React.memo(props => {
   const getItemKey = ({ id, task }) => `${id}-${task}`
 
   useEffect(() => {
-    if ((isLoggedIn && alertType) || alertType === ALERT_TYPES.ERROR) {
+    if ((isLoggedIn && alertType) || alertType?.type === ALERT_TYPES.ERROR) {
       handleShowAlert()
     }
   }, [isLoggedIn, alertType])
