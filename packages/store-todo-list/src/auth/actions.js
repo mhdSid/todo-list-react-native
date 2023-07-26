@@ -8,7 +8,7 @@ export const login = () => {
       dispatch({ type: AUTH_LOGIN })
     } else {
       dispatch({ type: AUTH_LOGOUT })
-      throw new Error(AUTH_LOGIN)
+      throw new Error(AUTH_LOGOUT)
     }
   }
 }
