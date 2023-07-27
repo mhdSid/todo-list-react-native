@@ -27,7 +27,7 @@ jest.mock('expo-local-authentication', () => ({
 describe('TodoList', () => {
   test('Add alert is visible with login success', async () => {
     const alertSpy = jest.spyOn(Alert, 'alert')
-    render(<Provider store={store}><Component /></Provider>).toJSON()
+    render(<Provider store={store}><Component /></Provider>)
     const addTodoButton = await screen.findByTestId(addTodoButtonSelectors.root)
     await act(() => {
       fireEvent.press(addTodoButton)
