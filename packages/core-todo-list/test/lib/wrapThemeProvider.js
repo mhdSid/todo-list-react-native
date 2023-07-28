@@ -7,7 +7,7 @@ export default function WrapThemeProvider (Component) {
       <Context.Consumer>
         {
           ({ toggleTheme, theme }) => (
-            <Component theme={theme}/>
+            <Component theme={theme} />
           )
         }
       </Context.Consumer>

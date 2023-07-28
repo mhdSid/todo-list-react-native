@@ -24,7 +24,8 @@ export default function Container () {
                 <TouchableOpacity onPress={handleThemeChange(toggleTheme)}>
                   <Image
                     source={theme === THEMES.DARK ? light : dark}
-                    style={styles.themeImage}/>
+                    style={styles.themeImage}
+                  />
                 </TouchableOpacity>
               </View>
               <TodoList testID={testSelectors.todoList} theme={theme} />
