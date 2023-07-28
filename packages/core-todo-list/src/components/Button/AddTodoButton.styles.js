@@ -1,13 +1,18 @@
 import { StyleSheet } from 'react-native'
+import { THEMES } from '../../constants/theme'
+import { THEME } from '../../assets/styles/theme'
 
-const backgroundColor = 'rgba(1,1,1,1)'
-const addButtonTextColor = '#fff'
 export const underlayColor = 'grey'
 
 const styles = StyleSheet.create({
+  [THEMES.DARK]: {
+    ...THEME[THEMES.DARK].addTodoButton
+  },
+  [THEMES.LIGHT]: {
+    ...THEME[THEMES.LIGHT].addTodoButton
+  },
   container: {
     alignItems: 'center',
-    backgroundColor,
     borderRadius: 75,
     bottom: 30,
     height: 75,
@@ -19,7 +24,6 @@ const styles = StyleSheet.create({
     zIndex: 100
   },
   text: {
-    color: addButtonTextColor,
     fontSize: 50,
     marginBottom: 5
   }

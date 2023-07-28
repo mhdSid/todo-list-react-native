@@ -11,7 +11,11 @@ exports[`TodoList snapshot 1`] = `
   testID="todoList.root"
 >
   <RCTScrollView
-    ListEmptyComponent={<EmptyList />}
+    ListEmptyComponent={
+      <EmptyList
+        theme="light"
+      />
+    }
     contentInsetAdjustmentBehavior="automatic"
     data={
       Array [
@@ -104,12 +108,16 @@ exports[`TodoList snapshot 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
-              "backgroundColor": "rgba(1,1,1,0.1)",
-              "borderRadius": 8,
-              "marginBottom": 5,
-              "padding": 20,
-            }
+            Array [
+              Object {
+                "borderRadius": 8,
+                "marginBottom": 5,
+                "padding": 20,
+              },
+              Object {
+                "backgroundColor": "rgba(1,1,1,0.1)",
+              },
+            ]
           }
           testID="todoListItem.root"
         >
@@ -174,6 +182,11 @@ exports[`TodoList snapshot 1`] = `
               testID="todoListItem.checkbox"
             />
             <Text
+              style={
+                Object {
+                  "color": "#333",
+                }
+              }
               testID="todoListItem.task"
             >
               tttttttttt
@@ -205,12 +218,16 @@ exports[`TodoList snapshot 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
-              "backgroundColor": "rgba(1,1,1,0.1)",
-              "borderRadius": 8,
-              "marginBottom": 5,
-              "padding": 20,
-            }
+            Array [
+              Object {
+                "borderRadius": 8,
+                "marginBottom": 5,
+                "padding": 20,
+              },
+              Object {
+                "backgroundColor": "rgba(1,1,1,0.1)",
+              },
+            ]
           }
           testID="todoListItem.root"
         >
@@ -275,6 +292,11 @@ exports[`TodoList snapshot 1`] = `
               testID="todoListItem.checkbox"
             />
             <Text
+              style={
+                Object {
+                  "color": "#333",
+                }
+              }
               testID="todoListItem.task"
             >
               tttttttttt
@@ -306,12 +328,16 @@ exports[`TodoList snapshot 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
-              "backgroundColor": "rgba(1,1,1,0.1)",
-              "borderRadius": 8,
-              "marginBottom": 5,
-              "padding": 20,
-            }
+            Array [
+              Object {
+                "borderRadius": 8,
+                "marginBottom": 5,
+                "padding": 20,
+              },
+              Object {
+                "backgroundColor": "rgba(1,1,1,0.1)",
+              },
+            ]
           }
           testID="todoListItem.root"
         >
@@ -376,6 +402,11 @@ exports[`TodoList snapshot 1`] = `
               testID="todoListItem.checkbox"
             />
             <Text
+              style={
+                Object {
+                  "color": "#333",
+                }
+              }
               testID="todoListItem.task"
             >
               tttttttttt
@@ -407,12 +438,16 @@ exports[`TodoList snapshot 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
-              "backgroundColor": "rgba(1,1,1,0.1)",
-              "borderRadius": 8,
-              "marginBottom": 5,
-              "padding": 20,
-            }
+            Array [
+              Object {
+                "borderRadius": 8,
+                "marginBottom": 5,
+                "padding": 20,
+              },
+              Object {
+                "backgroundColor": "rgba(1,1,1,0.1)",
+              },
+            ]
           }
           testID="todoListItem.root"
         >
@@ -477,6 +512,11 @@ exports[`TodoList snapshot 1`] = `
               testID="todoListItem.checkbox"
             />
             <Text
+              style={
+                Object {
+                  "color": "#333",
+                }
+              }
               testID="todoListItem.task"
             >
               tttttttttt
@@ -508,12 +548,16 @@ exports[`TodoList snapshot 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
-              "backgroundColor": "rgba(1,1,1,0.1)",
-              "borderRadius": 8,
-              "marginBottom": 5,
-              "padding": 20,
-            }
+            Array [
+              Object {
+                "borderRadius": 8,
+                "marginBottom": 5,
+                "padding": 20,
+              },
+              Object {
+                "backgroundColor": "rgba(1,1,1,0.1)",
+              },
+            ]
           }
           testID="todoListItem.root"
         >
@@ -578,6 +622,11 @@ exports[`TodoList snapshot 1`] = `
               testID="todoListItem.checkbox"
             />
             <Text
+              style={
+                Object {
+                  "color": "#333",
+                }
+              }
               testID="todoListItem.task"
             >
               tttttttttt
@@ -609,12 +658,16 @@ exports[`TodoList snapshot 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
-              "backgroundColor": "rgba(1,1,1,0.1)",
-              "borderRadius": 8,
-              "marginBottom": 5,
-              "padding": 20,
-            }
+            Array [
+              Object {
+                "borderRadius": 8,
+                "marginBottom": 5,
+                "padding": 20,
+              },
+              Object {
+                "backgroundColor": "rgba(1,1,1,0.1)",
+              },
+            ]
           }
           testID="todoListItem.root"
         >
@@ -679,6 +732,11 @@ exports[`TodoList snapshot 1`] = `
               testID="todoListItem.checkbox"
             />
             <Text
+              style={
+                Object {
+                  "color": "#333",
+                }
+              }
               testID="todoListItem.task"
             >
               tttttttttt
@@ -710,12 +768,16 @@ exports[`TodoList snapshot 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
-              "backgroundColor": "rgba(1,1,1,0.1)",
-              "borderRadius": 8,
-              "marginBottom": 5,
-              "padding": 20,
-            }
+            Array [
+              Object {
+                "borderRadius": 8,
+                "marginBottom": 5,
+                "padding": 20,
+              },
+              Object {
+                "backgroundColor": "rgba(1,1,1,0.1)",
+              },
+            ]
           }
           testID="todoListItem.root"
         >
@@ -780,6 +842,11 @@ exports[`TodoList snapshot 1`] = `
               testID="todoListItem.checkbox"
             />
             <Text
+              style={
+                Object {
+                  "color": "#333",
+                }
+              }
               testID="todoListItem.task"
             >
               tttttttttt
@@ -811,12 +878,16 @@ exports[`TodoList snapshot 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
-              "backgroundColor": "rgba(1,1,1,0.1)",
-              "borderRadius": 8,
-              "marginBottom": 5,
-              "padding": 20,
-            }
+            Array [
+              Object {
+                "borderRadius": 8,
+                "marginBottom": 5,
+                "padding": 20,
+              },
+              Object {
+                "backgroundColor": "rgba(1,1,1,0.1)",
+              },
+            ]
           }
           testID="todoListItem.root"
         >
@@ -881,6 +952,11 @@ exports[`TodoList snapshot 1`] = `
               testID="todoListItem.checkbox"
             />
             <Text
+              style={
+                Object {
+                  "color": "#333",
+                }
+              }
               testID="todoListItem.task"
             >
               tttttttttt
@@ -912,12 +988,16 @@ exports[`TodoList snapshot 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
-              "backgroundColor": "rgba(1,1,1,0.1)",
-              "borderRadius": 8,
-              "marginBottom": 5,
-              "padding": 20,
-            }
+            Array [
+              Object {
+                "borderRadius": 8,
+                "marginBottom": 5,
+                "padding": 20,
+              },
+              Object {
+                "backgroundColor": "rgba(1,1,1,0.1)",
+              },
+            ]
           }
           testID="todoListItem.root"
         >
@@ -982,6 +1062,11 @@ exports[`TodoList snapshot 1`] = `
               testID="todoListItem.checkbox"
             />
             <Text
+              style={
+                Object {
+                  "color": "#333",
+                }
+              }
               testID="todoListItem.task"
             >
               tttttttttt
@@ -1013,12 +1098,16 @@ exports[`TodoList snapshot 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
-              "backgroundColor": "rgba(1,1,1,0.1)",
-              "borderRadius": 8,
-              "marginBottom": 5,
-              "padding": 20,
-            }
+            Array [
+              Object {
+                "borderRadius": 8,
+                "marginBottom": 5,
+                "padding": 20,
+              },
+              Object {
+                "backgroundColor": "rgba(1,1,1,0.1)",
+              },
+            ]
           }
           testID="todoListItem.root"
         >
@@ -1083,6 +1172,11 @@ exports[`TodoList snapshot 1`] = `
               testID="todoListItem.checkbox"
             />
             <Text
+              style={
+                Object {
+                  "color": "#333",
+                }
+              }
               testID="todoListItem.task"
             >
               tttttttttt
@@ -1111,29 +1205,37 @@ exports[`TodoList snapshot 1`] = `
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
     style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "rgba(1,1,1,1)",
-        "borderRadius": 75,
-        "bottom": 30,
-        "height": 75,
-        "justifyContent": "center",
-        "position": "absolute",
-        "right": 20,
-        "textAlign": "center",
-        "width": 75,
-        "zIndex": 100,
-      }
+      Array [
+        Object {
+          "alignItems": "center",
+          "borderRadius": 75,
+          "bottom": 30,
+          "height": 75,
+          "justifyContent": "center",
+          "position": "absolute",
+          "right": 20,
+          "textAlign": "center",
+          "width": 75,
+          "zIndex": 100,
+        },
+        Object {
+          "backgroundColor": "black",
+        },
+      ]
     }
     testID="addTodoButton.root"
   >
     <Text
       style={
-        Object {
-          "color": "#fff",
-          "fontSize": 50,
-          "marginBottom": 5,
-        }
+        Array [
+          Object {
+            "fontSize": 50,
+            "marginBottom": 5,
+          },
+          Object {
+            "color": "white",
+          },
+        ]
       }
       testID="addTodoButton.text"
     >

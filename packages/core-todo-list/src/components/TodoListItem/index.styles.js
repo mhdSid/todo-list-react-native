@@ -1,14 +1,20 @@
 import { StyleSheet } from 'react-native'
+import { THEMES } from '../../constants/theme'
+import { THEME } from '../../assets/styles/theme'
 
-const backgroundColor = 'rgba(1,1,1,0.1)'
 export const underlayColor = 'rgba(1,1,1,0.5)'
 
 const styles = StyleSheet.create({
+  [THEMES.DARK]: {
+    ...THEME[THEMES.DARK].todoListItem
+  },
+  [THEMES.LIGHT]: {
+    ...THEME[THEMES.LIGHT].todoListItem
+  },
   checkbox: {
     marginRight: 20
   },
   container: {
-    backgroundColor,
     borderRadius: 8,
     marginBottom: 5,
     padding: 20

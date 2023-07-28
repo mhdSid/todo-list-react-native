@@ -1,0 +1,72 @@
+import { THEMES } from '../../constants/theme'
+
+export const THEME = {
+  [THEMES.DARK]: {
+    container: {
+      title: {
+        color: 'white'
+      },
+      container: {
+        backgroundColor: 'black'
+      },
+      themeText: {
+        color: 'white'
+      }
+    },
+    todoListItem: {
+      text: {
+        color: '#333'
+      },
+      container: {
+        backgroundColor: 'white'
+      }
+    },
+    addTodoButton: {
+      text: {
+        color: 'black'
+      },
+      container: {
+        backgroundColor: 'white'
+      }
+    },
+    emptyTodoList: {
+      emptyListItem: {
+        color: 'white'
+      }
+    }
+  },
+  [THEMES.LIGHT]: {
+    container: {
+      title: {
+        color: 'black'
+      },
+      container: {
+        backgroundColor: 'white'
+      },
+      themeText: {
+        color: '#333'
+      }
+    },
+    todoListItem: {
+      text: {
+        color: '#333'
+      },
+      container: {
+        backgroundColor: 'rgba(1,1,1,0.1)'
+      }
+    },
+    addTodoButton: {
+      text: {
+        color: 'white'
+      },
+      container: {
+        backgroundColor: 'black'
+      }
+    },
+    emptyTodoList: {
+      emptyListItem: {
+        color: '#333'
+      }
+    }
+  }
+}

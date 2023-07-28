@@ -14,15 +14,30 @@ exports[`EmptyTodoList snapshot 1`] = `
 >
   <Text
     style={
-      Object {
-        "marginBottom": 4,
-      }
+      Array [
+        Object {
+          "marginBottom": 4,
+        },
+        Object {
+          "color": "#333",
+        },
+      ]
     }
     testID="emptyTodoList.title"
   >
     Looks like your TODO list is empty!
   </Text>
   <Text
+    style={
+      Array [
+        Object {
+          "marginBottom": 4,
+        },
+        Object {
+          "color": "#333",
+        },
+      ]
+    }
     testID="emptyTodoList.subtitle"
   >
     Add a new task to the list :)

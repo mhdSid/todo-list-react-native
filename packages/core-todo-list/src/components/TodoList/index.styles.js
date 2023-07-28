@@ -1,6 +1,14 @@
 import { StyleSheet } from 'react-native'
+import { THEMES } from '../../constants/theme'
+import { THEME } from '../../assets/styles/theme'
 
 const styles = StyleSheet.create({
+  [THEMES.DARK]: {
+    ...THEME[THEMES.DARK].emptyTodoList
+  },
+  [THEMES.LIGHT]: {
+    ...THEME[THEMES.LIGHT].emptyTodoList
+  },
   emptyListContainer: {
     alignItems: 'center',
     flex: 1,

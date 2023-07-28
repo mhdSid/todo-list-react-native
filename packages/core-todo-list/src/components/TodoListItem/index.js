@@ -4,9 +4,10 @@ import styles, { underlayColor } from './index.styles'
 import PropTypes from 'prop-types'
 import CheckBox from 'expo-checkbox'
 import testSelectors from '../../../test/lib/selector/todoListItem'
+import { THEMES } from '../../constants/theme'
 
 const TodoListItem = React.memo(props => {
-  const { task, id, index, onPress, onChecked } = props
+  const { task, id, index, onPress, onChecked, theme } = props
   const handlePress = () => onPress({ task, id, index })
   const [isChecked, setIsChecked] = useState(false)
   const handleValueChange = value => {
@@ -20,7 +21,7 @@ const TodoListItem = React.memo(props => {
   }
   return (
     <TouchableHighlight
-      style={styles.container}
+      style={[styles.container, styles[theme].container]}
       onPress={handlePress}
       underlayColor={underlayColor}
       testID={testSelectors.root}
@@ -32,7 +33,7 @@ const TodoListItem = React.memo(props => {
           style={styles.checkbox}
           testID={testSelectors.checkbox}
         />
-        <Text testID={testSelectors.task}>{task}</Text>
+        <Text style={styles[theme].text} testID={testSelectors.task}>{task}</Text>
       </View>
     </TouchableHighlight>
   )
@@ -42,6 +43,7 @@ TodoListItem.propTypes = {
   task: PropTypes.string,
   id: PropTypes.string,
   index: PropTypes.number,
+  theme: PropTypes.oneOf([THEMES.DARK, THEMES.LIGHT]),
   onPress: PropTypes.func,
   onChecked: PropTypes.func
 }

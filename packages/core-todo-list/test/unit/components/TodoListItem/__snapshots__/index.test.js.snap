@@ -20,12 +20,16 @@ exports[`TodoListItem snapshot 1`] = `
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
   style={
-    Object {
-      "backgroundColor": "rgba(1,1,1,0.1)",
-      "borderRadius": 8,
-      "marginBottom": 5,
-      "padding": 20,
-    }
+    Array [
+      Object {
+        "borderRadius": 8,
+        "marginBottom": 5,
+        "padding": 20,
+      },
+      Object {
+        "backgroundColor": "rgba(1,1,1,0.1)",
+      },
+    ]
   }
   testID="todoListItem.root"
 >
@@ -90,6 +94,11 @@ exports[`TodoListItem snapshot 1`] = `
       testID="todoListItem.checkbox"
     />
     <Text
+      style={
+        Object {
+          "color": "#333",
+        }
+      }
       testID="todoListItem.task"
     />
   </View>

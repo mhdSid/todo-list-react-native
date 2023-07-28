@@ -6,6 +6,7 @@ import configureStore from 'redux-mock-store'
 import { Alert } from 'react-native'
 import thunk from 'redux-thunk'
 import todoListItemSelectors from '../../../../../lib/selector/todoListItem'
+import WrapThemeProvider from '../../../../../lib/wrapThemeProvider'
 
 const mockStore = configureStore([thunk])
 
@@ -27,7 +28,7 @@ jest.mock('expo-local-authentication', () => ({
 describe('TodoList', () => {
   test('Delete alert is visible with login success', async () => {
     const alertSpy = jest.spyOn(Alert, 'alert')
-    render(<Provider store={store}><Component /></Provider>)
+    render(<Provider store={store}>{WrapThemeProvider(Component)}</Provider>)
     const checkboxList = await screen.findAllByTestId(todoListItemSelectors.checkbox)
     const checkbox = checkboxList[0]
     await act(() => {

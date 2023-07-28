@@ -14,11 +14,13 @@ import { ALERT_TYPES } from '../../constants/alert'
 import getRandomId from '../../util/randomId'
 import testSelectors from '../../../test/lib/selector/todoList'
 import useAlert from '../../hooks/alert/useAlert'
+import { THEMES } from '../../constants/theme'
 
 const TodoList = React.memo(props => {
   const {
     todoList,
     isLoggedIn,
+    theme,
     handleEditTodoListItem,
     handleDeleteTodoListItem,
     handleAddTodoListItem,
@@ -99,6 +101,7 @@ const TodoList = React.memo(props => {
       task={task}
       id={id}
       index={index}
+      theme={theme}
       onPress={handleListItemPress}
       onChecked={handleListItemChecked}
     />
@@ -115,7 +118,7 @@ const TodoList = React.memo(props => {
         maxToRenderPerBatch={10}
         contentInsetAdjustmentBehavior='automatic'
         removeClippedSubviews
-        ListEmptyComponent={<EmptyTodoList />}
+        ListEmptyComponent={<EmptyTodoList theme={theme} />}
         onEndReachedThreshold={0.4}
         horizontal={false}
         showsVerticalScrollIndicator
@@ -126,7 +129,7 @@ const TodoList = React.memo(props => {
         renderItem={renderListItemRow}
         testID={testSelectors.virtualizedList}
       />
-      <AddTodoButton onPress={handleAddTodoButtonPress} testID={testSelectors.addTodoButton} />
+      <AddTodoButton onPress={handleAddTodoButtonPress} theme={theme} testID={testSelectors.addTodoButton} />
     </View>
   )
 })
@@ -134,6 +137,7 @@ const TodoList = React.memo(props => {
 TodoList.propTypes = {
   todoList: PropTypes.array,
   isLoggedIn: PropTypes.bool,
+  theme: PropTypes.oneOf([THEMES.DARK, THEMES.LIGHT]),
   handleEditTodoListItem: PropTypes.func,
   handleDeleteTodoListItem: PropTypes.func,
   handleAddTodoListItem: PropTypes.func,
