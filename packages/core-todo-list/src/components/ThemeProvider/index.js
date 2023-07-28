@@ -1,6 +1,6 @@
 import React, { useState, createContext } from 'react'
-import { THEMES } from '../../constants/theme'
 import PropTypes from 'prop-types'
+import { THEMES } from '../../constants/theme'
 
 export const Context = createContext()
 

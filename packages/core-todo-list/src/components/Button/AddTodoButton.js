@@ -1,9 +1,9 @@
 import React from 'react'
 import { Text, TouchableHighlight } from 'react-native'
-import styles, { underlayColor } from './AddTodoButton.styles'
 import PropTypes from 'prop-types'
-import testSelectors from '../../../test/lib/selector/button/addTodoButton'
+import styles, { underlayColor } from './AddTodoButton.styles'
 import { THEMES } from '../../constants/theme'
+import testSelectors from '../../../test/lib/selector/button/addTodoButton'
 
 const AddTodoButton = props => {
   const { onPress, theme } = props

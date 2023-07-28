@@ -5,8 +5,6 @@ function * iterator () {
 
 const generator = iterator()
 
-const generate = () => {
-  return `${generator.next().value}`
-}
+const generate = () => `${generator.next().value}`
 
 export default generate

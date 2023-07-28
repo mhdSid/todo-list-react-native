@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { Text, View, TouchableHighlight } from 'react-native'
-import styles, { underlayColor } from './index.styles'
 import PropTypes from 'prop-types'
 import CheckBox from 'expo-checkbox'
+import styles, { underlayColor } from './index.styles'
 import testSelectors from '../../../test/lib/selector/todoListItem'
 import { THEMES } from '../../constants/theme'
 

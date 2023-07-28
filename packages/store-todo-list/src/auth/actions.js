@@ -1,5 +1,5 @@
-import { AUTH_LOGIN, AUTH_LOGOUT } from './actionTypes'
 import * as expoLocalAuthentication from 'expo-local-authentication'
+import { AUTH_LOGIN, AUTH_LOGOUT } from './actionTypes'
 
 export const login = () => {
   return async dispatch => {

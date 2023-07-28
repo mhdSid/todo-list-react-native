@@ -1,12 +1,12 @@
 import React from 'react'
 import { render, screen, fireEvent, act } from '@testing-library/react-native'
 import { Provider } from 'react-redux'
-import Component from '../../../../../../src/components/TodoList'
 import configureStore from 'redux-mock-store'
-import addTodoButtonSelectors from '../../../../../lib/selector/button/addTodoButton'
 import { Alert } from 'react-native'
 import thunk from 'redux-thunk'
-import WrapThemeProvider from '../../../../../lib/wrapThemeProvider'
+import Component from '../../../../../../src/components/TodoList'
+import addTodoButtonSelectors from '../../../../../lib/selector/button/addTodoButton'
+import MockThemeProvider from '../../../../../lib/mocks/MockThemeProvider'
 
 const mockStore = configureStore([thunk])
 
@@ -28,7 +28,7 @@ jest.mock('expo-local-authentication', () => ({
 describe('TodoList', () => {
   test('Add alert is visible with login success', async () => {
     const alertSpy = jest.spyOn(Alert, 'alert')
-    render(<Provider store={store}>{WrapThemeProvider(Component)}</Provider>)
+    render(<Provider store={store}>{MockThemeProvider(Component)}</Provider>)
     const addTodoButton = await screen.findByTestId(addTodoButtonSelectors.root)
     await act(() => {
       fireEvent.press(addTodoButton)

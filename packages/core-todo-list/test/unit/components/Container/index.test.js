@@ -1,10 +1,10 @@
 import React from 'react'
 import { render } from '@testing-library/react-native'
+import { Provider } from 'react-redux'
+import configureStore from 'redux-mock-store'
 import Component from '../../../../src/components/Container'
 import selectors from '../../../lib/selector/container'
 import todoListSelectors from '../../../lib/selector/todoList'
-import { Provider } from 'react-redux'
-import configureStore from 'redux-mock-store'
 
 jest.mock('expo-local-authentication', () => ({}))
 

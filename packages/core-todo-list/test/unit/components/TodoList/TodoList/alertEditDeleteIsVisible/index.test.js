@@ -1,12 +1,12 @@
 import React from 'react'
 import { render, screen, fireEvent, act } from '@testing-library/react-native'
 import { Provider } from 'react-redux'
-import Component from '../../../../../../src/components/TodoList'
 import configureStore from 'redux-mock-store'
 import { Alert } from 'react-native'
 import thunk from 'redux-thunk'
+import Component from '../../../../../../src/components/TodoList'
 import todoListItemSelectors from '../../../../../lib/selector/todoListItem'
-import WrapThemeProvider from '../../../../../lib/wrapThemeProvider'
+import MockThemeProvider from '../../../../../lib/mocks/MockThemeProvider'
 
 const mockStore = configureStore([thunk])
 
@@ -28,7 +28,7 @@ jest.mock('expo-local-authentication', () => ({
 describe('TodoList', () => {
   test('Edit-Delete alert is visible with login success', async () => {
     const alertSpy = jest.spyOn(Alert, 'alert')
-    render(<Provider store={store}>{WrapThemeProvider(Component)}</Provider>)
+    render(<Provider store={store}>{MockThemeProvider(Component)}</Provider>)
     const todoListItems = await screen.findAllByTestId(todoListItemSelectors.root)
     const todoListItem = todoListItems[0]
     await act(() => {
