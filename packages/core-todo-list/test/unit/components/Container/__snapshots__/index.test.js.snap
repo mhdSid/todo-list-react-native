@@ -3,13 +3,19 @@
 exports[`Container snapshot with empty full store 1`] = `
 <View
   style={
-    Object {
-      "backgroundColor": "white",
-      "height": "100%",
-      "paddingBottom": undefined,
-      "paddingHorizontal": 10,
-      "paddingTop": undefined,
-    }
+    Array [
+      Object {
+        "paddingBottom": undefined,
+        "paddingTop": undefined,
+      },
+      Object {
+        "height": "100%",
+        "paddingHorizontal": 10,
+      },
+      Object {
+        "backgroundColor": "white",
+      },
+    ]
   }
   testID="container.root"
 >
@@ -1337,13 +1343,19 @@ exports[`Container snapshot with empty full store 1`] = `
 exports[`Container snapshot with empty store 1`] = `
 <View
   style={
-    Object {
-      "backgroundColor": "white",
-      "height": "100%",
-      "paddingBottom": undefined,
-      "paddingHorizontal": 10,
-      "paddingTop": undefined,
-    }
+    Array [
+      Object {
+        "paddingBottom": undefined,
+        "paddingTop": undefined,
+      },
+      Object {
+        "height": "100%",
+        "paddingHorizontal": 10,
+      },
+      Object {
+        "backgroundColor": "white",
+      },
+    ]
   }
   testID="container.root"
 >

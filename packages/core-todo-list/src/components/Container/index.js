@@ -12,18 +12,13 @@ import light from '../../assets/images/light.png'
 
 export default function Container () {
   const { top: paddingTop, bottom: paddingBottom } = useSafeAreaInsets()
-
-  const handleThemeChange = toggleTheme => {
-    return () => {
-      toggleTheme()
-    }
-  }
+  const handleThemeChange = toggleTheme => () => toggleTheme()
   return (
     <ThemeProvider>
       <Context.Consumer>
         {
           ({ toggleTheme, theme }) => (
-            <View style={{ paddingTop, paddingBottom, ...styles.container, ...styles[theme].container }} testID={testSelectors.root}>
+            <View style={[{ paddingTop, paddingBottom }, styles.container, styles[theme].container]} testID={testSelectors.root}>
               <View style={styles.headerRow}>
                 <Text style={[styles.title, styles[theme].title]} testID={testSelectors.title}>{APP_TITLE}</Text>
                 <TouchableOpacity onPress={handleThemeChange(toggleTheme)}>
