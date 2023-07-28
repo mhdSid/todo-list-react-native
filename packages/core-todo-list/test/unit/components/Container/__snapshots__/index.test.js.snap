@@ -41,73 +41,50 @@ exports[`Container snapshot with empty full store 1`] = `
       To-Do List
     </Text>
     <View
+      accessibilityState={
+        Object {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        Object {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "display": "flex",
-          "flexDirection": "row",
+          "opacity": 1,
         }
       }
     >
-      <Text
-        style={
-          Array [
-            Object {
-              "marginRight": 5,
-            },
-            Object {
-              "color": "#333",
-            },
-          ]
-        }
-      >
-        dark
-      </Text>
-      <View
-        accessibilityRole="checkbox"
-        accessibilityState={
+      <Image
+        source={
           Object {
-            "busy": undefined,
-            "checked": false,
-            "disabled": undefined,
-            "expanded": undefined,
-            "selected": undefined,
+            "testUri": "../../../packages/core-todo-list/src/assets/images/dark.png",
           }
         }
-        accessibilityValue={
-          Object {
-            "max": undefined,
-            "min": undefined,
-            "now": undefined,
-            "text": undefined,
-          }
-        }
-        accessible={true}
-        collapsable={false}
-        focusable={true}
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
         style={
-          Array [
-            Object {
-              "borderColor": "#657786",
-              "borderRadius": 2,
-              "borderWidth": 2,
-              "height": 20,
-              "width": 20,
-            },
-            undefined,
-            false,
-            false,
-            undefined,
-            false,
-          ]
+          Object {
+            "height": 24,
+            "width": 24,
+          }
         }
       />
     </View>
@@ -1398,73 +1375,50 @@ exports[`Container snapshot with empty store 1`] = `
       To-Do List
     </Text>
     <View
+      accessibilityState={
+        Object {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        Object {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "display": "flex",
-          "flexDirection": "row",
+          "opacity": 1,
         }
       }
     >
-      <Text
-        style={
-          Array [
-            Object {
-              "marginRight": 5,
-            },
-            Object {
-              "color": "#333",
-            },
-          ]
-        }
-      >
-        dark
-      </Text>
-      <View
-        accessibilityRole="checkbox"
-        accessibilityState={
+      <Image
+        source={
           Object {
-            "busy": undefined,
-            "checked": false,
-            "disabled": undefined,
-            "expanded": undefined,
-            "selected": undefined,
+            "testUri": "../../../packages/core-todo-list/src/assets/images/dark.png",
           }
         }
-        accessibilityValue={
-          Object {
-            "max": undefined,
-            "min": undefined,
-            "now": undefined,
-            "text": undefined,
-          }
-        }
-        accessible={true}
-        collapsable={false}
-        focusable={true}
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
         style={
-          Array [
-            Object {
-              "borderColor": "#657786",
-              "borderRadius": 2,
-              "borderWidth": 2,
-              "height": 20,
-              "width": 20,
-            },
-            undefined,
-            false,
-            false,
-            undefined,
-            false,
-          ]
+          Object {
+            "height": 24,
+            "width": 24,
+          }
         }
       />
     </View>

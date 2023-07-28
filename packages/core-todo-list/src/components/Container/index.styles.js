@@ -9,6 +9,10 @@ const styles = StyleSheet.create({
   [THEMES.LIGHT]: {
     ...THEME[THEMES.LIGHT].container
   },
+  themeImage: {
+    width: 24,
+    height: 24
+  },
   checkboxContainer: {
     display: 'flex',
     flexDirection: 'row'
