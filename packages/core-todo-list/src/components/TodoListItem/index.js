@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import { Text, View, TouchableHighlight } from 'react-native'
 import PropTypes from 'prop-types'
 import CheckBox from 'expo-checkbox'
+import { THEMES } from '@todo-list/store-todo-list/src/theme/constants'
 import styles, { underlayColor } from './index.styles'
 import testSelectors from '../../../test/lib/selector/todoListItem'
-import { THEMES } from '../../constants/theme'
 
 const TodoListItem = React.memo(props => {
   const { task, id, index, onPress, onChecked, theme } = props

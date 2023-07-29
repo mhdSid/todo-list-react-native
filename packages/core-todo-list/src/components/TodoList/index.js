@@ -6,6 +6,7 @@ import { addTodoListItem, editTodoListItem, deleteTodoListItem } from '@todo-lis
 import { login, logout } from '@todo-list/store-todo-list/src/auth/actions'
 import todoListSelector from '@todo-list/store-todo-list/src/todo-list/selector'
 import isLoggedInSelector from '@todo-list/store-todo-list/src/auth/selector'
+import { THEMES } from '@todo-list/store-todo-list/src/theme/constants'
 import styles from './index.styles'
 import TodoListItem from '../TodoListItem'
 import EmptyTodoList from './EmptyTodoList'
@@ -14,7 +15,6 @@ import { ALERT_TYPES } from '../../constants/alert'
 import getRandomId from '../../util/randomId'
 import testSelectors from '../../../test/lib/selector/todoList'
 import useAlert from '../../hooks/alert/useAlert'
-import { THEMES } from '../../constants/theme'
 
 const TodoList = React.memo(props => {
   const {

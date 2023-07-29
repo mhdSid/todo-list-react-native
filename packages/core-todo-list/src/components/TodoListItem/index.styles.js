@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { THEMES } from '../../constants/theme'
+import { THEMES } from '@todo-list/store-todo-list/src/theme/constants'
 import { THEME } from '../../assets/styles/theme'
 
 export const underlayColor = 'rgba(1,1,1,0.5)'

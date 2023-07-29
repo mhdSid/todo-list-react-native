@@ -1,7 +1,8 @@
 import { THEME_SET_THEME } from './actionTypes'
+import { THEMES } from './constants'
 
 const initialState = {
-  theme: null
+  theme: THEMES.LIGHT
 }
 
 export default function (state = initialState, action) {

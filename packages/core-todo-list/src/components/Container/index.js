@@ -1,12 +1,12 @@
 import React from 'react'
 import { View, Text, Image, TouchableOpacity } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import { THEMES } from '@todo-list/store-todo-list/src/theme/constants'
 import TodoList from '../TodoList'
 import styles from './index.styles'
 import testSelectors from '../../../test/lib/selector/container'
 import { APP_TITLE } from '../../constants/container'
 import ThemeProvider, { Context } from '../ThemeProvider'
-import { THEMES } from '../../constants/theme'
 import dark from '../../assets/images/dark.png'
 import light from '../../assets/images/light.png'
 

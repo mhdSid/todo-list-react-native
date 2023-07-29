@@ -1,10 +1,10 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 import PropTypes from 'prop-types'
+import { THEMES } from '@todo-list/store-todo-list/src/theme/constants'
 import styles from './index.styles'
 import testSelectors from '../../../test/lib/selector/todoList/emptyTodoList'
 import { EMPTY_TODO_LIST } from '../../constants/emptyTodoList'
-import { THEMES } from '../../constants/theme'
 
 export default function EmptyList (props) {
   const { theme } = props

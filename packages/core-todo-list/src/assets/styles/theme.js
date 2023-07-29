@@ -1,4 +1,4 @@
-import { THEMES } from '../../constants/theme'
+import { THEMES } from '@todo-list/store-todo-list/src/theme/constants'
 
 export const THEME = {
   [THEMES.DARK]: {
