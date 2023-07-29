@@ -13,7 +13,7 @@ exports[`Container snapshot with empty full store 1`] = `
         "paddingHorizontal": 10,
       },
       Object {
-        "backgroundColor": "white",
+        "backgroundColor": "black",
       },
     ]
   }
@@ -38,7 +38,7 @@ exports[`Container snapshot with empty full store 1`] = `
             "marginTop": 10,
           },
           Object {
-            "color": "black",
+            "color": "white",
           },
         ]
       }
@@ -83,7 +83,7 @@ exports[`Container snapshot with empty full store 1`] = `
       <Image
         source={
           Object {
-            "testUri": "../../../packages/core-todo-list/src/assets/images/dark.png",
+            "testUri": "../../../packages/core-todo-list/src/assets/images/light.png",
           }
         }
         style={
@@ -107,7 +107,7 @@ exports[`Container snapshot with empty full store 1`] = `
     <RCTScrollView
       ListEmptyComponent={
         <EmptyList
-          theme="light"
+          theme="dark"
         />
       }
       contentInsetAdjustmentBehavior="automatic"
@@ -209,7 +209,7 @@ exports[`Container snapshot with empty full store 1`] = `
                   "padding": 20,
                 },
                 Object {
-                  "backgroundColor": "rgba(1,1,1,0.1)",
+                  "backgroundColor": "white",
                 },
               ]
             }
@@ -319,7 +319,7 @@ exports[`Container snapshot with empty full store 1`] = `
                   "padding": 20,
                 },
                 Object {
-                  "backgroundColor": "rgba(1,1,1,0.1)",
+                  "backgroundColor": "white",
                 },
               ]
             }
@@ -429,7 +429,7 @@ exports[`Container snapshot with empty full store 1`] = `
                   "padding": 20,
                 },
                 Object {
-                  "backgroundColor": "rgba(1,1,1,0.1)",
+                  "backgroundColor": "white",
                 },
               ]
             }
@@ -539,7 +539,7 @@ exports[`Container snapshot with empty full store 1`] = `
                   "padding": 20,
                 },
                 Object {
-                  "backgroundColor": "rgba(1,1,1,0.1)",
+                  "backgroundColor": "white",
                 },
               ]
             }
@@ -649,7 +649,7 @@ exports[`Container snapshot with empty full store 1`] = `
                   "padding": 20,
                 },
                 Object {
-                  "backgroundColor": "rgba(1,1,1,0.1)",
+                  "backgroundColor": "white",
                 },
               ]
             }
@@ -759,7 +759,7 @@ exports[`Container snapshot with empty full store 1`] = `
                   "padding": 20,
                 },
                 Object {
-                  "backgroundColor": "rgba(1,1,1,0.1)",
+                  "backgroundColor": "white",
                 },
               ]
             }
@@ -869,7 +869,7 @@ exports[`Container snapshot with empty full store 1`] = `
                   "padding": 20,
                 },
                 Object {
-                  "backgroundColor": "rgba(1,1,1,0.1)",
+                  "backgroundColor": "white",
                 },
               ]
             }
@@ -979,7 +979,7 @@ exports[`Container snapshot with empty full store 1`] = `
                   "padding": 20,
                 },
                 Object {
-                  "backgroundColor": "rgba(1,1,1,0.1)",
+                  "backgroundColor": "white",
                 },
               ]
             }
@@ -1089,7 +1089,7 @@ exports[`Container snapshot with empty full store 1`] = `
                   "padding": 20,
                 },
                 Object {
-                  "backgroundColor": "rgba(1,1,1,0.1)",
+                  "backgroundColor": "white",
                 },
               ]
             }
@@ -1199,7 +1199,7 @@ exports[`Container snapshot with empty full store 1`] = `
                   "padding": 20,
                 },
                 Object {
-                  "backgroundColor": "rgba(1,1,1,0.1)",
+                  "backgroundColor": "white",
                 },
               ]
             }
@@ -1313,7 +1313,7 @@ exports[`Container snapshot with empty full store 1`] = `
             "zIndex": 100,
           },
           Object {
-            "backgroundColor": "black",
+            "backgroundColor": "white",
           },
         ]
       }
@@ -1327,7 +1327,7 @@ exports[`Container snapshot with empty full store 1`] = `
               "marginBottom": 5,
             },
             Object {
-              "color": "white",
+              "color": "black",
             },
           ]
         }

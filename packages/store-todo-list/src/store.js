@@ -7,7 +7,7 @@ import rootReducer from './reducer'
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: ['todoList'],
+  whitelist: ['todoList', 'theme'],
   blackList: ['auth']
 }
 

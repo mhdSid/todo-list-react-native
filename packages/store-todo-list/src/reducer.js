@@ -3,9 +3,17 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import { persistReducer } from 'redux-persist'
 import todoListReducer from './todo-list/reducer'
 import authReducer from './auth/reducer'
+import themeReducer from './theme/reducer'
 
 const rootReducer = combineReducers({
   auth: authReducer,
+  theme: persistReducer(
+    {
+      key: 'root:theme:reducer',
+      storage: AsyncStorage
+    },
+    themeReducer
+  ),
   todoList: persistReducer(
     {
       key: 'root:todoList:reducer',

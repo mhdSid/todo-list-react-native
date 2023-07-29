@@ -1,6 +1,4 @@
-import React from 'react'
 import { render, screen, fireEvent, act } from '@testing-library/react-native'
-import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
 import { Alert } from 'react-native'
 import thunk from 'redux-thunk'
@@ -18,6 +16,9 @@ const store = mockStore({
     user: {
       isLoggedIn: true
     }
+  },
+  theme: {
+    theme: 'light'
   }
 })
 
@@ -28,7 +29,7 @@ jest.mock('expo-local-authentication', () => ({
 describe('TodoList', () => {
   test('Edit-Delete alert is visible with login success', async () => {
     const alertSpy = jest.spyOn(Alert, 'alert')
-    render(<Provider store={store}>{MockThemeProvider(Component)}</Provider>)
+    render(MockThemeProvider(Component, store))
     const todoListItems = await screen.findAllByTestId(todoListItemSelectors.root)
     const todoListItem = todoListItems[0]
     await act(() => {

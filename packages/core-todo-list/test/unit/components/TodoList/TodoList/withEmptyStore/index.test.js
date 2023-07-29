@@ -1,6 +1,4 @@
-import React from 'react'
 import { render } from '@testing-library/react-native'
-import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import configureStore from 'redux-mock-store'
 import Component from '../../../../../../src/components/TodoList'
@@ -22,27 +20,30 @@ const store = mockStore({
     user: {
       isLoggedIn: false
     }
+  },
+  theme: {
+    theme: 'light'
   }
 })
 
 describe('TodoList', () => {
   test('root exists', async () => {
-    const element = render(<Provider store={store}>{MockThemeProvider(Component)}</Provider>)
+    const element = render(MockThemeProvider(Component, store))
     const root = await element.findByTestId(selectors.root)
     expect(root).toBeDefined()
   })
   test('virtualizedList exists', async () => {
-    const element = render(<Provider store={store}>{MockThemeProvider(Component)}</Provider>)
+    const element = render(MockThemeProvider(Component, store))
     const virtualizedList = await element.findByTestId(selectors.virtualizedList)
     expect(virtualizedList).toBeDefined()
   })
   test('addTodoButton exists', async () => {
-    const element = render(<Provider store={store}>{MockThemeProvider(Component)}</Provider>)
+    const element = render(MockThemeProvider(Component, store))
     const addTodoButton = await element.findByTestId(addTodoButtonSelectors.root)
     expect(addTodoButton).toBeDefined()
   })
   test('snapshot', () => {
-    const data = render(<Provider store={store}>{MockThemeProvider(Component)}</Provider>).toJSON()
+    const data = render(MockThemeProvider(Component, store)).toJSON()
     expect(data).toMatchSnapshot()
   })
 })

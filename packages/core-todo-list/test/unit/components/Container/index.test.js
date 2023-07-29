@@ -22,6 +22,9 @@ describe('Container', () => {
       user: {
         isLoggedIn: false
       }
+    },
+    theme: {
+      theme: 'light'
     }
   })
   const fullStore = mockStore({
@@ -32,6 +35,9 @@ describe('Container', () => {
       user: {
         isLoggedIn: true
       }
+    },
+    theme: {
+      theme: 'dark'
     }
   })
   test('root exists', async () => {
