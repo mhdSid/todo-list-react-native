@@ -1314,6 +1314,8 @@ exports[`Container snapshot with empty full store 1`] = `
           },
           Object {
             "backgroundColor": "white",
+            "borderColor": "black",
+            "borderWidth": 4,
           },
         ]
       }

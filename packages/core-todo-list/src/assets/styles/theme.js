@@ -26,7 +26,9 @@ export const THEME = {
         color: 'black'
       },
       container: {
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        borderColor: 'black',
+        borderWidth: 4
       }
     },
     emptyTodoList: {

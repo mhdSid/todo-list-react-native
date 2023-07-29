@@ -1220,6 +1220,8 @@ exports[`TodoList snapshot 1`] = `
         },
         Object {
           "backgroundColor": "white",
+          "borderColor": "black",
+          "borderWidth": 4,
         },
       ]
     }
