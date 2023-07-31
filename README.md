@@ -16,12 +16,18 @@ nvm use 16.14.2
 ```
 
 ```bash
-# Using Yarn
+# Install Pods
+cd ios
+pod install
+```
+
+```bash
+# Install dependencies using Yarn
 yarn
 ```
 
 ```bash
-# Using Yarn
+# Run metro server using Yarn
 yarn start
 ```
 
