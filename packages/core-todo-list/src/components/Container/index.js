@@ -18,7 +18,7 @@ export default function Container () {
       <Context.Consumer>
         {
           ({ toggleTheme, theme }) => (
-            <View style={[{ paddingTop, paddingBottom }, styles.container, styles[theme].container]} testID={testSelectors.root}>
+            <View style={[{ marginTop: paddingTop, paddingBottom }, styles.container, styles[theme].container]} testID={testSelectors.root}>
               <View style={styles.headerRow}>
                 <Text style={[styles.title, styles[theme].title]} testID={testSelectors.title}>{APP_TITLE}</Text>
                 <TouchableOpacity onPress={handleThemeChange(toggleTheme)}>

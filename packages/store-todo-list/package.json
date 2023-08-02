@@ -5,12 +5,12 @@
     "eslint": "../../node_modules/.bin/jest --config eslint.jest.config.js"
   },
   "dependencies": {
-    "redux": "^4.2.1",
+    "@react-native-async-storage/async-storage": "^1.19.1",
     "react-redux": "^8.1.1",
-    "reselect": "^4.1.8",
-    "redux-thunk": "^2.4.2",
     "redux-persist": "^6.0.0",
-    "@react-native-async-storage/async-storage": "^1.19.1"
+    "redux-thunk": "^2.4.2",
+    "redux": "^4.2.1",
+    "reselect": "^4.1.8"
   },
   "devDependencies": {
     "@todo-list/jest-config": "1.0.0"
