@@ -1,6 +1,8 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
 import { THEMES } from '@todo-list/store-todo-list/src/theme/constants'
 import { THEME } from '../../assets/styles/theme'
+
+export const windowHeight = Dimensions.get('window').height
 
 const styles = StyleSheet.create({
   [THEMES.DARK]: {
@@ -14,7 +16,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
   container: {
-    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
     paddingHorizontal: 10
   },
   headerRow: {
@@ -34,6 +37,9 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginBottom: 10,
     marginTop: 10
+  },
+  todoListContainer: {
+    flex: 1
   }
 })
 

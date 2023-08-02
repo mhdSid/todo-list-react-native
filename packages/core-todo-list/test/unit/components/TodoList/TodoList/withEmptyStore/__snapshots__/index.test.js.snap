@@ -4,7 +4,7 @@ exports[`TodoList snapshot 1`] = `
 <View
   style={
     Object {
-      "height": "92%",
+      "height": "100%",
       "width": "100%",
     }
   }
