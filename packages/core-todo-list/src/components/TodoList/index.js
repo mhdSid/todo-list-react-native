@@ -32,6 +32,9 @@ const TodoList = React.memo(props => {
   const [selectedTodoListItem, setSelectedTodoListItem] = useState(null)
 
   /* Reset State */
+  // This method is called to ask user to enter their credentials before any action.
+  // The invokation of this method can be updated to match the specs and the expected behavior of the app.
+  // Currently, there is enforced authentication mode, so login state is reset after CRUDing the todo-list-store/src/todo-list store
   const handleResetState = () => {
     setSelectedTodoListItem(null)
     setAlertType(null)
