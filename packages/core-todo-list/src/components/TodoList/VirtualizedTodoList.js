@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import styles from './index.styles'
 import TodoListItem from '../TodoListItem'
 import EmptyTodoList from './EmptyTodoList'
-import testSelectors from '../../../test/lib/selector/todoList'
+import testSelectors from '../../../test/lib/selector/todoList/todoListContainer'
 
 const VirtualizedTodoList = React.memo(props => {
   const {

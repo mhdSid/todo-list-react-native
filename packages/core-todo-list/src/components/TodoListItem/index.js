@@ -34,7 +34,7 @@ const TodoListItem = React.memo(props => {
           style={styles.checkbox}
           testID={testSelectors.checkbox}
         />
-        <Text style={styles[theme].text} testID={testSelectors.task}>{task + ' ' + Math.floor(Math.random() * 10)}</Text>
+        <Text style={styles[theme].text} testID={testSelectors.task}>{task}</Text>
       </View>
     </TouchableHighlight>
   )

@@ -2,7 +2,7 @@ import { render } from '@testing-library/react-native'
 import configureStore from 'redux-mock-store'
 import Component from '../../../../src/components/Container'
 import selectors from '../../../lib/selector/container'
-import todoListSelectors from '../../../lib/selector/todoList'
+import todoListSelectors from '../../../lib/selector/todoList/todoListContainer'
 import MockThemeProvider from '../../../lib/mocks/MockThemeProvider'
 
 jest.mock('expo-local-authentication', () => ({}))

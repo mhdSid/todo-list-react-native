@@ -2,7 +2,7 @@ import { render } from '@testing-library/react-native'
 import configureStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import Component from '../../../../../../src/components/TodoList/TodoListContainer'
-import selectors from '../../../../../lib/selector/todoList'
+import selectors from '../../../../../lib/selector/todoList/todoListContainer'
 import addTodoButtonSelectors from '../../../../../lib/selector/button/addTodoButton'
 import MockThemeProvider from '../../../../../lib/mocks/MockThemeProvider'
 

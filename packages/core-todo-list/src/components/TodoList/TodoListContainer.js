@@ -10,7 +10,7 @@ import styles from './index.styles'
 import AddTodoButton from '../Button/AddTodoButton'
 import { ALERT_TYPES } from '../../constants/alert'
 import getRandomId from '../../util/randomId'
-import testSelectors from '../../../test/lib/selector/todoList'
+import testSelectors from '../../../test/lib/selector/todoList/todoListContainer'
 import useAlert from '../../hooks/alert/useAlert'
 import VirtualizedTodoList from './VirtualizedTodoList'
 
