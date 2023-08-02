@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { forwardRef, useCallback, useRef } from 'react'
 import { VirtualizedList } from 'react-native'
 import PropTypes from 'prop-types'
 import styles from './index.styles'
@@ -6,11 +6,8 @@ import TodoListItem from '../TodoListItem'
 import EmptyTodoList from './EmptyTodoList'
 import testSelectors from '../../../test/lib/selector/todoList/todoListContainer'
 
-const VirtualizedTodoList = React.memo(props => {
-  const {
-    todoList, handleListItemPress, handleListItemChecked
-  } = props
-
+const VirtualizedTodoList = forwardRef((props, ref) => {
+  const { todoList, handleListItemPress, handleListItemChecked } = props
   const renderListItemRow = useCallback(({ item: { task, id }, index }) => (
     <TodoListItem
       task={task}
@@ -31,6 +28,7 @@ const VirtualizedTodoList = React.memo(props => {
       maxToRenderPerBatch={10}
       contentInsetAdjustmentBehavior='automatic'
       removeClippedSubviews
+      ref={ref}
       ListEmptyComponent={<EmptyTodoList />}
       onEndReachedThreshold={0.2}
       horizontal={false}

@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { forwardRef, useCallback, useRef, useState } from 'react'
 import { View } from 'react-native'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
@@ -27,6 +27,7 @@ const TodoList = React.memo(props => {
 
   const [alertType, setAlertType] = useState(null)
   const [selectedTodoListItem, setSelectedTodoListItem] = useState(null)
+  const virtualizedTodoListRef = useRef(null)
 
   /* Reset State */
   // This method is called to ask user to enter their credentials before any action.
@@ -48,6 +49,7 @@ const TodoList = React.memo(props => {
       handleAddTodoListItem({ task: text, id: getRandomId() })
     }
     handleResetState()
+    virtualizedTodoListRef.current.scrollToIndex({ index: 0, animated: true })
   }
   const handleEdit = ({ text }) => {
     if (text) {
@@ -97,7 +99,7 @@ const TodoList = React.memo(props => {
 
   return (
     <View style={styles.todoListContainer} testID={testSelectors.root}>
-      <VirtualizedTodoList todoList={todoList} handleListItemChecked={handleListItemChecked} handleListItemPress={handleListItemPress} />
+      <VirtualizedTodoList ref={virtualizedTodoListRef} todoList={todoList} handleListItemChecked={handleListItemChecked} handleListItemPress={handleListItemPress} />
       <AddTodoButton onPress={handleAddTodoButtonPress} testID={testSelectors.addTodoButton} />
     </View>
   )

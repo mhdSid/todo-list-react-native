@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useCallback, useContext, useState } from 'react'
 import { Text, View, TouchableHighlight } from 'react-native'
 import PropTypes from 'prop-types'
 import CheckBox from 'expo-checkbox'
@@ -11,7 +11,7 @@ const TodoListItem = React.memo(props => {
   const { theme } = useContext(ThemeContext)
   const handlePress = () => onPress({ task, id, index })
   const [isChecked, setIsChecked] = useState(false)
-  const handleValueChange = value => {
+  const handleValueChange = useCallback(value => {
     setIsChecked(value)
     onChecked({
       task,
@@ -19,7 +19,7 @@ const TodoListItem = React.memo(props => {
       index,
       checked: value
     })
-  }
+  }, [])
   return (
     <TouchableHighlight
       style={[styles.container, styles[theme].container]}
