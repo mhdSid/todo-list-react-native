@@ -9,9 +9,6 @@ const styles = StyleSheet.create({
   [THEMES.LIGHT]: {
     ...THEME[THEMES.LIGHT].emptyTodoList
   },
-  virtualizedListContentContainer: {
-    paddingBottom: 20
-  },
   emptyListContainer: {
     alignItems: 'center',
     flex: 1,
@@ -24,6 +21,9 @@ const styles = StyleSheet.create({
   todoListContainer: {
     height: '100%',
     width: '100%'
+  },
+  virtualizedListContentContainer: {
+    paddingBottom: 20
   }
 })
 

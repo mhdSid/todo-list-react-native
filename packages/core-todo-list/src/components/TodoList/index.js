@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useCallback, useRef, useState } from 'react'
 import { VirtualizedList, View } from 'react-native'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
@@ -101,7 +101,7 @@ const TodoList = React.memo(props => {
   }
 
   /* Virtualized List Props */
-  const renderListItemRow = ({ item: { task, id }, index }) => (
+  const renderListItemRow = useCallback(({ item: { task, id }, index }) => (
     <TodoListItem
       task={task}
       id={id}
@@ -110,7 +110,7 @@ const TodoList = React.memo(props => {
       onPress={handleListItemPress}
       onChecked={handleListItemChecked}
     />
-  )
+  ), [theme])
   const getItem = (data, index) => data[index]
   const getItemCount = () => todoList.length || 0
   const getItemKey = ({ id, task }) => `${id}-${task}`
