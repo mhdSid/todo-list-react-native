@@ -5,8 +5,8 @@ exports[`Container snapshot with empty full store 1`] = `
   style={
     Array [
       Object {
+        "marginTop": undefined,
         "paddingBottom": undefined,
-        "paddingTop": undefined,
       },
       Object {
         "height": "100%",
@@ -1347,8 +1347,8 @@ exports[`Container snapshot with empty store 1`] = `
   style={
     Array [
       Object {
+        "marginTop": undefined,
         "paddingBottom": undefined,
-        "paddingTop": undefined,
       },
       Object {
         "height": "100%",
