@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native'
 import { THEMES } from '@todo-list/store-todo-list/src/theme/constants'
 import { THEME } from '../../assets/styles/theme'
 
-export const underlayColor = 'rgba(1,1,1,0.5)'
+export const underlayColor = 'grey'
 
 const styles = StyleSheet.create({
   [THEMES.DARK]: {
