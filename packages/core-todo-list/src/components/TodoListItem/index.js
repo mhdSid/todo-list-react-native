@@ -7,20 +7,15 @@ import testSelectors from '../../../test/lib/selector/todoListItem'
 import { ThemeContext } from '../ThemeProvider'
 
 const TodoListItem = React.memo(props => {
-  const { task, id, index, onPress, onChecked } = props
+  const { task, id, onPress, onChecked } = props
   const { theme } = useContext(ThemeContext)
   const [isChecked, setIsChecked] = useState(false)
 
   const handleValueChange = useCallback(value => {
     setIsChecked(value)
-    onChecked({
-      task,
-      id,
-      index,
-      checked: value
-    })
+    onChecked({ task, id, checked: value })
   }, [])
-  const handlePress = useCallback(() => onPress({ task, id, index }))
+  const handlePress = useCallback(() => onPress({ task, id }))
 
   return (
     <TouchableHighlight
@@ -45,7 +40,6 @@ const TodoListItem = React.memo(props => {
 TodoListItem.propTypes = {
   task: PropTypes.string,
   id: PropTypes.string,
-  index: PropTypes.number,
   onPress: PropTypes.func,
   onChecked: PropTypes.func
 }

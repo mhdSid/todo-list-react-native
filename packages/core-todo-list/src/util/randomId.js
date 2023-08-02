@@ -1,10 +1,3 @@
-function * iterator () {
-  let index = 1
-  while (true) { yield index++ }
+export default function generate () {
+  return `${Math.floor(Math.random() * Date.now())}`
 }
-
-const generator = iterator()
-
-const generate = () => `${generator.next().value}`
-
-export default generate

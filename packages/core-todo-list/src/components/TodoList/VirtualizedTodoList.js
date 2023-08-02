@@ -9,11 +9,10 @@ import testSelectors from '../../../test/lib/selector/todoList/virtualizedTodoLi
 const VirtualizedTodoList = React.memo(forwardRef((props, ref) => {
   const { todoList, handleListItemPress, handleListItemChecked } = props
 
-  const renderListItemRow = useCallback(({ item: { task, id }, index }) => (
+  const renderListItemRow = useCallback(({ item: { task, id } }) => (
     <TodoListItem
       task={task}
       id={id}
-      index={index}
       onPress={handleListItemPress}
       onChecked={handleListItemChecked}
     />

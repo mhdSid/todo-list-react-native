@@ -21,8 +21,9 @@ export default function (state = initialState, action) {
       }
     }
     case DELETE_TODO_LIST_ITEM: {
-      const { index } = action.payload
+      const { id } = action.payload
       const { list } = state
+      const index = list.findIndex(({ id: itemId }) => itemId === id)
       list.splice(index, 1)
       return {
         ...state,
@@ -30,8 +31,9 @@ export default function (state = initialState, action) {
       }
     }
     case EDIT_TODO_LIST_ITEM: {
-      const { task, index } = action.payload
+      const { task, id } = action.payload
       const { list } = state
+      const index = list.findIndex(({ id: itemId }) => itemId === id)
       list[index] = { ...list[index], task }
       return {
         ...state,

@@ -9,20 +9,20 @@ export const addTodoListItem = ({ task, id }) => {
   }
 }
 
-export const deleteTodoListItem = ({ index }) => {
+export const deleteTodoListItem = ({ id }) => {
   return dispatch => {
     return dispatch({
       type: DELETE_TODO_LIST_ITEM,
-      payload: { index }
+      payload: { id }
     })
   }
 }
 
-export const editTodoListItem = ({ task, index }) => {
+export const editTodoListItem = ({ task, id }) => {
   return dispatch => {
     return dispatch({
       type: EDIT_TODO_LIST_ITEM,
-      payload: { task, index }
+      payload: { task, id }
     })
   }
 }

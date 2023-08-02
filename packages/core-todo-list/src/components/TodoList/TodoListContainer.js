@@ -47,7 +47,7 @@ const TodoList = React.memo(props => {
     onCancel: handleResetState,
     onDismiss: handleResetState,
     onDelete () {
-      handleDeleteTodoListItem({ index: selectedTodoListItem.index })
+      handleDeleteTodoListItem({ id: selectedTodoListItem.id })
       handleResetState()
     },
     onAdd ({ text }) {
@@ -59,7 +59,7 @@ const TodoList = React.memo(props => {
     },
     onEdit ({ text }) {
       if (text) {
-        handleEditTodoListItem({ task: text, index: selectedTodoListItem.index })
+        handleEditTodoListItem({ task: text, id: selectedTodoListItem.id })
       }
       handleResetState()
     }
@@ -75,21 +75,21 @@ const TodoList = React.memo(props => {
     }
   }, [])
 
-  const handleListItemPress = useCallback(async ({ task, index }) => {
+  const handleListItemPress = useCallback(async ({ task, id }) => {
     try {
       await handleLogin()
-      setSelectedTodoListItem({ task, index })
+      setSelectedTodoListItem({ task, id })
       setAlertType({ type: ALERT_TYPES.EDIT_DELETE })
     } catch (error) {
       setAlertType({ type: ALERT_TYPES.ERROR, error })
     }
   }, [])
 
-  const handleListItemChecked = useCallback(async ({ task, id, index, checked }) => {
+  const handleListItemChecked = useCallback(async ({ task, id, checked }) => {
     if (!checked) return
     try {
       await handleLogin()
-      setSelectedTodoListItem({ task, id, index })
+      setSelectedTodoListItem({ task, id })
       setAlertType({ type: ALERT_TYPES.DELETE })
     } catch (error) {
       setAlertType({ type: ALERT_TYPES.ERROR, error })
