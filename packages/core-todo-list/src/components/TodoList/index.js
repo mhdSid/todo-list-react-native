@@ -1,26 +1,23 @@
-import React, { useCallback, useRef, useState } from 'react'
-import { VirtualizedList, View } from 'react-native'
+import React, { useCallback, useState } from 'react'
+import { View } from 'react-native'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { addTodoListItem, editTodoListItem, deleteTodoListItem } from '@todo-list/store-todo-list/src/todo-list/actions'
 import { login, logout } from '@todo-list/store-todo-list/src/auth/actions'
 import todoListSelector from '@todo-list/store-todo-list/src/todo-list/selector'
 import isLoggedInSelector from '@todo-list/store-todo-list/src/auth/selector'
-import { THEMES } from '@todo-list/store-todo-list/src/theme/constants'
 import styles from './index.styles'
-import TodoListItem from '../TodoListItem'
-import EmptyTodoList from './EmptyTodoList'
 import AddTodoButton from '../Button/AddTodoButton'
 import { ALERT_TYPES } from '../../constants/alert'
 import getRandomId from '../../util/randomId'
 import testSelectors from '../../../test/lib/selector/todoList'
 import useAlert from '../../hooks/alert/useAlert'
+import VirtualizedTodoList from './VirtualizedTodoList'
 
 const TodoList = React.memo(props => {
   const {
     todoList,
     isLoggedIn,
-    theme,
     handleEditTodoListItem,
     handleDeleteTodoListItem,
     handleAddTodoListItem,
@@ -30,7 +27,6 @@ const TodoList = React.memo(props => {
 
   const [alertType, setAlertType] = useState(null)
   const [selectedTodoListItem, setSelectedTodoListItem] = useState(null)
-  const virtualizedListRef = useRef()
 
   /* Reset State */
   // This method is called to ask user to enter their credentials before any action.
@@ -52,7 +48,6 @@ const TodoList = React.memo(props => {
       handleAddTodoListItem({ task: text, id: getRandomId() })
     }
     handleResetState()
-    virtualizedListRef.current.scrollToIndex({ index: 0, animated: true })
   }
   const handleEdit = ({ text }) => {
     if (text) {
@@ -72,15 +67,15 @@ const TodoList = React.memo(props => {
   })
 
   /* Interaction Event Handlers */
-  const handleAddTodoButtonPress = async () => {
+  const handleAddTodoButtonPress = useCallback(async () => {
     try {
       await handleLogin()
       setAlertType({ type: ALERT_TYPES.ADD })
     } catch (error) {
       setAlertType({ type: ALERT_TYPES.ERROR, error })
     }
-  }
-  const handleListItemPress = async ({ task, index }) => {
+  }, [])
+  const handleListItemPress = useCallback(async ({ task, index }) => {
     try {
       await handleLogin()
       setSelectedTodoListItem({ task, index })
@@ -88,8 +83,8 @@ const TodoList = React.memo(props => {
     } catch (error) {
       setAlertType({ type: ALERT_TYPES.ERROR, error })
     }
-  }
-  const handleListItemChecked = async ({ task, id, index, checked }) => {
+  }, [])
+  const handleListItemChecked = useCallback(async ({ task, id, index, checked }) => {
     if (!checked) return
     try {
       await handleLogin()
@@ -98,45 +93,12 @@ const TodoList = React.memo(props => {
     } catch (error) {
       setAlertType({ type: ALERT_TYPES.ERROR, error })
     }
-  }
-
-  /* Virtualized List Props */
-  const renderListItemRow = useCallback(({ item: { task, id }, index }) => (
-    <TodoListItem
-      task={task}
-      id={id}
-      index={index}
-      theme={theme}
-      onPress={handleListItemPress}
-      onChecked={handleListItemChecked}
-    />
-  ), [theme])
-  const getItem = (data, index) => data[index]
-  const getItemCount = () => todoList.length || 0
-  const getItemKey = ({ id, task }) => `${id}-${task}`
+  }, [])
 
   return (
     <View style={styles.todoListContainer} testID={testSelectors.root}>
-      <VirtualizedList
-        initialNumToRender={10}
-        windowSize={5}
-        maxToRenderPerBatch={10}
-        contentInsetAdjustmentBehavior='automatic'
-        removeClippedSubviews
-        ListEmptyComponent={<EmptyTodoList theme={theme} />}
-        onEndReachedThreshold={0.2}
-        ref={virtualizedListRef}
-        horizontal={false}
-        showsVerticalScrollIndicator
-        data={todoList}
-        getItem={getItem}
-        getItemCount={getItemCount}
-        keyExtractor={getItemKey}
-        renderItem={renderListItemRow}
-        testID={testSelectors.virtualizedList}
-        contentContainerStyle={styles.virtualizedListContentContainer}
-      />
-      <AddTodoButton onPress={handleAddTodoButtonPress} theme={theme} testID={testSelectors.addTodoButton} />
+      <VirtualizedTodoList todoList={todoList} handleListItemChecked={handleListItemChecked} handleListItemPress={handleListItemPress} />
+      <AddTodoButton onPress={handleAddTodoButtonPress} testID={testSelectors.addTodoButton} />
     </View>
   )
 })
@@ -144,7 +106,6 @@ const TodoList = React.memo(props => {
 TodoList.propTypes = {
   todoList: PropTypes.array,
   isLoggedIn: PropTypes.bool,
-  theme: PropTypes.oneOf([THEMES.DARK, THEMES.LIGHT]),
   handleEditTodoListItem: PropTypes.func,
   handleDeleteTodoListItem: PropTypes.func,
   handleAddTodoListItem: PropTypes.func,

@@ -113,11 +113,7 @@ exports[`Container snapshot with empty full store 1`] = `
       testID="todoList.root"
     >
       <RCTScrollView
-        ListEmptyComponent={
-          <EmptyList
-            theme="dark"
-          />
-        }
+        ListEmptyComponent={<EmptyTodoList />}
         contentContainerStyle={
           Object {
             "paddingBottom": 20,
@@ -1469,11 +1465,7 @@ exports[`Container snapshot with empty store 1`] = `
       testID="todoList.root"
     >
       <RCTScrollView
-        ListEmptyComponent={
-          <EmptyList
-            theme="light"
-          />
-        }
+        ListEmptyComponent={<EmptyTodoList />}
         contentContainerStyle={
           Object {
             "paddingBottom": 20,

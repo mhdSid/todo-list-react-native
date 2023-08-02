@@ -5,15 +5,15 @@ import { THEMES } from '@todo-list/store-todo-list/src/theme/constants'
 import { setTheme } from '@todo-list/store-todo-list/src/theme/actions'
 import themeSelector from '@todo-list/store-todo-list/src/theme/selector'
 
-export const Context = createContext()
+export const ThemeContext = createContext()
 
 const ThemeProvider = props => {
   const { theme, handleSetTheme } = props
   const toggleTheme = () => handleSetTheme(theme === THEMES.DARK ? THEMES.LIGHT : THEMES.DARK)
   return (
-    <Context.Provider value={{ toggleTheme, theme }}>
+    <ThemeContext.Provider value={{ toggleTheme, theme }}>
       {props.children}
-    </Context.Provider>
+    </ThemeContext.Provider>
   )
 }
 

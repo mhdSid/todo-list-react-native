@@ -1,10 +1,9 @@
-import React from 'react'
 import { render } from '@testing-library/react-native'
-import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
 import Component from '../../../../src/components/Container'
 import selectors from '../../../lib/selector/container'
 import todoListSelectors from '../../../lib/selector/todoList'
+import MockThemeProvider from '../../../lib/mocks/MockThemeProvider'
 
 jest.mock('expo-local-authentication', () => ({}))
 
@@ -41,31 +40,31 @@ describe('Container', () => {
     }
   })
   test('root exists', async () => {
-    const element = render(<Provider store={emptyStore}><Component /></Provider>)
+    const element = render(MockThemeProvider(Component, emptyStore))
     const root = await element.findByTestId(selectors.root)
     expect(root).toBeDefined()
   })
   test('title exists', async () => {
-    const element = render(<Provider store={emptyStore}><Component /></Provider>)
+    const element = render(MockThemeProvider(Component, emptyStore))
     const title = await element.findByTestId(selectors.title)
     expect(title).toBeDefined()
   })
   test('todoList exists', async () => {
-    const element = render(<Provider store={emptyStore}><Component /></Provider>)
+    const element = render(MockThemeProvider(Component, emptyStore))
     const todoList = await element.findByTestId(todoListSelectors.root)
     expect(todoList).toBeDefined()
   })
   test('title text', async () => {
-    const element = render(<Provider store={emptyStore}><Component /></Provider>)
+    const element = render(MockThemeProvider(Component, emptyStore))
     const { children: text } = await element.findByTestId(selectors.title)
     expect(text).toStrictEqual(['To-Do List'])
   })
   test('snapshot with empty store', () => {
-    const data = render(<Provider store={emptyStore}><Component /></Provider>).toJSON()
+    const data = render(MockThemeProvider(Component, emptyStore)).toJSON()
     expect(data).toMatchSnapshot()
   })
   test('snapshot with empty full store', () => {
-    const data = render(<Provider store={fullStore}><Component /></Provider>).toJSON()
+    const data = render(MockThemeProvider(Component, fullStore)).toJSON()
     expect(data).toMatchSnapshot()
   })
 })

@@ -11,11 +11,7 @@ exports[`TodoList snapshot 1`] = `
   testID="todoList.root"
 >
   <RCTScrollView
-    ListEmptyComponent={
-      <EmptyList
-        theme="light"
-      />
-    }
+    ListEmptyComponent={<EmptyTodoList />}
     contentContainerStyle={
       Object {
         "paddingBottom": 20,
