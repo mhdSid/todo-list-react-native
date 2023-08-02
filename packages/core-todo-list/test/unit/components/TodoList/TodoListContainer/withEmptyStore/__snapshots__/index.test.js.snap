@@ -38,7 +38,7 @@ exports[`TodoList snapshot 1`] = `
     scrollEventThrottle={50}
     showsVerticalScrollIndicator={true}
     stickyHeaderIndices={Array []}
-    testID="todoList.virtualizedList"
+    testID="virtualizedTodoList.root"
     windowSize={5}
   >
     <View>

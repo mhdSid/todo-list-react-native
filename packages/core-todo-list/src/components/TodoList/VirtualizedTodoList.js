@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import styles from './index.styles'
 import TodoListItem from '../TodoListItem'
 import EmptyTodoList from './EmptyTodoList'
-import testSelectors from '../../../test/lib/selector/todoList/todoListContainer'
+import testSelectors from '../../../test/lib/selector/todoList/virtualizedTodoList'
 
 const VirtualizedTodoList = forwardRef((props, ref) => {
   const { todoList, handleListItemPress, handleListItemChecked } = props
@@ -38,7 +38,7 @@ const VirtualizedTodoList = forwardRef((props, ref) => {
       getItemCount={getItemCount}
       keyExtractor={getItemKey}
       renderItem={renderListItemRow}
-      testID={testSelectors.virtualizedList}
+      testID={testSelectors.root}
       contentContainerStyle={styles.virtualizedListContentContainer}
     />
   )

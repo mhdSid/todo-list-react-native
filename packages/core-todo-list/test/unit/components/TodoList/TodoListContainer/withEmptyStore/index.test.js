@@ -4,6 +4,7 @@ import configureStore from 'redux-mock-store'
 import Component from '../../../../../../src/components/TodoList/TodoListContainer'
 import selectors from '../../../../../lib/selector/todoList/todoListContainer'
 import addTodoButtonSelectors from '../../../../../lib/selector/button/addTodoButton'
+import virtualizedTodoListSelectors from '../../../../../lib/selector/todoList/virtualizedTodoList'
 import MockThemeProvider from '../../../../../lib/mocks/MockThemeProvider'
 
 jest.mock('expo-local-authentication', () => ({
@@ -34,7 +35,7 @@ describe('TodoList', () => {
   })
   test('virtualizedList exists', async () => {
     const element = render(MockThemeProvider(Component, store))
-    const virtualizedList = await element.findByTestId(selectors.virtualizedList)
+    const virtualizedList = await element.findByTestId(virtualizedTodoListSelectors.root)
     expect(virtualizedList).toBeDefined()
   })
   test('addTodoButton exists', async () => {
