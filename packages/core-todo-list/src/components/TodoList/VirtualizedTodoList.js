@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useRef } from 'react'
+import React, { forwardRef, useCallback } from 'react'
 import { VirtualizedList } from 'react-native'
 import PropTypes from 'prop-types'
 import styles from './index.styles'

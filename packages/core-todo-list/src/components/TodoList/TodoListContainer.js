@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useRef, useState } from 'react'
+import React, { useCallback, useRef, useState } from 'react'
 import { View } from 'react-native'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'

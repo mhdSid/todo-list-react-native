@@ -6,7 +6,7 @@ export default function MockThemeProvider (Component, store, props = {}) {
   return (
     <Provider store={store}>
       <ThemeProvider>
-        <Component {...props}/>
+        <Component {...props} />
       </ThemeProvider>
     </Provider>
   )
