@@ -1,8 +1,8 @@
-import React, { useContext } from 'react'
+import React, { useContext, useMemo } from 'react'
 import { View, Text, Image, TouchableOpacity } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { THEMES } from '@todo-list/store-todo-list/src/theme/constants'
-import TodoList from '../TodoList'
+import TodoListContainer from '../TodoList/TodoListContainer'
 import styles, { windowHeight } from './index.styles'
 import testSelectors from '../../../test/lib/selector/container'
 import { APP_TITLE } from '../../constants/container'
@@ -13,7 +13,7 @@ import light from '../../assets/images/light.png'
 export default function Container () {
   const { top: paddingTop } = useSafeAreaInsets()
   const { theme, toggleTheme } = useContext(ThemeContext)
-  const containerHeight = windowHeight - paddingTop
+  const containerHeight = useMemo(() => windowHeight - paddingTop, [])
   return (
     <View
       style={[{ marginTop: paddingTop, height: containerHeight }, styles.container, styles[theme].container]}
@@ -29,7 +29,7 @@ export default function Container () {
         </TouchableOpacity>
       </View>
       <View style={styles.todoListContainer}>
-        <TodoList testID={testSelectors.todoList} />
+        <TodoListContainer testID={testSelectors.todoList} />
       </View>
     </View>
   )

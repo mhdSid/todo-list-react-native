@@ -100,7 +100,9 @@ exports[`TodoListItem snapshot 1`] = `
         }
       }
       testID="todoListItem.task"
-    />
+    >
+      undefined 9
+    </Text>
   </View>
 </View>
 `;

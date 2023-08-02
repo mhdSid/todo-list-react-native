@@ -5,7 +5,7 @@ import styles, { underlayColor } from './AddTodoButton.styles'
 import testSelectors from '../../../test/lib/selector/button/addTodoButton'
 import { ThemeContext } from '../ThemeProvider'
 
-const AddTodoButton = props => {
+export default function AddTodoButton (props) {
   const { onPress } = props
   const { theme } = useContext(ThemeContext)
   return (
@@ -23,5 +23,3 @@ const AddTodoButton = props => {
 AddTodoButton.propTypes = {
   onPress: PropTypes.func
 }
-
-export default AddTodoButton

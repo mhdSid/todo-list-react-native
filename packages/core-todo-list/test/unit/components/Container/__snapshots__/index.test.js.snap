@@ -292,7 +292,7 @@ exports[`Container snapshot with empty full store 1`] = `
                   }
                   testID="todoListItem.task"
                 >
-                  tttttttttt
+                  tttttttttt 1
                 </Text>
               </View>
             </View>
@@ -402,7 +402,7 @@ exports[`Container snapshot with empty full store 1`] = `
                   }
                   testID="todoListItem.task"
                 >
-                  tttttttttt
+                  tttttttttt 7
                 </Text>
               </View>
             </View>
@@ -512,7 +512,7 @@ exports[`Container snapshot with empty full store 1`] = `
                   }
                   testID="todoListItem.task"
                 >
-                  tttttttttt
+                  tttttttttt 8
                 </Text>
               </View>
             </View>
@@ -622,7 +622,7 @@ exports[`Container snapshot with empty full store 1`] = `
                   }
                   testID="todoListItem.task"
                 >
-                  tttttttttt
+                  tttttttttt 0
                 </Text>
               </View>
             </View>
@@ -732,7 +732,7 @@ exports[`Container snapshot with empty full store 1`] = `
                   }
                   testID="todoListItem.task"
                 >
-                  tttttttttt
+                  tttttttttt 5
                 </Text>
               </View>
             </View>
@@ -842,7 +842,7 @@ exports[`Container snapshot with empty full store 1`] = `
                   }
                   testID="todoListItem.task"
                 >
-                  tttttttttt
+                  tttttttttt 6
                 </Text>
               </View>
             </View>
@@ -952,7 +952,7 @@ exports[`Container snapshot with empty full store 1`] = `
                   }
                   testID="todoListItem.task"
                 >
-                  tttttttttt
+                  tttttttttt 4
                 </Text>
               </View>
             </View>
@@ -1062,7 +1062,7 @@ exports[`Container snapshot with empty full store 1`] = `
                   }
                   testID="todoListItem.task"
                 >
-                  tttttttttt
+                  tttttttttt 5
                 </Text>
               </View>
             </View>
@@ -1172,7 +1172,7 @@ exports[`Container snapshot with empty full store 1`] = `
                   }
                   testID="todoListItem.task"
                 >
-                  tttttttttt
+                  tttttttttt 8
                 </Text>
               </View>
             </View>
@@ -1282,7 +1282,7 @@ exports[`Container snapshot with empty full store 1`] = `
                   }
                   testID="todoListItem.task"
                 >
-                  tttttttttt
+                  tttttttttt 1
                 </Text>
               </View>
             </View>

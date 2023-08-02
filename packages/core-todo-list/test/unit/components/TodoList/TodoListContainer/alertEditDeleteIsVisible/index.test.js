@@ -2,7 +2,7 @@ import { render, screen, fireEvent, act } from '@testing-library/react-native'
 import configureStore from 'redux-mock-store'
 import { Alert } from 'react-native'
 import thunk from 'redux-thunk'
-import Component from '../../../../../../src/components/TodoList'
+import Component from '../../../../../../src/components/TodoList/TodoListContainer'
 import todoListItemSelectors from '../../../../../lib/selector/todoListItem'
 import MockThemeProvider from '../../../../../lib/mocks/MockThemeProvider'
 

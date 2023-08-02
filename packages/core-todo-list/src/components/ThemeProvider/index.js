@@ -7,7 +7,7 @@ import themeSelector from '@todo-list/store-todo-list/src/theme/selector'
 
 export const ThemeContext = createContext()
 
-const ThemeProvider = props => {
+function ThemeProvider (props) {
   const { theme, handleSetTheme } = props
   const toggleTheme = () => handleSetTheme(theme === THEMES.DARK ? THEMES.LIGHT : THEMES.DARK)
   return (
