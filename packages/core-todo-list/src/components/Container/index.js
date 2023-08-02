@@ -14,6 +14,7 @@ export default function Container () {
   const { top: paddingTop } = useSafeAreaInsets()
   const { theme, toggleTheme } = useContext(ThemeContext)
   const containerHeight = useMemo(() => windowHeight - paddingTop, [])
+
   return (
     <View
       style={[{ marginTop: paddingTop, height: containerHeight }, styles.container, styles[theme].container]}

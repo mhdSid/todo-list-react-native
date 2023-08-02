@@ -5,9 +5,10 @@ import styles, { underlayColor } from './AddTodoButton.styles'
 import testSelectors from '../../../test/lib/selector/button/addTodoButton'
 import { ThemeContext } from '../ThemeProvider'
 
-export default function AddTodoButton (props) {
+const AddTodoButton = React.memo(props => {
   const { onPress } = props
   const { theme } = useContext(ThemeContext)
+
   return (
     <TouchableHighlight
       style={[styles.container, styles[theme].container]}
@@ -18,8 +19,10 @@ export default function AddTodoButton (props) {
       <Text style={[styles.text, styles[theme].text]} testID={testSelectors.title}>+</Text>
     </TouchableHighlight>
   )
-}
+})
 
 AddTodoButton.propTypes = {
   onPress: PropTypes.func
 }
+
+export default AddTodoButton

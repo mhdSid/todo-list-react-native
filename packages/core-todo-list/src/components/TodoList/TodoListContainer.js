@@ -40,32 +40,29 @@ const TodoList = React.memo(props => {
   }
 
   /* Alert Hook */
-  const handleDelete = () => {
-    handleDeleteTodoListItem({ index: selectedTodoListItem.index })
-    handleResetState()
-  }
-  const handleAdd = ({ text }) => {
-    if (text) {
-      handleAddTodoListItem({ task: text, id: getRandomId() })
-    }
-    handleResetState()
-    virtualizedTodoListRef.current.scrollToIndex({ index: 0, animated: true })
-  }
-  const handleEdit = ({ text }) => {
-    if (text) {
-      handleEditTodoListItem({ task: text, index: selectedTodoListItem.index })
-    }
-    handleResetState()
-  }
   useAlert({
     defaultMessage: alertType?.error?.message || selectedTodoListItem?.task || '',
     isLoggedIn,
     alertType,
     onCancel: handleResetState,
     onDismiss: handleResetState,
-    onDelete: handleDelete,
-    onAdd: handleAdd,
-    onEdit: handleEdit
+    onDelete () {
+      handleDeleteTodoListItem({ index: selectedTodoListItem.index })
+      handleResetState()
+    },
+    onAdd ({ text }) {
+      if (text) {
+        handleAddTodoListItem({ task: text, id: getRandomId() })
+      }
+      handleResetState()
+      virtualizedTodoListRef.current.scrollToIndex({ index: 0, animated: true })
+    },
+    onEdit ({ text }) {
+      if (text) {
+        handleEditTodoListItem({ task: text, index: selectedTodoListItem.index })
+      }
+      handleResetState()
+    }
   })
 
   /* Interaction Event Handlers */
@@ -77,6 +74,7 @@ const TodoList = React.memo(props => {
       setAlertType({ type: ALERT_TYPES.ERROR, error })
     }
   }, [])
+
   const handleListItemPress = useCallback(async ({ task, index }) => {
     try {
       await handleLogin()
@@ -86,6 +84,7 @@ const TodoList = React.memo(props => {
       setAlertType({ type: ALERT_TYPES.ERROR, error })
     }
   }, [])
+
   const handleListItemChecked = useCallback(async ({ task, id, index, checked }) => {
     if (!checked) return
     try {
@@ -99,7 +98,12 @@ const TodoList = React.memo(props => {
 
   return (
     <View style={styles.todoListContainer} testID={testSelectors.root}>
-      <VirtualizedTodoList ref={virtualizedTodoListRef} todoList={todoList} handleListItemChecked={handleListItemChecked} handleListItemPress={handleListItemPress} />
+      <VirtualizedTodoList
+        ref={virtualizedTodoListRef}
+        todoList={todoList}
+        handleListItemChecked={handleListItemChecked}
+        handleListItemPress={handleListItemPress}
+      />
       <AddTodoButton onPress={handleAddTodoButtonPress} testID={testSelectors.addTodoButton} />
     </View>
   )

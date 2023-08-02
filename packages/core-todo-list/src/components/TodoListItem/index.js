@@ -9,8 +9,8 @@ import { ThemeContext } from '../ThemeProvider'
 const TodoListItem = React.memo(props => {
   const { task, id, index, onPress, onChecked } = props
   const { theme } = useContext(ThemeContext)
-  const handlePress = () => onPress({ task, id, index })
   const [isChecked, setIsChecked] = useState(false)
+
   const handleValueChange = useCallback(value => {
     setIsChecked(value)
     onChecked({
@@ -20,6 +20,8 @@ const TodoListItem = React.memo(props => {
       checked: value
     })
   }, [])
+  const handlePress = useCallback(() => onPress({ task, id, index }))
+
   return (
     <TouchableHighlight
       style={[styles.container, styles[theme].container]}

@@ -6,8 +6,9 @@ import TodoListItem from '../TodoListItem'
 import EmptyTodoList from './EmptyTodoList'
 import testSelectors from '../../../test/lib/selector/todoList/virtualizedTodoList'
 
-const VirtualizedTodoList = forwardRef((props, ref) => {
+const VirtualizedTodoList = React.memo(forwardRef((props, ref) => {
   const { todoList, handleListItemPress, handleListItemChecked } = props
+
   const renderListItemRow = useCallback(({ item: { task, id }, index }) => (
     <TodoListItem
       task={task}
@@ -42,7 +43,7 @@ const VirtualizedTodoList = forwardRef((props, ref) => {
       contentContainerStyle={styles.virtualizedListContentContainer}
     />
   )
-})
+}))
 
 VirtualizedTodoList.propTypes = {
   todoList: PropTypes.array,

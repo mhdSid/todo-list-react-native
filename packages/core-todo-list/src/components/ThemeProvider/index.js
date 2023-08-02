@@ -1,4 +1,4 @@
-import React, { createContext } from 'react'
+import React, { createContext, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { THEMES } from '@todo-list/store-todo-list/src/theme/constants'
@@ -9,7 +9,8 @@ export const ThemeContext = createContext()
 
 function ThemeProvider (props) {
   const { theme, handleSetTheme } = props
-  const toggleTheme = () => handleSetTheme(theme === THEMES.DARK ? THEMES.LIGHT : THEMES.DARK)
+  const toggleTheme = useCallback(() => handleSetTheme(theme === THEMES.DARK ? THEMES.LIGHT : THEMES.DARK))
+
   return (
     <ThemeContext.Provider value={{ toggleTheme, theme }}>
       {props.children}
