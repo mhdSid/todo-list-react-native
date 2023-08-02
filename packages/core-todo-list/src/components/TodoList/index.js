@@ -124,7 +124,7 @@ const TodoList = React.memo(props => {
         contentInsetAdjustmentBehavior='automatic'
         removeClippedSubviews
         ListEmptyComponent={<EmptyTodoList theme={theme} />}
-        onEndReachedThreshold={0.4}
+        onEndReachedThreshold={0.2}
         ref={virtualizedListRef}
         horizontal={false}
         showsVerticalScrollIndicator
