@@ -118,6 +118,11 @@ exports[`Container snapshot with empty full store 1`] = `
             theme="dark"
           />
         }
+        contentContainerStyle={
+          Object {
+            "paddingBottom": 20,
+          }
+        }
         contentInsetAdjustmentBehavior="automatic"
         data={
           Array [
@@ -1468,6 +1473,11 @@ exports[`Container snapshot with empty store 1`] = `
           <EmptyList
             theme="light"
           />
+        }
+        contentContainerStyle={
+          Object {
+            "paddingBottom": 20,
+          }
         }
         contentInsetAdjustmentBehavior="automatic"
         data={Array []}

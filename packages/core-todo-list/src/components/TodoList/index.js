@@ -134,6 +134,7 @@ const TodoList = React.memo(props => {
         keyExtractor={getItemKey}
         renderItem={renderListItemRow}
         testID={testSelectors.virtualizedList}
+        contentContainerStyle={styles.virtualizedListContentContainer}
       />
       <AddTodoButton onPress={handleAddTodoButtonPress} theme={theme} testID={testSelectors.addTodoButton} />
     </View>

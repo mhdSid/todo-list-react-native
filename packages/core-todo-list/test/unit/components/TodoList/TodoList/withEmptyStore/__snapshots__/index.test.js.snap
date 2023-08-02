@@ -16,6 +16,11 @@ exports[`TodoList snapshot 1`] = `
         theme="light"
       />
     }
+    contentContainerStyle={
+      Object {
+        "paddingBottom": 20,
+      }
+    }
     contentInsetAdjustmentBehavior="automatic"
     data={Array []}
     getItem={[Function]}

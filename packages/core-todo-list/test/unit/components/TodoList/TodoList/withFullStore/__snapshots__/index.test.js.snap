@@ -16,6 +16,11 @@ exports[`TodoList snapshot 1`] = `
         theme="dark"
       />
     }
+    contentContainerStyle={
+      Object {
+        "paddingBottom": 20,
+      }
+    }
     contentInsetAdjustmentBehavior="automatic"
     data={
       Array [
