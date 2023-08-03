@@ -2,6 +2,11 @@ import { THEMES } from '@todo-list/store-todo-list/src/theme/constants'
 
 export const THEME = {
   [THEMES.DARK]: {
+    root: {
+      container: {
+        backgroundColor: 'black'
+      }
+    },
     container: {
       title: {
         color: 'white'
@@ -38,6 +43,11 @@ export const THEME = {
     }
   },
   [THEMES.LIGHT]: {
+    root: {
+      container: {
+        backgroundColor: 'white'
+      }
+    },
     container: {
       title: {
         color: 'black'

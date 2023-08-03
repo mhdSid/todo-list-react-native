@@ -1,5 +1,6 @@
 import { render } from '@testing-library/react-native'
 import configureStore from 'redux-mock-store'
+import thunk from 'redux-thunk'
 import Component from '../../../../src/components/Container'
 import selectors from '../../../lib/selector/container'
 import todoListSelectors from '../../../lib/selector/todoList/todoListContainer'
@@ -12,7 +13,7 @@ jest.mock('react-native-safe-area-context', () => ({
 }))
 
 describe('Container', () => {
-  const mockStore = configureStore([])
+  const mockStore = configureStore([thunk])
   const emptyStore = mockStore({
     todoList: {
       list: []

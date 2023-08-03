@@ -1,4 +1,5 @@
-import React, { createContext, useCallback } from 'react'
+import React, { createContext, useCallback, useEffect } from 'react'
+import { useColorScheme } from 'react-native'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { THEMES } from '@todo-list/store-todo-list/src/theme/constants'
@@ -9,7 +10,12 @@ export const ThemeContext = createContext()
 
 function ThemeProvider (props) {
   const { theme, handleSetTheme } = props
+  const colorScheme = useColorScheme()
   const toggleTheme = useCallback(() => handleSetTheme(theme === THEMES.DARK ? THEMES.LIGHT : THEMES.DARK))
+
+  useEffect(() => {
+    handleSetTheme(colorScheme)
+  }, [colorScheme])
 
   return (
     <ThemeContext.Provider value={{ toggleTheme, theme }}>
