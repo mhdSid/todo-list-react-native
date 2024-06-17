@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoListItem snapshot 1`] = `
+<View
+  accessibilityValue={
+    Object {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Array [
+      Object {
+        "borderRadius": 8,
+        "marginBottom": 5,
+        "padding": 20,
+      },
+      Object {
+        "backgroundColor": "rgba(1,1,1,0.1)",
+      },
+    ]
+  }
+  testID="todoListItem.root"
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View
+      accessibilityRole="checkbox"
+      accessibilityState={
+        Object {
+          "busy": undefined,
+          "checked": false,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        Object {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "borderColor": "#657786",
+            "borderRadius": 2,
+            "borderWidth": 2,
+            "height": 20,
+            "width": 20,
+          },
+          Object {
+            "marginRight": 20,
+          },
+          false,
+          false,
+          undefined,
+          false,
+        ]
+      }
+      testID="todoListItem.checkbox"
+    />
+    <Text
+      style={
+        Object {
+          "color": "#333",
+        }
+      }
+      testID="todoListItem.task"
+    />
+  </View>
+</View>
+`;

@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VirtualizedTodoList snapshot 1`] = `
+<RCTScrollView
+  ListEmptyComponent={<EmptyTodoList />}
+  contentContainerStyle={
+    Object {
+      "paddingBottom": 20,
+    }
+  }
+  contentInsetAdjustmentBehavior="automatic"
+  data={Array []}
+  getItem={[Function]}
+  getItemCount={[Function]}
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={0.2}
+  onLayout={[Function]}
+  onMomentumScrollBegin={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  removeClippedSubviews={true}
+  renderItem={[Function]}
+  scrollEventThrottle={0.0001}
+  showsVerticalScrollIndicator={true}
+  stickyHeaderIndices={Array []}
+  testID="virtualizedTodoList.root"
+  windowSize={5}
+>
+  <View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+          "marginTop": 50,
+        }
+      }
+      testID="emptyTodoList.root"
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "marginBottom": 4,
+            },
+            Object {
+              "color": "white",
+            },
+          ]
+        }
+        testID="emptyTodoList.title"
+      >
+        Looks like your TODO list is empty!
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "marginBottom": 4,
+            },
+            Object {
+              "color": "white",
+            },
+          ]
+        }
+        testID="emptyTodoList.subtitle"
+      >
+        Add a new task to the list :)
+      </Text>
+    </View>
+  </View>
+</RCTScrollView>
+`;

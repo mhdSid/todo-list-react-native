@@ -1,0 +1,21 @@
+{
+  "name": "@todo-list/store",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "eslint": "../../node_modules/.bin/jest --config eslint.jest.config.js"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.10.4",
+    "@react-native-async-storage/async-storage": "^1.19.1",
+    "graphql": "^16.8.2",
+    "react-redux": "^8.1.1",
+    "redux": "^4.2.1",
+    "redux-persist": "^6.0.0",
+    "redux-thunk": "^2.4.2",
+    "reselect": "^4.1.8"
+  },
+  "devDependencies": {
+    "@todo-list/jest-config": "1.0.0"
+  }
+}

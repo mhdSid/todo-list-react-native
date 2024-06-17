@@ -1,0 +1,155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoList snapshot 1`] = `
+<View
+  style={
+    Object {
+      "height": "100%",
+      "width": "100%",
+    }
+  }
+  testID="todoList.root"
+>
+  <RCTScrollView
+    ListEmptyComponent={<EmptyTodoList />}
+    contentContainerStyle={
+      Object {
+        "paddingBottom": 20,
+      }
+    }
+    contentInsetAdjustmentBehavior="automatic"
+    data={Array []}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={0.2}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onRefresh={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    refreshControl={
+      <RefreshControlMock
+        onRefresh={[Function]}
+        refreshing={false}
+      />
+    }
+    refreshing={false}
+    removeClippedSubviews={true}
+    renderItem={[Function]}
+    scrollEventThrottle={0.0001}
+    showsVerticalScrollIndicator={true}
+    stickyHeaderIndices={Array []}
+    testID="virtualizedTodoList.root"
+    windowSize={5}
+  >
+    <RCTRefreshControl />
+    <View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "justifyContent": "center",
+            "marginTop": 50,
+          }
+        }
+        testID="emptyTodoList.root"
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "marginBottom": 4,
+              },
+              Object {
+                "color": "#333",
+              },
+            ]
+          }
+          testID="emptyTodoList.title"
+        >
+          Looks like your TODO list is empty!
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "marginBottom": 4,
+              },
+              Object {
+                "color": "#333",
+              },
+            ]
+          }
+          testID="emptyTodoList.subtitle"
+        >
+          Add a new task to the list :)
+        </Text>
+      </View>
+    </View>
+  </RCTScrollView>
+  <View
+    accessibilityValue={
+      Object {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "borderRadius": 75,
+          "bottom": 30,
+          "height": 75,
+          "justifyContent": "center",
+          "position": "absolute",
+          "right": 20,
+          "textAlign": "center",
+          "width": 75,
+          "zIndex": 100,
+        },
+        Object {
+          "backgroundColor": "black",
+        },
+      ]
+    }
+    testID="addTodoButton.root"
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "fontSize": 50,
+            "marginBottom": 5,
+          },
+          Object {
+            "color": "white",
+          },
+        ]
+      }
+      testID="addTodoButton.text"
+    >
+      +
+    </Text>
+  </View>
+</View>
+`;

@@ -1,0 +1,3 @@
+export const ADD_LOADER = 'ADD_LOADER'
+export const FULFILL_LOADER = 'FULFILL_LOADER'
+export const RESET_LOADER_STATE = 'RESET_LOADER_STATE'

@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmptyTodoList snapshot 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+      "marginTop": 50,
+    }
+  }
+  testID="emptyTodoList.root"
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "marginBottom": 4,
+        },
+        Object {
+          "color": "#333",
+        },
+      ]
+    }
+    testID="emptyTodoList.title"
+  >
+    Looks like your TODO list is empty!
+  </Text>
+  <Text
+    style={
+      Array [
+        Object {
+          "marginBottom": 4,
+        },
+        Object {
+          "color": "#333",
+        },
+      ]
+    }
+    testID="emptyTodoList.subtitle"
+  >
+    Add a new task to the list :)
+  </Text>
+</View>
+`;

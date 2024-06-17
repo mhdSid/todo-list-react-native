@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddTodoButton snapshot 1`] = `
+<View
+  accessibilityValue={
+    Object {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  focusable={false}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderRadius": 75,
+        "bottom": 30,
+        "height": 75,
+        "justifyContent": "center",
+        "position": "absolute",
+        "right": 20,
+        "textAlign": "center",
+        "width": 75,
+        "zIndex": 100,
+      },
+      Object {
+        "backgroundColor": "black",
+      },
+    ]
+  }
+  testID="addTodoButton.root"
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "fontSize": 50,
+          "marginBottom": 5,
+        },
+        Object {
+          "color": "white",
+        },
+      ]
+    }
+    testID="addTodoButton.text"
+  >
+    +
+  </Text>
+</View>
+`;
