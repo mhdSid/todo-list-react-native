@@ -6,9 +6,6 @@ async function user (todoItem, args, context) {
     throw AUTH_ERROR
   }
   const user = await User.findByPk(todoItem.userId)
-  if (context.user.id !== user.id) {
-    throw AUTH_ERROR
-  }
   return user
 }
 

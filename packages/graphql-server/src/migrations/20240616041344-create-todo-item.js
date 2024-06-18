@@ -10,11 +10,11 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       task: {
-        type: Sequelize.CHAR(255),
+        type: Sequelize.STRING(255),
         allowNull: false
       },
       status: {
-        type: Sequelize.CHAR(50),
+        type: Sequelize.STRING(50),
         allowNull: false,
         defaultValue: 'pending'
       },
@@ -23,7 +23,7 @@ module.exports = {
         type: Sequelize.DATE
       },
       userId: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.BIGINT,
         allowNull: false,
         references: {
           model: 'users',

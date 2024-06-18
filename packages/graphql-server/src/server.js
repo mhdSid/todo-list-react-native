@@ -15,9 +15,10 @@ const app = express()
 const httpServer = http.createServer(app)
 
 const server = new ApolloServer({
+  allowBatchedHttpRequests: true,
+  csrfPrevention: true,
   typeDefs,
   resolvers,
-  context: ({ req }) => ({ user: req.user }),
   formatError: ({ message, extensions }) => ({
     message,
     code: extensions.code,
@@ -31,7 +32,9 @@ async function startServer () {
 
   app.use(
     authenticateToken,
-    cors(),
+    cors({
+      origin: '*'
+    }),
     bodyParser.json(),
     expressMiddleware(server, {
       context: async ({ req }) => ({ user: req.user })
@@ -40,7 +43,7 @@ async function startServer () {
 
   await sequelize.sync()
 
-  await new Promise((resolve) => httpServer.listen({ port: 4000 }, resolve))
+  await new Promise(resolve => httpServer.listen({ port: 4000, host: '0.0.0.0' }, resolve))
 }
 
 startServer()

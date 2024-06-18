@@ -18,30 +18,30 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       autoIncrement: true,
       allowNull: false,
-      type: DataTypes.INTEGER
+      type: DataTypes.BIGINT
     },
     firstName: {
       allowNull: false,
-      type: DataTypes.CHAR(50)
+      type: DataTypes.STRING(50)
     },
     lastName: {
       allowNull: false,
-      type: DataTypes.CHAR(50)
+      type: DataTypes.STRING(50)
     },
     email: {
       allowNull: true,
-      type: DataTypes.CHAR(150)
+      type: DataTypes.STRING(150)
     },
     gender: {
       allowNull: false,
-      type: DataTypes.CHAR(20)
+      type: DataTypes.STRING(20)
     },
     dateOfBirth: {
       allowNull: false,
       type: DataTypes.DATE
     },
     password: {
-      type: DataTypes.CHAR(20)
+      type: DataTypes.STRING(20)
     }
   }, {
     sequelize,

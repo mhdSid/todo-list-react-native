@@ -7,23 +7,23 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.BIGINT
       },
       firstName: {
         allowNull: false,
-        type: Sequelize.CHAR(50)
+        type: Sequelize.STRING(50)
       },
       lastName: {
         allowNull: false,
-        type: Sequelize.CHAR(50)
+        type: Sequelize.STRING(50)
       },
       email: {
         allowNull: true,
-        type: Sequelize.CHAR(150)
+        type: Sequelize.STRING(150)
       },
       gender: {
         allowNull: false,
-        type: Sequelize.CHAR(20)
+        type: Sequelize.STRING(20)
       },
       dateOfBirth: {
         allowNull: false,
@@ -38,7 +38,7 @@ module.exports = {
         type: Sequelize.DATE
       },
       password: {
-        type: Sequelize.CHAR(255)
+        type: Sequelize.STRING(255)
       }
     })
   },

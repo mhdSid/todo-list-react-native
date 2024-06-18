@@ -29,12 +29,12 @@ const VirtualizedTodoList = React.memo(forwardRef((props, ref) => {
       windowSize={5}
       maxToRenderPerBatch={10}
       contentInsetAdjustmentBehavior='automatic'
+      showsVerticalScrollIndicator={false}
       removeClippedSubviews
       ref={ref}
       ListEmptyComponent={<EmptyTodoList />}
       onEndReachedThreshold={0.2}
       horizontal={false}
-      showsVerticalScrollIndicator
       data={todoList}
       getItem={getItem}
       getItemCount={getItemCount}

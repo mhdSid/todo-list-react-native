@@ -36,8 +36,8 @@ const TodoList = React.memo(props => {
   const isLoading = useLoadingEffect(TODO_LIST_CONTAINER_LOADING_ID)
   const { dispatchAsyncAction } = useAsyncAction(TODO_LIST_CONTAINER_LOADING_ID)
   const handleOnRefresh = useCallback(() => {
-    dispatchAsyncAction(loadTodoList)
-  })
+    dispatchAsyncAction(loadTodoList())
+  }, [dispatchAsyncAction])
 
   useEffect(() => {
     handleOnRefresh()
