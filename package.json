@@ -15,13 +15,10 @@
   "dependencies": {
     "@apollo/client": "^3.10.4",
     "@react-native-async-storage/async-storage": "^1.19.1",
-    "apollo-server-express": "^3.13.0",
     "expo": "^51.0.12",
     "expo-checkbox": "^3.0.0",
     "expo-local-authentication": "^14.0.1",
-    "express": "^4.19.2",
     "graphql": "^16.8.2",
-    "pg": "^8.12.0",
     "prop-types": "^15.8.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -31,9 +28,7 @@
     "redux": "^4.2.1",
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.4.2",
-    "reselect": "^4.1.8",
-    "sequelize": "^6.37.3",
-    "sequelize-cli": "^6.6.2"
+    "reselect": "^4.1.8"
   },
   "devDependencies": {
     "@babel/core": "^7.24.7",

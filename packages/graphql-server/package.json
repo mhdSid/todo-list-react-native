@@ -6,9 +6,13 @@
     "eslint": "../../node_modules/.bin/jest --config eslint.jest.config.js"
   },
   "dependencies": {
-    "apollo-server-express": "^3.13.0",
+    "@apollo/server": "^4.10.4",
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
     "express": "^4.19.2",
     "graphql": "^16.8.2",
+    "jsonwebtoken": "^9.0.2",
     "pg": "^8.12.0",
     "sequelize": "^6.37.3",
     "sequelize-cli": "^6.6.2"

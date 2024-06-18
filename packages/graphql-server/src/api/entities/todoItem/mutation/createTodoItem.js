@@ -1,7 +1,11 @@
 const { todo_items: TodoItem } = require('../../../../models')
+const { AUTH_ERROR } = require('../../../error')
 
-function createTodoItem (_, { task, userId, dueDate }) {
-  return TodoItem.create({ task, userId, dueDate })
+async function createTodoItem (_, { task, userId, dueDate }, context) {
+  if (!context.user) {
+    throw AUTH_ERROR
+  }
+  return await TodoItem.create({ task, userId, dueDate })
 }
 
 module.exports = { createTodoItem }

@@ -1,6 +1,4 @@
-const { gql } = require('apollo-server-express')
-
-const typeDefs = gql`
+const typeDefs = `#graphql
   scalar Date
 
   type User {
@@ -15,6 +13,11 @@ const typeDefs = gql`
     todoItems: [TodoItem!]
   }
 
+  type AuthPayload {
+    token: String!
+    user: User!
+  }
+
   type TodoItem {
     id: ID!
     task: String!
@@ -26,6 +29,7 @@ const typeDefs = gql`
   }
 
   type Query {
+    me: User
     users: [User!]
     user(id: ID!): User
     todoItems: [TodoItem!]
@@ -37,7 +41,8 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    createUser(firstName: String!, lastName: String!, email: String!, gender: String!, dateOfBirth: Date!): User!
+    signUp(firstName: String!, lastName: String!, email: String!, gender: String!, dateOfBirth: Date!, password: String!): AuthPayload
+    login(email: String!, password: String!): AuthPayload
     createTodoItem(task: String!, status: String!, dueDate: Date!, userId: ID!): TodoItem!
     updateTodoItem(id: ID!, status: String, task: String, dueDate: Date!): TodoItem!
     deleteTodoItem(id: ID!): Boolean!

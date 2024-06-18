@@ -1,8 +1,8 @@
-const { dateScalar } = require('./scalars/date')
+const scalars = require('./scalars')
 const entities = require('./entities')
 
 const resolvers = {
-  Date: dateScalar,
+  ...scalars,
   ...entities
 }
 

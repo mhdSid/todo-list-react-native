@@ -1,6 +1,10 @@
 const { todo_items: TodoItem, users: User } = require('../../../../models')
+const { AUTH_ERROR } = require('../../../error')
 
-async function todoItemsByStatus (_, { status }) {
+async function todoItemsByStatus (_, { status }, context) {
+  if (!context.user) {
+    throw AUTH_ERROR
+  }
   try {
     const todoItems = await TodoItem.findAll({
       where: { status },

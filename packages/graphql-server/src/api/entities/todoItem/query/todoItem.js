@@ -1,7 +1,11 @@
 const { todo_items: TodoItem } = require('../../../../models')
+const { AUTH_ERROR } = require('../../../error')
 
-function todoItem (_, { id }) {
-  return TodoItem.findByPk(id)
+async function todoItem (_, { id }, context) {
+  if (!context.user) {
+    throw AUTH_ERROR
+  }
+  return await TodoItem.findByPk(id)
 }
 
 module.exports = { todoItem }
