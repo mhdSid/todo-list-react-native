@@ -42,10 +42,6 @@ module.exports = {
       },
       verificationCode: {
         type: Sequelize.STRING(6)
-      },
-      isVerified: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false
       }
     })
   },

@@ -21,6 +21,13 @@ const INVALID_VERIFICATION_CODE_ERROR = new GraphQLError('Invalid verification c
   }
 })
 
+const USER_NOT_EXISTS_ERROR = new GraphQLError('User does not exist', {
+  extensions: {
+    code: 'unexisting_user',
+    http: { status: 401 }
+  }
+})
+
 const UNVERIFIED_USER_ERROR = new GraphQLError('User is not verified', {
   extensions: {
     code: 'unverified_user',
@@ -83,5 +90,6 @@ module.exports = {
   INVALID_VERIFICATION_CODE_ERROR,
   USER_ALREADY_EXISTS_ERROR,
   UNVERIFIED_USER_ERROR,
-  EMAIL_TRANSPORTATION_ERROR
+  EMAIL_TRANSPORTATION_ERROR,
+  USER_NOT_EXISTS_ERROR
 }

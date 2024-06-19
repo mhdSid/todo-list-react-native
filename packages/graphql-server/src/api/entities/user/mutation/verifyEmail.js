@@ -1,16 +1,20 @@
 const { users: User } = require('../../../../models')
 const jwt = require('jsonwebtoken')
 const { JWT_SECRET } = require('../../../../middleware/auth')
-const { INVALID_VERIFICATION_CODE_ERROR } = require('../../../error')
+const { INVALID_VERIFICATION_CODE_ERROR, USER_NOT_EXISTS_ERROR } = require('../../../error')
 
 async function verifyEmail (_, { email, verificationCode }) {
   const user = await User.findOne({ where: { email } })
+
+  if (!user) {
+    throw USER_NOT_EXISTS_ERROR
+  }
 
   if (!user || user.verificationCode !== verificationCode) {
     throw INVALID_VERIFICATION_CODE_ERROR
   }
 
-  user.isVerified = true
+  user.verificationCode = null
   await user.save()
 
   const token = jwt.sign({ id: user.id, email: user.email }, JWT_SECRET, {

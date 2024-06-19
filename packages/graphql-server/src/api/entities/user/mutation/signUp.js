@@ -8,7 +8,7 @@ async function signUp (_, { firstName, lastName, email, gender, dateOfBirth, pas
   let user = await User.findOne({ where: { email } })
 
   if (user) {
-    if (user.isVerified) {
+    if (user.verificationCode) {
       throw USER_ALREADY_EXISTS_ERROR
     } else {
       // Resend verification code if user is not verified
@@ -32,8 +32,7 @@ async function signUp (_, { firstName, lastName, email, gender, dateOfBirth, pas
     gender,
     dateOfBirth,
     password: hashedPassword,
-    verificationCode,
-    isVerified: false
+    verificationCode
   })
 
   // Send the verification email

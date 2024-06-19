@@ -45,10 +45,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     verificationCode: {
       type: DataTypes.STRING(6)
-    },
-    isVerified: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false
     }
   }, {
     sequelize,

@@ -12,7 +12,6 @@ const typeDefs = `#graphql
     updatedAt: Date!
     todoItems: [TodoItem!]
     verificationCode: String!
-    isVerified: Boolean!
   }
 
   type AuthPayload {
@@ -44,7 +43,7 @@ const typeDefs = `#graphql
 
   type Mutation {
     signUp(firstName: String!, lastName: String!, email: String!, gender: String!, dateOfBirth: Date!, password: String!): User!
-    login(email: String!, password: String!): AuthPayload
+    login(email: String!, password: String!): User!
     verifyEmail(email: String!, verificationCode: String!): AuthPayload
     createTodoItem(task: String!, status: String!, dueDate: Date!, userId: ID!): TodoItem!
     updateTodoItem(id: ID!, status: String, task: String, dueDate: Date!): TodoItem!
