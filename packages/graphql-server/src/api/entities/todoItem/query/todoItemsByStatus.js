@@ -1,5 +1,5 @@
 const { todo_items: TodoItem, users: User } = require('../../../../models')
-const { AUTH_ERROR } = require('../../../error')
+const { AUTH_ERROR, GET_FAILED_QUERY_ERROR } = require('../../../error')
 
 async function todoItemsByStatus (_, { status }, context) {
   if (!context.user) {
@@ -15,7 +15,7 @@ async function todoItemsByStatus (_, { status }, context) {
     })
     return todoItems
   } catch (error) {
-    throw new Error('Failed to fetch todo items by status')
+    throw GET_FAILED_QUERY_ERROR('todoItem')
   }
 }
 

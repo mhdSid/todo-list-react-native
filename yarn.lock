@@ -3540,8 +3540,10 @@ __metadata:
     body-parser: ^1.20.2
     cors: ^2.8.5
     express: ^4.19.2
+    express-rate-limit: ^7.3.1
     graphql: ^16.8.2
     jsonwebtoken: ^9.0.2
+    nodemailer: ^6.9.13
     pg: ^8.12.0
     sequelize: ^6.37.3
     sequelize-cli: ^6.6.2
@@ -6819,6 +6821,15 @@ __metadata:
   version: 3.1.1
   resolution: "exponential-backoff@npm:3.1.1"
   checksum: 3d21519a4f8207c99f7457287291316306255a328770d320b401114ec8481986e4e467e854cb9914dd965e0a1ca810a23ccb559c642c88f4c7f55c55778a9b48
+  languageName: node
+  linkType: hard
+
+"express-rate-limit@npm:^7.3.1":
+  version: 7.3.1
+  resolution: "express-rate-limit@npm:7.3.1"
+  peerDependencies:
+    express: 4 || 5 || ^5.0.0-beta.1
+  checksum: d82e374319be23bf68b9a6b572f431ec4021ea20f83d88eb724d197e0a88f1755898f66501f2696eb5ff49bcbd5c84dfbf6c0629989c01b3ef303b45acd9d7ec
   languageName: node
   linkType: hard
 
@@ -10455,6 +10466,13 @@ __metadata:
   version: 1.15.0
   resolution: "node-stream-zip@npm:1.15.0"
   checksum: 0b73ffbb09490e479c8f47038d7cba803e6242618fbc1b71c26782009d388742ed6fb5ce6e9d31f528b410249e7eb1c6e7534e9d3792a0cafd99813ac5a35107
+  languageName: node
+  linkType: hard
+
+"nodemailer@npm:^6.9.13":
+  version: 6.9.13
+  resolution: "nodemailer@npm:6.9.13"
+  checksum: 1b591ef480be2ff69480127cbff819e6593b1ef263b6f920e1a4e83e40280582daf7a14a809ef92f9828e2a70bdb3ce22b11924e209f2afe4975f9ff37e08e9d
   languageName: node
   linkType: hard
 

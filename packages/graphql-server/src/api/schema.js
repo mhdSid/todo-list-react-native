@@ -2,7 +2,7 @@ const typeDefs = `#graphql
   scalar Date
 
   type User {
-    id: ID!
+    id: ID
     firstName: String!
     lastName: String!
     email: String!
@@ -11,6 +11,8 @@ const typeDefs = `#graphql
     createdAt: Date!
     updatedAt: Date!
     todoItems: [TodoItem!]
+    verificationCode: String!
+    isVerified: Boolean!
   }
 
   type AuthPayload {
@@ -19,7 +21,7 @@ const typeDefs = `#graphql
   }
 
   type TodoItem {
-    id: ID!
+    id: ID
     task: String!
     status: String!
     dueDate: Date!
@@ -41,8 +43,9 @@ const typeDefs = `#graphql
   }
 
   type Mutation {
-    signUp(firstName: String!, lastName: String!, email: String!, gender: String!, dateOfBirth: Date!, password: String!): AuthPayload
+    signUp(firstName: String!, lastName: String!, email: String!, gender: String!, dateOfBirth: Date!, password: String!): User!
     login(email: String!, password: String!): AuthPayload
+    verifyEmail(email: String!, verificationCode: String!): AuthPayload
     createTodoItem(task: String!, status: String!, dueDate: Date!, userId: ID!): TodoItem!
     updateTodoItem(id: ID!, status: String, task: String, dueDate: Date!): TodoItem!
     deleteTodoItem(id: ID!): Boolean!

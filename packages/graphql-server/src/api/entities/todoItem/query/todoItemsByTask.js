@@ -1,6 +1,6 @@
 const { todo_items: TodoItem, users: User } = require('../../../../models')
 const { Op } = require('sequelize')
-const { AUTH_ERROR } = require('../../../error')
+const { AUTH_ERROR, GET_FAILED_QUERY_ERROR } = require('../../../error')
 
 async function todoItemsByTask (_, { task }, context) {
   if (!context.user) {
@@ -20,7 +20,7 @@ async function todoItemsByTask (_, { task }, context) {
     })
     return todoItems
   } catch (error) {
-    throw new Error('Failed to fetch todo items by task')
+    throw GET_FAILED_QUERY_ERROR('todoItem')
   }
 }
 
