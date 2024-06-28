@@ -1,5 +1,5 @@
 # About this project
-This is todo-list app that uses React Native, PostgresSQL, PostgresSQL, apollo/client, @apollo/server, and tensorflow
+This is todo-list app that uses React Native, PostgresSQL, apollo/client, @apollo/server, express, node miler, jsonwebtoken, sequelize, and tensorflow.
 
 It provides a UI for CRUDing todo list items, and corresponding GraphQL API's for user login, verification, signup.
 
