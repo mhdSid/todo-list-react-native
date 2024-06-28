@@ -5,17 +5,17 @@ const { getEmailTemplate } = require('./getEmailTemplate')
 const transporter = nodemailer.createTransport({
   service: 'Gmail',
   auth: {
-    user: 'swid.kapo@gmail.com',
-    pass: 'tbji yrmh jkje idkg'
+    user: process.env.NODE_MAILER_EMAIL,
+    pass: process.env.NODE_MAILER_PASSWORD
   }
 })
 
 async function sendVerificationEmail (email, verificationCode) {
   try {
     const mailOptions = {
-      from: process.env.EMAIL_USER,
+      from: process.env.NODE_MAILER_EMAIL,
       to: email,
-      subject: 'TodoList Email Verification',
+      subject: `TodoList Email Verification Code is ${verificationCode}`,
       html: getEmailTemplate(verificationCode)
     }
 

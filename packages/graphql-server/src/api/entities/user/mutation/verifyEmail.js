@@ -10,16 +10,14 @@ async function verifyEmail (_, { email, verificationCode }) {
     throw USER_NOT_EXISTS_ERROR
   }
 
-  if (!user || user.verificationCode !== verificationCode) {
+  if (verificationCode !== user.verificationCode) {
     throw INVALID_VERIFICATION_CODE_ERROR
   }
 
   user.verificationCode = null
   await user.save()
 
-  const token = jwt.sign({ id: user.id, email: user.email }, JWT_SECRET, {
-    expiresIn: '1d'
-  })
+  const token = jwt.sign({ id: user.id, email: user.email }, JWT_SECRET, { expiresIn: '1d' })
 
   return { token, user }
 }

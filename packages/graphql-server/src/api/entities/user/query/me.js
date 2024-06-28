@@ -5,7 +5,7 @@ async function me (_, __, context) {
   if (!context.user) {
     throw AUTH_ERROR
   }
-  return await User.findByPk(user.id)
+  return await User.findByPk(context.user.id)
 }
 
 module.exports = { me }

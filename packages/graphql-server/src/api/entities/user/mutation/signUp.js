@@ -8,23 +8,12 @@ async function signUp (_, { firstName, lastName, email, gender, dateOfBirth, pas
   let user = await User.findOne({ where: { email } })
 
   if (user) {
-    if (user.verificationCode) {
-      throw USER_ALREADY_EXISTS_ERROR
-    } else {
-      // Resend verification code if user is not verified
-      user.verificationCode = generateVerificationCode()
-      await user.save()
-      await sendVerificationEmail(email, user.verificationCode)
-      return user
-    }
+    throw USER_ALREADY_EXISTS_ERROR
   }
 
   const hashedPassword = await bcrypt.hash(password, 10)
-
-  // Generate a verification code
   const verificationCode = generateVerificationCode()
 
-  // Create the user with the verification code
   user = await User.create({
     firstName,
     lastName,
@@ -35,7 +24,6 @@ async function signUp (_, { firstName, lastName, email, gender, dateOfBirth, pas
     verificationCode
   })
 
-  // Send the verification email
   await sendVerificationEmail(email, verificationCode)
 
   return user

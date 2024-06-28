@@ -5,12 +5,15 @@ const { ApolloServerPluginDrainHttpServer } = require('@apollo/server/plugin/dra
 const http = require('http')
 const cors = require('cors')
 const bodyParser = require('body-parser')
-const { rateLimit } = require('express-rate-limit')
-
+// const { rateLimit } = require('express-rate-limit')
 const typeDefs = require('./api/schema')
 const resolvers = require('./api/resolvers')
 const { sequelize } = require('./models')
 const { authenticateToken } = require('./middleware/auth')
+
+const { loadModel } = require('./api/ml')
+
+require('./api/workers')
 
 const app = express()
 const httpServer = http.createServer(app)
@@ -20,6 +23,7 @@ const server = new ApolloServer({
   csrfPrevention: true,
   typeDefs,
   resolvers,
+  includeStacktraceInErrorResponses: true,
   formatError: ({ message, extensions }) => ({
     message,
     code: extensions.code,
@@ -31,12 +35,13 @@ const server = new ApolloServer({
 // const limiter = rateLimit({
 // 	windowMs: 1 * 60 * 1000, // 15 minutes
 // 	limit: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes).
-// 	standardHeaders: 'draft-7', // draft-6: `RateLimit-*` headers; draft-7: combined `RateLimit` header
+// 	standardHeaders: 'draft-7', // draft-6: `RateLimit-*` headers draft-7: combined `RateLimit` header
 // 	legacyHeaders: false, // Disable the `X-RateLimit-*` headers.
 // 	// store: ... , // Redis, Memcached, etc. See below.
 // })
 
 async function startServer () {
+  await loadModel()
   await server.start()
 
   app.use(

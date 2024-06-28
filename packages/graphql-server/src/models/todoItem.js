@@ -1,6 +1,8 @@
 'use strict'
 
+const { Op } = require('sequelize')
 const { Model } = require('sequelize')
+const { recommendTasks } = require('../api/ml')
 
 module.exports = (sequelize, DataTypes) => {
   class TodoItem extends Model {
@@ -11,6 +13,47 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate (models) {
       this.belongsTo(models.users, { foreignKey: 'userId', as: 'users' })
+    }
+
+    async getRecommendationsFromRedis () {}
+    async getRecommendations (User, userId) {
+      const userTasks = await TodoItem.findAll({
+        where: {
+          userId,
+          id: {
+            [Op.ne]: this.id
+          }
+        },
+        include: {
+          model: User,
+          as: 'users'
+        }
+      })
+
+      const tasks = [
+        this.task,
+        ...userTasks.map(task => task.task)
+      ]
+
+      let recommendations = await recommendTasks(tasks)
+
+      if (!recommendations || !recommendations.length) return
+
+      recommendations = recommendations.slice(1, recommendations.length)
+
+      const todoItems = await TodoItem.findAll({
+        where: {
+          task: {
+            [Op.in]: recommendations.map(item => item.task)
+          }
+        },
+        include: {
+          model: User,
+          as: 'users'
+        }
+      })
+
+      return todoItems
     }
   }
   TodoItem.init({

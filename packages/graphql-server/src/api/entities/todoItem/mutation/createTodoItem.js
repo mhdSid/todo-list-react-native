@@ -5,7 +5,10 @@ async function createTodoItem (_, { task, userId, dueDate }, context) {
   if (!context.user) {
     throw AUTH_ERROR
   }
-  return await TodoItem.create({ task, userId, dueDate })
+
+  const todoItem = await TodoItem.create({ task, userId, dueDate })
+
+  return todoItem
 }
 
 module.exports = { createTodoItem }

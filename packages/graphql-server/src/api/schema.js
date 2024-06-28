@@ -18,6 +18,10 @@ const typeDefs = `#graphql
     token: String!
     user: User!
   }
+  
+  type RecommendationItem {
+    recommendedTasks: [String]
+  }
 
   type TodoItem {
     id: ID
@@ -27,6 +31,11 @@ const typeDefs = `#graphql
     createdAt: Date!
     updatedAt: Date!
     user: User!
+  }
+
+  type TodoItemWithRecommendations {
+    todoItem: TodoItem
+    recommendations: [TodoItem]
   }
 
   type Query {
@@ -39,6 +48,7 @@ const typeDefs = `#graphql
     todoItemsByUser(userId: ID!): [TodoItem!]
     todoItemsByTask(task: String!): [TodoItem!]
     todoItemsByDueDate(dueDate: Date!): [TodoItem!]
+    todoItemWithRecommendation(id: ID!): TodoItemWithRecommendations
   }
 
   type Mutation {

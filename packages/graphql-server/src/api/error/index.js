@@ -35,6 +35,13 @@ const UNVERIFIED_USER_ERROR = new GraphQLError('User is not verified', {
   }
 })
 
+const TASK_RECOMMENDATION_ERROR = new GraphQLError('Task recommendation error', {
+  extensions: {
+    code: 'ml_error',
+    http: { status: 401 }
+  }
+})
+
 const EMAIL_TRANSPORTATION_ERROR = new GraphQLError('Email transporation error', {
   extensions: {
     code: 'email_transport',
@@ -42,7 +49,7 @@ const EMAIL_TRANSPORTATION_ERROR = new GraphQLError('Email transporation error',
   }
 })
 
-const USER_ALREADY_EXISTS_ERROR = new GraphQLError('User already exists and is verfied', {
+const USER_ALREADY_EXISTS_ERROR = new GraphQLError('User already exists. Please login or verify your account', {
   extensions: {
     code: 'user_already_exists',
     http: { status: 401 }
@@ -91,5 +98,6 @@ module.exports = {
   USER_ALREADY_EXISTS_ERROR,
   UNVERIFIED_USER_ERROR,
   EMAIL_TRANSPORTATION_ERROR,
-  USER_NOT_EXISTS_ERROR
+  USER_NOT_EXISTS_ERROR,
+  TASK_RECOMMENDATION_ERROR
 }
