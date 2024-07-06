@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useEffect } from 'react'
+import React, { createContext, useCallback, useContext, useEffect } from 'react'
 import { useColorScheme } from 'react-native'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
@@ -23,6 +23,8 @@ function ThemeProvider (props) {
     </ThemeContext.Provider>
   )
 }
+
+export const useTheme = () => useContext(ThemeContext)
 
 ThemeProvider.propTypes = {
   theme: PropTypes.oneOf([THEMES.DARK, THEMES.LIGHT]),

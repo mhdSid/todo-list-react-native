@@ -1,13 +1,13 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Text, TouchableHighlight } from 'react-native'
 import PropTypes from 'prop-types'
 import styles, { underlayColor } from './AddTodoButton.styles'
 import testSelectors from '../../../test/lib/selector/button/addTodoButton'
-import { ThemeContext } from '../ThemeProvider'
+import { useTheme } from '../ThemeProvider'
 
 const AddTodoButton = React.memo(props => {
   const { onPress } = props
-  const { theme } = useContext(ThemeContext)
+  const { theme } = useTheme()
 
   return (
     <TouchableHighlight

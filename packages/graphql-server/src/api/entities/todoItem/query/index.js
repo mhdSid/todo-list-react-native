@@ -5,6 +5,7 @@ const { todoItemsByStatus } = require('./todoItemsByStatus')
 const { todoItemsByTask } = require('./todoItemsByTask')
 const { todoItemsByUser } = require('./todoItemsByUser')
 const { todoItemWithRecommendation } = require('./todoItemWithRecommendation')
+const { myTodoItems } = require('./myTodoItems')
 
 module.exports = {
   todoItem,
@@ -13,5 +14,6 @@ module.exports = {
   todoItemsByStatus,
   todoItemsByTask,
   todoItemsByUser,
-  todoItemWithRecommendation
+  todoItemWithRecommendation,
+  myTodoItems
 }

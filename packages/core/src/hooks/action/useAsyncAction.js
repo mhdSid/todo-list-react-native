@@ -1,23 +1,29 @@
 import { useDispatch } from 'react-redux'
-import { useState, useCallback } from 'react'
+import { useCallback } from 'react'
 import { addLoader, fulfillLoader } from '@todo-list/store/src/loading/actions'
+import useAlert from '../alert/useAlert'
+import { ALERT_TYPES } from '../../constants/alert'
 
-const useAsyncAction = loaderId => {
+const useAsyncAction = () => {
   const dispatch = useDispatch()
-  const [error, setError] = useState(null)
+  const { setAlertType } = useAlert()
 
-  const dispatchAsyncAction = useCallback(async action => {
+  const dispatchAsyncAction = useCallback(async (action, loaderId) => {
+    let isSuccess = false
     try {
       dispatch(addLoader(loaderId))
       await dispatch(action)
+      isSuccess = true
     } catch (err) {
-      setError(err)
+      setAlertType({ type: ALERT_TYPES.ERROR, error: err })
+      isSuccess = false
     } finally {
       dispatch(fulfillLoader(loaderId))
     }
-  }, [dispatch, loaderId])
+    return isSuccess
+  }, [])
 
-  return { dispatchAsyncAction, error }
+  return { dispatchAsyncAction }
 }
 
 export default useAsyncAction

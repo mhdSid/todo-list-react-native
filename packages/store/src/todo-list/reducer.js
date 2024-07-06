@@ -1,10 +1,12 @@
-import { ADD_TODO_LIST_ITEM, DELETE_TODO_LIST_ITEM, EDIT_TODO_LIST_ITEM, LOAD_TODO_LIST } from './actionTypes'
+import { ADD_TODO_LIST_ITEM, DELETE_TODO_LIST_ITEM, EDIT_TODO_LIST_ITEM, LOAD_TODO_LIST, TODO_ITEM_CREATED, TODO_ITEM_DELETED, TODO_ITEM_UPDATED } from './actionTypes'
 
 const initialState = {
   /*
     list: [{
       id: String,
-      task: String
+      task: String,
+      dueDate: String,
+      createdAt: String
     }]
   */
   list: []
@@ -21,7 +23,7 @@ export default function (state = initialState, action) {
       }
       break
     }
-    case ADD_TODO_LIST_ITEM: {
+    case ADD_TODO_LIST_ITEM: case TODO_ITEM_CREATED: {
       const { id, task } = action.payload
       const { list } = state
       return {
@@ -29,7 +31,7 @@ export default function (state = initialState, action) {
         list: [{ id, task }, ...list]
       }
     }
-    case DELETE_TODO_LIST_ITEM: {
+    case DELETE_TODO_LIST_ITEM: case TODO_ITEM_DELETED: {
       const { id } = action.payload
       const { list } = state
       const index = list.findIndex(({ id: itemId }) => itemId === id)
@@ -39,7 +41,7 @@ export default function (state = initialState, action) {
         list: [...list]
       }
     }
-    case EDIT_TODO_LIST_ITEM: {
+    case EDIT_TODO_LIST_ITEM: case TODO_ITEM_UPDATED: {
       const { task, id } = action.payload
       const { list } = state
       const index = list.findIndex(({ id: itemId }) => itemId === id)

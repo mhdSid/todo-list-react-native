@@ -16,13 +16,7 @@ const rootReducer = combineReducers({
     },
     themeReducer
   ),
-  todoList: persistReducer(
-    {
-      key: 'root:todoList:reducer',
-      storage: AsyncStorage
-    },
-    todoListReducer
-  )
+  todoList: todoListReducer
 })
 
 export default rootReducer

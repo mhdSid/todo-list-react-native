@@ -19,7 +19,21 @@ function authenticateToken (req, res, next) {
   }
 }
 
+function getWsServerContextToken (ctx, msg, args) {
+  const token = ctx.connectionParams.authorizationToken || ''
+  if (!token) return null
+  let user = null
+  try {
+    user = jwt.verify(token, JWT_SECRET)
+  } catch (err) {} finally {
+    return {
+      user
+    }
+  }
+}
+
 module.exports = {
   authenticateToken,
-  JWT_SECRET
+  JWT_SECRET,
+  getWsServerContextToken
 }

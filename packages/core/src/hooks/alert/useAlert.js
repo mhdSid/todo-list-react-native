@@ -1,22 +1,23 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Alert } from 'react-native'
 import { ALERT_TYPES } from '../../constants/alert'
 
 export default function useAlert ({
-  alertType,
-  defaultMessage,
+  getDefaultMessage = () => {},
   isLoggedIn,
   onCancel,
   onDismiss,
   onDelete,
   onAdd,
   onEdit
-}) {
+} = {}) {
+  const [alertType, setAlertType] = useState(null)
   useEffect(() => {
-    if ((isLoggedIn && alertType) || alertType?.type === ALERT_TYPES.ERROR) {
-      const { type, error: { message: errorMessage } = {} } = alertType
+    if ((isLoggedIn && alertType) || alertType?.type === ALERT_TYPES.ERROR || (!isLoggedIn && alertType)) {
+      const { type } = alertType
+      const defaultMessage = alertType?.error?.message || getDefaultMessage()
       const { alertTitle, alertMessage, alertButtons } = ALERT[type]({
-        message: errorMessage || defaultMessage,
+        message: defaultMessage,
         onCancel,
         onDelete,
         onEdit: () => Alert.prompt(ALERT_PROMPT_EDIT.title, ALERT_PROMPT_EDIT.message(defaultMessage), text => onEdit({ text })),
@@ -28,6 +29,11 @@ export default function useAlert ({
       })
     }
   }, [isLoggedIn, alertType])
+
+  return {
+    alertType,
+    setAlertType
+  }
 }
 
 const ALERT_PROMPT_EDIT = {
@@ -39,6 +45,16 @@ const ALERT_PROMPT_ADD = {
   title: 'To-Do List',
   message: 'Add a new task'
 }
+
+export const ALERT_PROMPT_LOGIN_EMAIL = {
+  title: 'Login',
+  message: 'Please enter your e-mail'
+}
+
+export const GET_ALERT_PROMPT_VERIFY_EMAIL = email => ({
+  title: 'Verify your email',
+  message: `Please enter the verification code that was sent to ${email}`
+})
 
 const ALERT = {
   [ALERT_TYPES.EDIT_DELETE]: ({ message, onEdit, onDelete, onCancel }) => ({
@@ -89,6 +105,19 @@ const ALERT = {
     alertTitle: 'Something went wrong!',
     alertMessage: message,
     alertButtons: [{
+      text: 'Cancel',
+      style: 'cancel',
+      onPress: onCancel
+    }]
+  }),
+  [ALERT_TYPES.LOGIN]: ({ onCancel, onLogin }) => ({
+    alertTitle: 'Login',
+    alertMessage: 'Enter your credentials',
+    alertButtons: [{
+      text: 'Submit',
+      onPress: onLogin,
+      style: 'cancel'
+    }, {
       text: 'Cancel',
       style: 'cancel',
       onPress: onCancel

@@ -1,0 +1,20 @@
+{
+  "name": "@todo-list/desgin-system",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "eslint": "../../node_modules/.bin/jest --config eslint.jest.config.js"
+  },
+  "dependencies": {
+    "expo-checkbox": "^3.0.0",
+    "expo-local-authentication": "^14.0.1",
+    "prop-types": "^15.8.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-native": "0.74.2",
+    "react-native-safe-area-context": "^4.7.1"
+  },
+  "devDependencies": {
+    "@todo-list/jest-config": "1.0.0"
+  }
+}

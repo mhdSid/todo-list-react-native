@@ -1,12 +1,12 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { View, Text } from 'react-native'
-import styles from './index.styles'
+import styles from './styles'
 import testSelectors from '../../../test/lib/selector/todoList/emptyTodoList'
 import { EMPTY_TODO_LIST } from '../../constants/emptyTodoList'
-import { ThemeContext } from '../ThemeProvider'
+import { useTheme } from '../ThemeProvider'
 
 export default function EmptyTodoList () {
-  const { theme } = useContext(ThemeContext)
+  const { theme } = useTheme()
 
   return (
     <View style={styles.emptyListContainer} testID={testSelectors.root}>

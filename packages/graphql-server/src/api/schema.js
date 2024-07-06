@@ -46,6 +46,7 @@ const typeDefs = `#graphql
     todoItem(id: ID!): TodoItem
     todoItemsByStatus(status: String!): [TodoItem!]
     todoItemsByUser(userId: ID!): [TodoItem!]
+    myTodoItems: [TodoItem!]
     todoItemsByTask(task: String!): [TodoItem!]
     todoItemsByDueDate(dueDate: Date!): [TodoItem!]
     todoItemWithRecommendation(id: ID!): TodoItemWithRecommendations
@@ -53,11 +54,17 @@ const typeDefs = `#graphql
 
   type Mutation {
     signUp(firstName: String!, lastName: String!, email: String!, gender: String!, dateOfBirth: Date!, password: String!): User!
-    login(email: String!, password: String!): User!
+    login(email: String!): User!
     verifyEmail(email: String!, verificationCode: String!): AuthPayload
-    createTodoItem(task: String!, status: String!, dueDate: Date!, userId: ID!): TodoItem!
+    createTodoItem(task: String!, status: String!, dueDate: Date!): TodoItem!
     updateTodoItem(id: ID!, status: String, task: String, dueDate: Date!): TodoItem!
     deleteTodoItem(id: ID!): Boolean!
+  }
+
+  type Subscription {
+    todoItemCreated: TodoItem!
+    todoItemUpdated: TodoItem!
+    todoItemDeleted: TodoItem!
   }
 `
 

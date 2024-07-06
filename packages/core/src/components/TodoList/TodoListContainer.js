@@ -3,11 +3,11 @@ import { View } from 'react-native'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { addTodoListItem, editTodoListItem, deleteTodoListItem } from '@todo-list/store/src/todo-list/actions'
-import { loadTodoList } from '@todo-list/store/src/todo-list/graphql/loadTodoList'
+import { loadTodoList } from '@todo-list/store/src/todo-list/graphql/query/loadTodoList'
 import { login, logout } from '@todo-list/store/src/auth/actions'
 import todoListSelector from '@todo-list/store/src/todo-list/selector'
 import isLoggedInSelector from '@todo-list/store/src/auth/selector'
-import styles from './index.styles'
+import styles from './styles'
 import AddTodoButton from '../Button/AddTodoButton'
 import { ALERT_TYPES } from '../../constants/alert'
 import getRandomId from '../../util/randomId'
@@ -30,13 +30,12 @@ const TodoList = React.memo(props => {
     handleLogout
   } = props
 
-  const [alertType, setAlertType] = useState(null)
   const [selectedTodoListItem, setSelectedTodoListItem] = useState(null)
   const virtualizedTodoListRef = useRef(null)
   const isLoading = useLoadingEffect(TODO_LIST_CONTAINER_LOADING_ID)
-  const { dispatchAsyncAction } = useAsyncAction(TODO_LIST_CONTAINER_LOADING_ID)
+  const { dispatchAsyncAction } = useAsyncAction()
   const handleOnRefresh = useCallback(() => {
-    dispatchAsyncAction(loadTodoList())
+    return dispatchAsyncAction(loadTodoList(), TODO_LIST_CONTAINER_LOADING_ID)
   }, [dispatchAsyncAction])
 
   useEffect(() => {
@@ -54,10 +53,9 @@ const TodoList = React.memo(props => {
   }
 
   /* Alert Hook */
-  useAlert({
-    defaultMessage: alertType?.error?.message || selectedTodoListItem?.task || '',
+  const { setAlertType } = useAlert({
+    getDefaultMessage: () => selectedTodoListItem?.task || '',
     isLoggedIn,
-    alertType,
     onCancel: handleResetState,
     onDismiss: handleResetState,
     onDelete () {

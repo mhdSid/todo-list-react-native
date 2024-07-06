@@ -10,6 +10,9 @@ module.exports = {
     ...todoItem.mutation,
     ...user.mutation
   },
+  Subscription: {
+    ...todoItem.subscription
+  },
   ...todoItem.association,
   ...user.association
 }

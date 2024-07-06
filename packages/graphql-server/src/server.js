@@ -5,11 +5,14 @@ const { ApolloServerPluginDrainHttpServer } = require('@apollo/server/plugin/dra
 const http = require('http')
 const cors = require('cors')
 const bodyParser = require('body-parser')
+const { makeExecutableSchema } = require('@graphql-tools/schema')
+const { useServer } = require('graphql-ws/lib/use/ws')
+const { WebSocketServer } = require('ws')
 // const { rateLimit } = require('express-rate-limit')
 const typeDefs = require('./api/schema')
 const resolvers = require('./api/resolvers')
 const { sequelize } = require('./models')
-const { authenticateToken } = require('./middleware/auth')
+const { authenticateToken, getWsServerContextToken } = require('./middleware/auth')
 
 const { loadModel } = require('./api/ml')
 
@@ -18,7 +21,9 @@ require('./api/workers')
 const app = express()
 const httpServer = http.createServer(app)
 
-const server = new ApolloServer({
+const schema = makeExecutableSchema({ typeDefs, resolvers })
+
+const apolloServer = new ApolloServer({
   allowBatchedHttpRequests: true,
   csrfPrevention: true,
   typeDefs,
@@ -42,7 +47,7 @@ const server = new ApolloServer({
 
 async function startServer () {
   await loadModel()
-  await server.start()
+  await apolloServer.start()
 
   app.use(
     // limiter,
@@ -51,12 +56,26 @@ async function startServer () {
       origin: '*'
     }),
     bodyParser.json(),
-    expressMiddleware(server, {
+    expressMiddleware(apolloServer, {
       context: async ({ req }) => ({ user: req.user })
     })
   )
 
   await sequelize.sync()
+
+  // Create WebSocket server
+  const wsServer = new WebSocketServer({
+    server: httpServer,
+    path: '/graphql'
+  })
+
+  useServer(
+    {
+      schema,
+      context: getWsServerContextToken
+    },
+    wsServer
+  )
 
   await new Promise(resolve => httpServer.listen({ port: 4000, host: '0.0.0.0' }, resolve))
 }

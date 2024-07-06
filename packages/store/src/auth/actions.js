@@ -1,5 +1,6 @@
 import * as expoLocalAuthentication from 'expo-local-authentication'
 import { AUTH_LOGIN, AUTH_LOGOUT } from './actionTypes'
+import { store } from '../store'
 
 export const login = () => {
   return async dispatch => {
@@ -11,6 +12,11 @@ export const login = () => {
       throw new Error(error)
     }
   }
+}
+
+export const getToken = () => {
+  const { auth: { token } } = store.getState()
+  return token
 }
 
 export const logout = () => {

@@ -1,7 +1,7 @@
 import React, { forwardRef, useCallback } from 'react'
 import { VirtualizedList } from 'react-native'
 import PropTypes from 'prop-types'
-import styles from './index.styles'
+import styles from './styles'
 import TodoListItem from '../TodoListItem'
 import EmptyTodoList from './EmptyTodoList'
 import testSelectors from '../../../test/lib/selector/todoList/virtualizedTodoList'

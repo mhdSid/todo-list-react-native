@@ -9,8 +9,9 @@ const AUTH_ERROR = new GraphQLError('User is not authenticated', {
 
 const INVALID_CREDENTIALS_ERROR = new GraphQLError('Invalid credentials', {
   extensions: {
+    message: 'Invalid credentials',
     code: 'invalid_credentials',
-    http: { status: 401 }
+    http: { status: 200 }
   }
 })
 
@@ -23,15 +24,17 @@ const INVALID_VERIFICATION_CODE_ERROR = new GraphQLError('Invalid verification c
 
 const USER_NOT_EXISTS_ERROR = new GraphQLError('User does not exist', {
   extensions: {
+    message: 'User does not exist',
     code: 'unexisting_user',
-    http: { status: 401 }
+    http: { status: 200 }
   }
 })
 
 const UNVERIFIED_USER_ERROR = new GraphQLError('User is not verified', {
   extensions: {
+    message: 'User is not verified',
     code: 'unverified_user',
-    http: { status: 401 }
+    http: { status: 200 }
   }
 })
 

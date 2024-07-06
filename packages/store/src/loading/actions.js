@@ -21,7 +21,6 @@ export const resetLoaderState = payload => {
 export const hasLoader = payload => {
   return async (_, getState) => {
     const { loading: { loaders } } = getState()
-    console.log('loaders: ', loaders)
-    return loaders[payload] === true
+    return payload ? loaders[payload] === true : Object.values(loaders).some(loader => loader === true)
   }
 }

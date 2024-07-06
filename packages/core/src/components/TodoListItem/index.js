@@ -1,14 +1,14 @@
-import React, { useCallback, useContext, useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import { Text, View, TouchableHighlight } from 'react-native'
 import PropTypes from 'prop-types'
 import CheckBox from 'expo-checkbox'
-import styles, { underlayColor } from './index.styles'
+import styles, { underlayColor } from './styles'
 import testSelectors from '../../../test/lib/selector/todoListItem'
-import { ThemeContext } from '../ThemeProvider'
+import { useTheme } from '../ThemeProvider'
 
 const TodoListItem = React.memo(props => {
   const { task, id, onPress, onChecked } = props
-  const { theme } = useContext(ThemeContext)
+  const { theme } = useTheme()
   const [isChecked, setIsChecked] = useState(false)
 
   const handleValueChange = useCallback(value => {
@@ -31,7 +31,13 @@ const TodoListItem = React.memo(props => {
           style={styles.checkbox}
           testID={testSelectors.checkbox}
         />
-        <Text style={styles[theme].text} testID={testSelectors.task}>{task}</Text>
+        <Text
+          style={[styles.text, styles[theme].text]}
+          numberOfLines={2}
+          ellipsizeMode='tail'
+          testID={testSelectors.task}
+        >{task}
+        </Text>
       </View>
     </TouchableHighlight>
   )

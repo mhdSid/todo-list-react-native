@@ -1,16 +1,10 @@
 import { StyleSheet } from 'react-native'
-import { THEMES } from '@todo-list/store/src/theme/constants'
-import { THEME } from '../../assets/styles/theme'
+import { addTodoButtonTheme } from './theme'
 
 export const underlayColor = 'grey'
 
 const styles = StyleSheet.create({
-  [THEMES.DARK]: {
-    ...THEME[THEMES.DARK].addTodoButton
-  },
-  [THEMES.LIGHT]: {
-    ...THEME[THEMES.LIGHT].addTodoButton
-  },
+  ...addTodoButtonTheme,
   container: {
     alignItems: 'center',
     borderRadius: 75,
